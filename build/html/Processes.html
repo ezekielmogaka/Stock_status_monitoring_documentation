@@ -51,15 +51,41 @@
 <h1>Processes<a class="headerlink" href="#processes" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="procceses-involved">
 <h2>Procceses involved<a class="headerlink" href="#procceses-involved" title="Permalink to this headline">¶</a></h2>
-<p>After the capture of the monthly transaction data, the tool calculates the MOS data for facility, county and central levels</p>
-<p>For the output below:</p>
+<p>After the capture of the monthly transaction data, the tool calculates the MOS data for facility, county and central levels.
+The basic formula for <strong>months of Stock (MOS)</strong> is:</p>
+<blockquote>
+<div><em>Months of Stock(MOS)</em> = <em>Stock on Hand (SOH)</em> / <em>Average Monthly Consumption(AMC)</em></div></blockquote>
+<p>Months of Stock (MOS) is normally stored as a number, with one decimal point.
+Stock on Hand (SOH) is captured as an absolute figure based on Physical Stock Count or a Warehouse report. SOH is reported at different levels of the supply chain:</p>
 <blockquote>
 <div><ul class="simple">
-<li>The aggregated adjusted consumption is obtained by getting the sum of the adjusted consumption in B above across all the zones</li>
-<li>The aggregated stock on hand is obtained by getting the sum of the aggregated stock on hand in step B above across all the zones.</li>
-<li>The months of stock is calculated as: MOS = (Stock on Hand) / (Average Monthly consumption).</li>
+<li>Central level</li>
+<li>County level</li>
+<li>Facility level</li>
 </ul>
 </div></blockquote>
+<p>Average Monthly Consumption (AMC) is captured only at facility level (where consumption happens), and may be adjusted for reporting rateto cater for consumption at non-reporting facilities.</p>
+<p>MOS is computed at four levels:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Central level</li>
+<li>Facility level</li>
+<li>National level</li>
+<li>County level</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="central-level-mos">
+<h2>Central level MOS<a class="headerlink" href="#central-level-mos" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><strong>Central level MOS</strong> = <strong>Stock on Hand at central level</strong> / <strong>Adjusted facility AMC</strong></dt>
+<dd><p class="first">where;</p>
+<p><em>Stock on Hand (SOH)</em> : This is the total quantity held in stock at the central level - as reported by the supply chain agency (KEMSA).</p>
+<p>Total Monthly Consumption (TMC) at Facility level is obtained by summing the quantity dispensed (across all facilities in the country). This monthly TMC is adjusted to cater for non-reporting facilities to obtain the adjusted facility AMC using the formula:</p>
+<blockquote class="last">
+<div><strong>Adjusted facility AMC</strong> = {[(TMCN1/NMRR1)+(TMCN2/NMRR2)+(TMCN3/NMRR3)+...+(TMCN*n*)] / <em>n</em>}</div></blockquote>
+</dd>
+</dl>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
