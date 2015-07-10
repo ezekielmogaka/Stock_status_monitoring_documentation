@@ -1,0 +1,556 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using the API - basic principles &mdash; Stock status management tool 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Stock status management tool 0.1 documentation" href="index.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>Stock status management tool 0.1 documentation</span></a></h1>
+        <h2 class="heading"><span>Using the API - basic principles</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="using-the-api-basic-principles">
+<h1>Using the API - basic principles<a class="headerlink" href="#using-the-api-basic-principles" title="Permalink to this headline">¶</a></h1>
+<p>All the material here assumes that you already have access to an
+MFL test environment.</p>
+<p>See <a class="reference internal" href="07_sandbox.html"><em>The API sandbox</em></a> and <a class="reference internal" href="01_evaluator_install.html"><em>OVERVIEW</em></a> or <tt class="xref doc docutils literal"><span class="pre">02_developer_install</span></tt>
+for information on how to get access to a test environment.</p>
+<p>The MFL v2 project subscribes to the <a class="reference external" href="http://www.api-first.com/">API First</a> approach. It is <strong>built to
+interoperate</strong>. We &#8220;eat our own dog food&#8221; by insisting that the official
+user interfaces be just one more set of API clients, with no special
+privileges.</p>
+<p>This guide is for the authors of client applications ( applications that
+consume the RESTful web e.g. <a class="reference internal" href="09_services.html"><em>The service catalog</em></a> ). Those who would like to make changes to
+the MFL API server code itself should refer to the <a class="reference internal" href="14_workflow.html"><em>Workflow</em></a> guide.</p>
+<p>The MFL 2 API is &#8220;RESTish&#8221;. We subscribe to the principles of <a class="reference external" href="http://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> but
+are not pedantic about it. It is built using the excellent
+<a class="reference external" href="http://www.django-rest-framework.org/">Django REST Framework</a>.</p>
+<div class="section" id="http-and-https">
+<h2>HTTP and HTTPS<a class="headerlink" href="#http-and-https" title="Permalink to this headline">¶</a></h2>
+<p>All API actions are based on HTTP and its verbs e.g. <tt class="docutils literal"><span class="pre">GET</span></tt> and <tt class="docutils literal"><span class="pre">POST</span></tt>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">HTTP Verb</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>HEAD</td>
+<td>Used to <strong>retrieve header information</strong> about a resource</td>
+</tr>
+<tr class="row-odd"><td>GET</td>
+<td>Used to <strong>retrieve a resource</strong> and for any <strong>read-only operation</strong></td>
+</tr>
+<tr class="row-even"><td>POST</td>
+<td>Used to <strong>create a resource</strong> and sometimes to change it</td>
+</tr>
+<tr class="row-odd"><td>PUT</td>
+<td>Used to <strong>mutate an existing resource</strong>. We, however, encourage the use of <tt class="docutils literal"><span class="pre">PATCH</span></tt> instead of <tt class="docutils literal"><span class="pre">PUT</span></tt> whenever possible.</td>
+</tr>
+<tr class="row-even"><td>PATCH</td>
+<td>Used to <strong>edit</strong> an already existing resource</td>
+</tr>
+<tr class="row-odd"><td>DELETE</td>
+<td>Used to <strong>delete</strong> an already existing resource</td>
+</tr>
+</tbody>
+</table>
+<p>Production instances should always run over HTTPS.</p>
+</div>
+<div class="section" id="data-format">
+<h2>Data Format<a class="headerlink" href="#data-format" title="Permalink to this headline">¶</a></h2>
+<p>The MFL API server supports JSON for all API endpoints.</p>
+<p><em>Some</em> endpoints support CSV and Excel output. This will be indicated in the
+relevant sections of the documentation.</p>
+<p>The preferred data format is JSON. <strong>We strongly encourage you to use JSON</strong>
+- you will find it to be more reliable, since it is the format used by the
+official front-ends and is therefore extensively tested.</p>
+<p>In order to request a specific format, you will need to learn how to use
+<a class="reference external" href="http://www.django-rest-framework.org/api-guide/content-negotiation/">content negotiation</a> .</p>
+<div class="section" id="content-negotiation-using-headers">
+<h3>Content Negotiation using headers<a class="headerlink" href="#content-negotiation-using-headers" title="Permalink to this headline">¶</a></h3>
+<p>Send the correct <tt class="docutils literal"><span class="pre">Accept</span></tt> header. For example:</p>
+<p><strong>To get json</strong></p>
+<blockquote>
+<div>curl -i -H &#8220;Accept: application/json&#8221; -H &#8220;Content-Type: application/json&#8221; <a class="reference external" href="http://localhost:8000/api/common/contacts/">http://localhost:8000/api/common/contacts/</a></div></blockquote>
+<p><strong>To get csv</strong></p>
+<blockquote>
+<div>curl -i -H &#8220;Accept: application/csv&#8221; -H &#8220;Content-Type: application/csv&#8221; <a class="reference external" href="http://localhost:8000/api/common/contacts/">http://localhost:8000/api/common/contacts/</a></div></blockquote>
+<p><strong>To get a resource in Microsoft Excel format</strong></p>
+<blockquote>
+<div>curl -i -H &#8220;Accept: application/xlsx&#8221; -H &#8220;Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&#8221; <a class="reference external" href="http://localhost:8000/api/common/contacts/">http://localhost:8000/api/common/contacts/</a></div></blockquote>
+<p>Please note that the examples above do not factor in <tt class="xref doc docutils literal"><span class="pre">05_authentication</span></tt>.</p>
+</div>
+<div class="section" id="content-negotiation-using-query-parameters">
+<h3>Content negotiation using query parameters<a class="headerlink" href="#content-negotiation-using-query-parameters" title="Permalink to this headline">¶</a></h3>
+<p>Append a <tt class="docutils literal"><span class="pre">?format=&lt;&gt;</span></tt> <tt class="docutils literal"><span class="pre">GET</span></tt> parameter. For example:</p>
+<blockquote>
+<div><ul class="simple">
+<li>to get JSON ( the default ), append <tt class="docutils literal"><span class="pre">?format=json</span></tt> to the URL</li>
+<li>to get CSV append <tt class="docutils literal"><span class="pre">?format=csv</span></tt> to the URL</li>
+<li>to get Excel, append <tt class="docutils literal"><span class="pre">?format=excel</span></tt> to the URL</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="common-fields">
+<h2>Common fields<a class="headerlink" href="#common-fields" title="Permalink to this headline">¶</a></h2>
+<p><strong>All</strong> <abbr title="Master Facilities List">MFL</abbr> resources have the following fields:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Field</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">id</span></tt></td>
+<td>A UUID. This is the database record&#8217;s primary key.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">created</span></tt></td>
+<td>An ISO 8601 timestamp ( UTC time zone ) that indicates when the resource was created</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">updated</span></tt></td>
+<td>An ISO 8601 timestamp ( UTC time zone ) that shows when the last update occured</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">active</span></tt></td>
+<td>A boolean; will be set to <tt class="docutils literal"><span class="pre">false</span></tt> when the record is retired</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">deleted</span></tt></td>
+<td>A boolean; will be set to <tt class="docutils literal"><span class="pre">true</span></tt> when the record is removed. The API will in-fact not return deleted items by default.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">created</span></tt></td>
+<td>The ID of the user that created the record. The user model is the only one with non UUID primary keys.</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">updated</span></tt></td>
+<td>The ID of the user that last updated the record.</td>
+</tr>
+</tbody>
+</table>
+<p>The example listing below clearly shows the shared fields:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;next&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">&quot;previous&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">&quot;results&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;16f7593f-0a21-41b6-87f1-ef2c4ec7e029&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;created&quot;</span><span class="o">:</span> <span class="s2">&quot;2015-05-03T02:30:26.345994Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;updated&quot;</span><span class="o">:</span> <span class="s2">&quot;2015-05-03T02:30:26.346007Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;deleted&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">&quot;active&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;POSTAL&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;created_by&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;updated_by&quot;</span><span class="o">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;f4eaf905-be91-4050-b154-600e31510306&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;created&quot;</span><span class="o">:</span> <span class="s2">&quot;2015-05-03T02:30:26.342216Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;updated&quot;</span><span class="o">:</span> <span class="s2">&quot;2015-05-03T02:30:26.342229Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;deleted&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">&quot;active&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;FAX&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;created_by&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;updated_by&quot;</span><span class="o">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;f4e835d3-e6a4-4d2d-9d37-344a3da1bb0a&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;created&quot;</span><span class="o">:</span> <span class="s2">&quot;2015-05-03T02:30:26.338468Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;updated&quot;</span><span class="o">:</span> <span class="s2">&quot;2015-05-03T02:30:26.338481Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;deleted&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">&quot;active&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;LANDLINE&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;created_by&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;updated_by&quot;</span><span class="o">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;68281bd2-d616-418d-ab01-616a225b643b&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;created&quot;</span><span class="o">:</span> <span class="s2">&quot;2015-05-03T02:30:26.334496Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;updated&quot;</span><span class="o">:</span> <span class="s2">&quot;2015-05-03T02:30:26.334510Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;deleted&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">&quot;active&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;MOBILE&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;created_by&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;updated_by&quot;</span><span class="o">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;b2ce5bc9-0c73-4586-b5d2-e96c69b90b85&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;created&quot;</span><span class="o">:</span> <span class="s2">&quot;2015-05-03T02:30:26.328938Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;updated&quot;</span><span class="o">:</span> <span class="s2">&quot;2015-05-03T02:30:26.328956Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;deleted&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">&quot;active&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;EMAIL&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;created_by&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;updated_by&quot;</span><span class="o">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>These fields are exposed via filters in most list endpoints. The examples
+below show those filters in use:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Filter</th>
+<th class="head">Example and examples</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">updated_before</span></tt></td>
+<td>Returns results where the date is less than or equal to the supplied timestamp. An example of a valid query is <tt class="docutils literal"><span class="pre">GET</span></tt> <tt class="docutils literal"><span class="pre">/api/facilities/facilities/?updated_before=2014-05-06T10:36:45.112488Z</span></tt></td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">updated_after</span></tt></td>
+<td>Returns results where the date is greater than or equal to the supplied timestamp. An example of a valid query is <tt class="docutils literal"><span class="pre">GET</span></tt> <tt class="docutils literal"><span class="pre">/api/facilities/facilities/?updated_after=2014-05-06T10:36:45.112488Z</span></tt></td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">created_before</span></tt></td>
+<td>Same as for <tt class="docutils literal"><span class="pre">updated_before</span></tt>, but operates on creation timestamps</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">created_after</span></tt></td>
+<td>Same as for <tt class="docutils literal"><span class="pre">updated_after</span></tt>, but operates on creation timestamps</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">is_active</span></tt></td>
+<td>Can be used to retrieve active or inactive results only e.g <tt class="docutils literal"><span class="pre">GET</span></tt> <tt class="docutils literal"><span class="pre">/api/facilities/facilities/?is_active=false</span></tt></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Filters can be combined / chained.</p>
+</div>
+<div class="section" id="documentation-examples">
+<h3>Documentation examples<a class="headerlink" href="#documentation-examples" title="Permalink to this headline">¶</a></h3>
+<p>All the examples in this documentation will use the recommended JSON format.</p>
+<div class="section" id="data-notations">
+<h4>Data notations<a class="headerlink" href="#data-notations" title="Permalink to this headline">¶</a></h4>
+<p>The example below demonstrates the manner in which example JSON payloads
+in the documentation should be interpreted:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gender&quot;</span><span class="o">:</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;age&quot;</span><span class="o">:</span> <span class="mi">33</span><span class="p">,</span>
+    <span class="s2">&quot;houses&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="s2">&quot;Nairobi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Flat&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="s2">&quot;Mombasa&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Bungalow&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;phone&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;work&quot;</span><span class="o">:</span> <span class="s2">&quot;8781923&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;home&quot;</span><span class="o">:</span> <span class="s2">&quot;213789123&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This table describes the data above</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="25%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td>string</td>
+<td>Name of the person</td>
+</tr>
+<tr class="row-odd"><td>age</td>
+<td>integer</td>
+<td>Age of the person</td>
+</tr>
+<tr class="row-even"><td>gender</td>
+<td>string</td>
+<td>Gender of the person</td>
+</tr>
+<tr class="row-odd"><td>houses</td>
+<td>list of objects</td>
+<td>A list of houses the person owns</td>
+</tr>
+<tr class="row-even"><td>houses[ ].city</td>
+<td>string</td>
+<td>The city in which the house is in</td>
+</tr>
+<tr class="row-odd"><td>houses[ ].type</td>
+<td>string</td>
+<td>The type of the house</td>
+</tr>
+<tr class="row-even"><td>phone</td>
+<td>object</td>
+<td>The person&#8217;s phone numbers</td>
+</tr>
+<tr class="row-odd"><td>phone.work</td>
+<td>string</td>
+<td>Work phone number</td>
+</tr>
+<tr class="row-even"><td>phone.home</td>
+<td>string</td>
+<td>Home phone number</td>
+</tr>
+</tbody>
+</table>
+<p>The <em>[ ]</em> notation is used to indicate a property of every object in a list.
+For example, <tt class="docutils literal"><span class="pre">houses[</span> <span class="pre">].city</span></tt> means every object in the list <tt class="docutils literal"><span class="pre">houses</span></tt>
+has a property called <tt class="docutils literal"><span class="pre">city</span></tt>.</p>
+</div>
+<div class="section" id="data-types">
+<h4>Data types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h4>
+<p>The data types are standard <a class="reference external" href="http://www.json.org/">JSON</a>. The MFL API uses <a class="reference external" href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUIDs</a> for its
+primary keys.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="18%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Data type</th>
+<th class="head">JSON Representation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>string</td>
+<td>string</td>
+<td>A sequence of zero or more characters wrapped in double quotes.</td>
+</tr>
+<tr class="row-odd"><td>object</td>
+<td>object</td>
+<td>A collection of name-value pairs wrapped in curly braces : <strong>{</strong> and <strong>}</strong></td>
+</tr>
+<tr class="row-even"><td>list</td>
+<td>array</td>
+<td>A collection of values</td>
+</tr>
+<tr class="row-odd"><td>boolean</td>
+<td>boolean</td>
+<td>Represents truthy values and falsy values.Valid values are <tt class="docutils literal"><span class="pre">true</span></tt> and <tt class="docutils literal"><span class="pre">false</span></tt></td>
+</tr>
+<tr class="row-even"><td>null</td>
+<td>null</td>
+<td>Represents null values</td>
+</tr>
+<tr class="row-odd"><td>integer</td>
+<td>integer</td>
+<td>Integer values</td>
+</tr>
+<tr class="row-even"><td>decimal</td>
+<td>string</td>
+<td>Precision decimal values represented as strings</td>
+</tr>
+<tr class="row-odd"><td>uuid</td>
+<td>string</td>
+<td>A string of 32 characters used as a unique identifier (<a class="reference external" href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUIDs</a>)</td>
+</tr>
+<tr class="row-even"><td>datetime</td>
+<td>string</td>
+<td>A string representing date and time values (<a class="reference internal" href="#dates-and-times">Dates and times</a>)</td>
+</tr>
+<tr class="row-odd"><td>url</td>
+<td>string</td>
+<td>A string representing the location of a network resource</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="urls">
+<h2>URLs<a class="headerlink" href="#urls" title="Permalink to this headline">¶</a></h2>
+<p>URLs in this document shall be written in shortform, excluding the scheme and
+domain (or IP) from which <abbr title="Master Facilities List">MFL</abbr> can be accessed.</p>
+<p>For a production system, the scheme shall always be <tt class="docutils literal"><span class="pre">https</span></tt>, unless
+otherwise specified.</p>
+<p>For example, if <abbr title="Master Facilities List">MFL</abbr> is running from the IP <em>192.168.1.56</em>, a full URL could be <tt class="docutils literal"><span class="pre">https://192.168.1.56/api/common/contacts/</span></tt>. In the documentation, the
+URL shall be written as <tt class="docutils literal"><span class="pre">/api/common/contacts/</span></tt>, exluding the scheme and
+domain (or IP).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>All URLs have a trailing slash</strong> unless specified otherwise.
+For example, the url <tt class="docutils literal"><span class="pre">https://192.168.1.56/v1/claims/</span></tt> is not equivalent
+to the url <tt class="docutils literal"><span class="pre">https://192.168.1.56/v1/claims</span></tt>.
+The latter will result in a <tt class="docutils literal"><span class="pre">HTTP</span> <span class="pre">404</span></tt> (Not Found) response</p>
+</div>
+</div>
+<div class="section" id="url-parameters">
+<h2>URL Parameters<a class="headerlink" href="#url-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Any API endpoints that support url parameters shall be specified in the following format:</p>
+<div class="highlight-text"><div class="highlight"><pre>/api/common/counties/&lt;value&gt;/
+</pre></div>
+</div>
+<p>For example to retrieve a county by its ID ( UUID ),  the URL shall be
+specified as:</p>
+<div class="highlight-text"><div class="highlight"><pre>/api/common/counties/&lt;id&gt;/
+</pre></div>
+</div>
+<p>e.g. <tt class="docutils literal"><span class="pre">/api/common/counties/89d8f3dd698b46e6a052f355a231858d/</span></tt></p>
+</div>
+<div class="section" id="url-query-parameters">
+<h2>URL Query Parameters<a class="headerlink" href="#url-query-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Any API endpoints that support query parameters shall be specified in the following format:</p>
+<div class="highlight-text"><div class="highlight"><pre>/api/common/counties/?name=&lt;value&gt;
+</pre></div>
+</div>
+<p>For example to query the county endpoint by <tt class="docutils literal"><span class="pre">name</span></tt>, the URL shall be
+specified as:</p>
+<div class="highlight-text"><div class="highlight"><pre>/api/common/counties/?name=&lt;name&gt;
+</pre></div>
+</div>
+<p>e.g. <tt class="docutils literal"><span class="pre">/api/common/counties/?name=Nairobi</span></tt></p>
+</div>
+<div class="section" id="dates-and-times">
+<h2>Dates and times<a class="headerlink" href="#dates-and-times" title="Permalink to this headline">¶</a></h2>
+<p>All dates and times shall be represented as datetime strings in
+<a class="reference external" href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format i.e.</p>
+<div class="highlight-text"><div class="highlight"><pre>YYYY-MM-DDTHH:MM:SSZ
+</pre></div>
+</div>
+<p>e.g. <tt class="docutils literal"><span class="pre">2015-03-30T15:23:89Z</span></tt></p>
+<p>If timezone is to be included, the timezone shall be <tt class="docutils literal"><span class="pre">UTC</span></tt>, thus the format becomes</p>
+<div class="highlight-text"><div class="highlight"><pre>YYYY-MM-DDTHH:MM:SS+0000
+</pre></div>
+</div>
+<p>e.g. <tt class="docutils literal"><span class="pre">2015-03-30T15:23:89+0000</span></tt></p>
+<p>Any date that does not have a timezone shall be assumed to be <tt class="docutils literal"><span class="pre">UTC</span></tt>.</p>
+</div>
+<div class="section" id="id1">
+<h2>UUIDs<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>UUIDs are used as unique record identifiers for each record in <abbr title="Master Facilities List">MFL</abbr>.
+All UUIDs used in <abbr title="Master Facilities List">MFL</abbr> are <a class="reference external" href="http://tools.ietf.org/html/rfc4122.html">version 4 UUIDs</a>.</p>
+</div>
+<div class="section" id="http-errors">
+<h2>HTTP Errors<a class="headerlink" href="#http-errors" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>400 (Bad Request)</dt>
+<dd>This error occurs if the request given to the server is malformed or does not meet certain criteria e.g. invalid data.</dd>
+<dt>401 (Unauthorized)</dt>
+<dd>The request to access a resource was unauthorized. (<tt class="xref doc docutils literal"><span class="pre">05_authentication</span></tt>)</dd>
+<dt>403 (Forbidden)</dt>
+<dd>The authorized user does not have permission to access a resource (<tt class="xref doc docutils literal"><span class="pre">05_authentication</span></tt>)</dd>
+<dt>404 (Not found)</dt>
+<dd>The requested resource was not found</dd>
+<dt>410 (Gone)</dt>
+<dd>The requested resource has been removed</dd>
+<dt>500 (Server Error)</dt>
+<dd>A server error has occurred</dd>
+</dl>
+</div>
+<div class="section" id="pagination">
+<h2>Pagination<a class="headerlink" href="#pagination" title="Permalink to this headline">¶</a></h2>
+<p>Endpoints that return multiple items will be paginated with a page size of 25
+by default. All endpoints returning a list of items shall have the following
+format:</p>
+<div class="highlight-text"><div class="highlight"><pre>GET /api/common/constituencies/?page=2
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">290</span><span class="p">,</span>
+<span class="s2">&quot;next&quot;</span><span class="o">:</span> <span class="s2">&quot;http://localhost:8000/api/common/constituencies/?page=3&quot;</span><span class="p">,</span>
+<span class="s2">&quot;previous&quot;</span><span class="o">:</span> <span class="s2">&quot;http://localhost:8000/api/common/constituencies/&quot;</span><span class="p">,</span>
+<span class="s2">&quot;results&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="p">...</span> <span class="c1">// list of items requested, in this case constituencies</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A client can request a larger page size by specifying the <tt class="docutils literal"><span class="pre">page_size</span></tt> parameter
+e.g <tt class="docutils literal"><span class="pre">/api/common/contacts/?page_size=100</span></tt>. There page size limit is selected at
+server configuration time; it will usually be around 1000 items.</p>
+</div>
+<div class="section" id="audit-trail">
+<h2>Audit trail<a class="headerlink" href="#audit-trail" title="Permalink to this headline">¶</a></h2>
+<p>The API server provides an audit trail for all non third-party resources.
+This audit trail can be accessed on <strong>detail endpoints</strong> by appending an
+<tt class="docutils literal"><span class="pre">include_audit=true</span></tt> query parameter.</p>
+<p>For example, if there was a contact with the id
+<tt class="docutils literal"><span class="pre">28d2a0c8-40f4-4686-97d0-d7c6f453fcb3</span></tt>, a <tt class="docutils literal"><span class="pre">GET</span></tt> request to
+<tt class="docutils literal"><span class="pre">/api/common/contacts/28d2a0c8-40f4-4686-97d0-d7c6f453fcb3/?include_audit=true</span></tt>
+would return a payload that has a <cite>revisions</cite> key that contains a
+representation of every past revision of that specific contact.</p>
+</div>
+<div class="section" id="search">
+<h2>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h2>
+<p>Every <strong>list</strong> endpoint supports <strong>full text</strong> search. Search is implemented
+as a filter, using the <cite>search</cite> query parameter.</p>
+<p>For example, to search for contacts that have the word &#8220;meru&#8221; in them, the
+query would be <tt class="docutils literal"><span class="pre">/api/common/contacts/?search=meru</span></tt>.</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2015, sci devs.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Workflow &mdash; Stock status management tool 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Stock status management tool 0.1 documentation" href="index.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>Stock status management tool 0.1 documentation</span></a></h1>
+        <h2 class="heading"><span>Workflow</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="workflow">
+<h1>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h1>
+<p>MFL API v2 is a liberally licensed ( <a class="reference external" href="http://choosealicense.com/licenses/mit/">MIT</a> license ) project. All development
+occurs in the open on the <a class="reference external" href="https://github.com/MasterFacilityList/mfl_api">MFL API Github project</a>. We use the
+<a class="reference external" href="https://github.com/MasterFacilityList/mfl_api/issues">MFL API Github issue list</a> to manage bug reports and enhancement requests.</p>
+<p>This project uses the <a class="reference external" href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">GitFlow Workflow</a>.</p>
+<blockquote>
+<div></div></blockquote>
+<p>In summary:</p>
+<blockquote>
+<div><ul class="simple">
+<li>all work should occur in feature branches</li>
+<li>the target for pull requests is the <tt class="docutils literal"><span class="pre">develop</span></tt> branch</li>
+<li>the release manager ( presently <a class="reference external" href="https://github.com/ngurenyaga">&#64;ngurenyaga</a> ) will periodically create release branches that ultimately get merged into <tt class="docutils literal"><span class="pre">master</span></tt> and tagged</li>
+<li>fixes on released versions will occur in hotfix branches</li>
+</ul>
+</div></blockquote>
+<p>We adhere to semantic versioning - <a class="reference external" href="https://semver.org">https://semver.org</a> .</p>
+<p>In order to deploy a new version, you will need to have a <tt class="docutils literal"><span class="pre">$HOME/.pypirc</span></tt>
+that has the correct pypi credentials. The command to deploy is <tt class="docutils literal"><span class="pre">fab</span> <span class="pre">deploy</span></tt>.
+The credentials are not stored on GitHub - for obvious reasons.</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2015, sci devs.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Community Health Units &mdash; Stock status management tool 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Stock status management tool 0.1 documentation" href="index.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>Stock status management tool 0.1 documentation</span></a></h1>
+        <h2 class="heading"><span>Community Health Units</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="community-health-units">
+<h1>Community Health Units<a class="headerlink" href="#community-health-units" title="Permalink to this headline">¶</a></h1>
+<p>This chapter assumes that the reader is familiar with the general
+principles explained in the <a class="reference internal" href="06_api.html"><em>Using the API - basic principles</em></a> chapter.</p>
+<p>Kenya&#8217;s community health strategy relies on community health workers for
+outreach at the lowest levels ( embedded into communities ). These workers are
+organized into community health units. The second edition of the Master
+Facilities List provides APIs for the management of community health units.</p>
+<p>This chapter concerns itself with the resources that model community health
+units and link them to facilities.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Community health units are an extension of the Master Facilities List. A
+community health unit is a health service delivery structure within a
+defined geographic area covering a population of approximately 5,000
+people.</p>
+<p>Each unit is assigned 2 Community Health Extension Workers ( CHEWs ) and community health volunteers who offer promotie, preventative and basic
+curative services.</p>
+<p>Each unit is governed by a Community Health Committee ( CHC ) and is
+<strong>linked to a specific health facility</strong>.</p>
+<p>The role of a community health unit is to bring services closer to the
+people that need them. Those services include:</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li>Water and sanitation hygiene; e.g. Faecal management, Household water treatment and demonstrations on hand washing with soap, etc.</li>
+<li>Advice on maternal and child health e.g. Immunization, Individual birth plan, etc.</li>
+<li>Provision of Family planning commodities.</li>
+<li>Growth monitoring for children under 5 years.</li>
+<li>Deworming of children.</li>
+<li>Provision of Long Lasting Insecticide Treated Nets (LLITNs).</li>
+<li>Management of diarrhea, injuries, wounds, jiggers and other minor illnesses.</li>
+<li>Provision of Information, Education &amp; Communication (IEC) materials</li>
+<li>Defaulter tracing (ART, TB and Immunization)</li>
+<li>Referrals to health facilities</li>
+<li>First Aid Services</li>
+</ul>
+</div></blockquote>
+</div>
+<p>The implementation of community health units in this API is semi-independent.
+The units connect to the rest of MFL at only one point - their linkage to
+facilities.</p>
+<div class="section" id="community-health-unit-approvers">
+<h2>Community Health Unit Approvers<a class="headerlink" href="#community-health-unit-approvers" title="Permalink to this headline">¶</a></h2>
+<p>The community health approvers resource holds the details of entities that are
+involved in approval of community health units.</p>
+<p>The known approvers can be listed by issuing a <tt class="docutils literal"><span class="pre">GET</span></tt> to <tt class="docutils literal"><span class="pre">/api/chul/approvers/</span></tt>. To register a new approving entity, you need to supply a
+<tt class="docutils literal"><span class="pre">name</span></tt>, <tt class="docutils literal"><span class="pre">description</span></tt> and <tt class="docutils literal"><span class="pre">abbreviation</span></tt>. The following example
+illustrates that:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Division of Community Health Services&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;Division of Community Health Services, Ministry of Health&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;abbreviation&quot;</span><span class="o">:</span> <span class="s2">&quot;DCHS&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="community-health-unit-statuses">
+<h2>Community Health Unit Statuses<a class="headerlink" href="#community-health-unit-statuses" title="Permalink to this headline">¶</a></h2>
+<p>The community health unit statuses that are known / available can be listed at
+<tt class="docutils literal"><span class="pre">/api/chul/statuses/</span></tt> via <tt class="docutils literal"><span class="pre">GET</span></tt>. These will be used to mark the current
+status of a community health unit, and when analysing the status of registered
+community health units.</p>
+<p>To create a new status, you need to <tt class="docutils literal"><span class="pre">POST</span></tt> a <tt class="docutils literal"><span class="pre">name</span></tt> and a <tt class="docutils literal"><span class="pre">description</span></tt>.
+Here is an example payload:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;Actively Deployed&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This reflects the operational status of the Community Health Unit.</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Community Health Units<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Community health units can be listed via <tt class="docutils literal"><span class="pre">GET</span></tt> to <tt class="docutils literal"><span class="pre">/api/chul/units/</span></tt>.</p>
+<p>To add a new community health unit, <tt class="docutils literal"><span class="pre">POST</span></tt> to <tt class="docutils literal"><span class="pre">/api/chul/units/</span></tt>, <tt class="docutils literal"><span class="pre">POST</span></tt>
+a payload that has a <tt class="docutils literal"><span class="pre">name</span></tt>, <tt class="docutils literal"><span class="pre">facility</span></tt> and <tt class="docutils literal"><span class="pre">status</span></tt>. For the facility
+and status, the <tt class="docutils literal"><span class="pre">id</span></tt> s are sent ( foreign keys ).</p>
+<p>For example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Gachie Health Unit&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;facility&quot;</span><span class="o">:</span> <span class="s2">&quot;2927d31f-b1a0-4d17-93b0-ea648af7b9f0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;0e2ba3fc-9c81-4c30-b52e-b62664462cb7&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The community health unit <tt class="docutils literal"><span class="pre">code</span></tt> is auto-assigned. Immediately after
+creating the facility record, the code ( and other auto-assigned fields )
+will be inserted in the response.</p>
+</div>
+<div class="section" id="community-health-unit-contacts">
+<h3>Community Health Unit Contacts<a class="headerlink" href="#community-health-unit-contacts" title="Permalink to this headline">¶</a></h3>
+<p>A community health unit may be linked to zero or more contacts. The contacts
+will have been created at <tt class="docutils literal"><span class="pre">/api/common/contacts/</span></tt> using APIs that are
+discussed in the <a class="reference internal" href="08_support_resources.html"><em>Metadata resources</em></a> chapter.</p>
+<p>Community health unit contacts can be listed and created at
+<tt class="docutils literal"><span class="pre">/api/common/contacts/</span></tt>. To list a community health unit to a contact,
+<tt class="docutils literal"><span class="pre">POST</span></tt> to that endpoint the <tt class="docutils literal"><span class="pre">id</span></tt> of the contact and the <tt class="docutils literal"><span class="pre">id</span></tt> of the
+community health unit. The example payload below illustrates that:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;health_unit&quot;</span><span class="o">:</span> <span class="s2">&quot;2d425ab7-0002-4b95-9cd1-638972efb75d&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;contact&quot;</span><span class="o">:</span> <span class="s2">&quot;7dd62ab9-94c2-48d6-a10f-d903bd57acd5&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="community-health-unit-approvals">
+<h3>Community Health Unit Approvals<a class="headerlink" href="#community-health-unit-approvals" title="Permalink to this headline">¶</a></h3>
+<p>The approval status of community health units is listed / maintained at
+<tt class="docutils literal"><span class="pre">/api/chul/unit_approvals/</span></tt>.</p>
+<p>To record a new approval, you should supply a <tt class="docutils literal"><span class="pre">comment</span></tt>, <tt class="docutils literal"><span class="pre">approval_date</span></tt>,
+<tt class="docutils literal"><span class="pre">approver</span></tt>, <tt class="docutils literal"><span class="pre">approval_status</span></tt> and <tt class="docutils literal"><span class="pre">health_unit</span></tt>.</p>
+<p>The <tt class="docutils literal"><span class="pre">approver</span></tt> is the <tt class="docutils literal"><span class="pre">id</span></tt> of an approver registered at
+<tt class="docutils literal"><span class="pre">/api/chul/approvers/</span></tt>. The <tt class="docutils literal"><span class="pre">approval_status</span></tt> is the <tt class="docutils literal"><span class="pre">id</span></tt> of an
+approval status registered at <tt class="docutils literal"><span class="pre">/api/chul/approval_statuses/</span></tt>.
+The <tt class="docutils literal"><span class="pre">health_unit</span></tt> is the <tt class="docutils literal"><span class="pre">id</span></tt> of a community health unit registered at
+<tt class="docutils literal"><span class="pre">/api/chul/units/</span></tt>. The <tt class="docutils literal"><span class="pre">comment</span></tt> is a free-text explanation, while the
+<tt class="docutils literal"><span class="pre">approval_date</span></tt> is an ISO 8601 <strong>date</strong> ( not datetime ) string that
+represents the date when the approval occured.</p>
+<p>The following example is a valid <tt class="docutils literal"><span class="pre">POST</span></tt> payload:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;comment&quot;</span><span class="o">:</span> <span class="s2">&quot;For documentation / training purposes&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;approval_date&quot;</span><span class="o">:</span> <span class="s2">&quot;2015-05-09&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;approver&quot;</span><span class="o">:</span> <span class="s2">&quot;02b610c1-067f-4e0c-9bad-31cc029f6ee3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;approval_status&quot;</span><span class="o">:</span> <span class="s2">&quot;44c2abfd-3944-484f-ae4c-b30778e25398&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;health_unit&quot;</span><span class="o">:</span> <span class="s2">&quot;96645d26-8e4e-4078-9e10-a5176f5432df&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This reflects the approval status of the Community Health Unit.</p>
+</div>
+</div>
+</div>
+<div class="section" id="community-health-workers">
+<h2>Community Health Workers<a class="headerlink" href="#community-health-workers" title="Permalink to this headline">¶</a></h2>
+<p>Community health workers are attached to community health units. They are
+listed and maintained at <tt class="docutils literal"><span class="pre">/api/chul/workers/</span></tt>.</p>
+<p>When registering a new community health worker, supply a <tt class="docutils literal"><span class="pre">first_name</span></tt>,
+<tt class="docutils literal"><span class="pre">last_name</span></tt>, <tt class="docutils literal"><span class="pre">surname</span></tt>, <tt class="docutils literal"><span class="pre">id_number</span></tt> and <tt class="docutils literal"><span class="pre">health_unit</span></tt>. The
+<tt class="docutils literal"><span class="pre">health_unit</span></tt> is the <tt class="docutils literal"><span class="pre">id</span></tt> of the community health unit that the worker
+is attached to, and can be retrieved from <tt class="docutils literal"><span class="pre">/api/chul/units/</span></tt>.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Does&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Not&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;surname&quot;</span><span class="o">:</span> <span class="s2">&quot;Exist&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;id_number&quot;</span><span class="o">:</span> <span class="mi">545432</span><span class="p">,</span>
+    <span class="s2">&quot;health_unit&quot;</span><span class="o">:</span> <span class="s2">&quot;96645d26-8e4e-4078-9e10-a5176f5432df&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="community-health-workers-contacts">
+<h2>Community Health Workers Contacts<a class="headerlink" href="#community-health-workers-contacts" title="Permalink to this headline">¶</a></h2>
+<p>A community health worker can be linked to a contact that has already been
+registered at <tt class="docutils literal"><span class="pre">/api/common/contacts/</span></tt> by <tt class="docutils literal"><span class="pre">POST</span></tt> ing to
+<tt class="docutils literal"><span class="pre">/api/chul/workers_contacts/</span></tt> the <tt class="docutils literal"><span class="pre">id</span></tt> of the worker and the <tt class="docutils literal"><span class="pre">id</span></tt> of the
+contact.</p>
+<p>For example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;health_worker&quot;</span><span class="o">:</span> <span class="s2">&quot;db04b653-b0f7-434f-a224-3ea4d93b69c1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;contact&quot;</span><span class="o">:</span> <span class="s2">&quot;2d04afdc-46a8-4b11-85b8-63f5c035366f&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="community-health-workers-approvals">
+<h2>Community Health Workers Approvals<a class="headerlink" href="#community-health-workers-approvals" title="Permalink to this headline">¶</a></h2>
+<p>The approval status of community health workers is maintained at
+<tt class="docutils literal"><span class="pre">/api/chul/worker_approvals/</span></tt>.</p>
+<p>The key pieces of information to maintain about each approval are
+the <tt class="docutils literal"><span class="pre">approver</span></tt> ( an <tt class="docutils literal"><span class="pre">id</span></tt> of an approver registered at
+<tt class="docutils literal"><span class="pre">/api/chul/approvers/</span></tt> ), <tt class="docutils literal"><span class="pre">approval_status</span></tt> ( <tt class="docutils literal"><span class="pre">id</span></tt> of an
+approval status registered at <tt class="docutils literal"><span class="pre">/api/chul/approval_statuses/</span></tt> )
+and <tt class="docutils literal"><span class="pre">health_worker</span></tt> ( <tt class="docutils literal"><span class="pre">id</span></tt> of a health worker registered at
+<tt class="docutils literal"><span class="pre">/api/chul/workers/</span></tt> ) and a free-form <tt class="docutils literal"><span class="pre">comment</span></tt>.</p>
+<p>The example below is a valid <tt class="docutils literal"><span class="pre">POST</span></tt> payload:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;approver&quot;</span><span class="o">:</span> <span class="s2">&quot;02b610c1-067f-4e0c-9bad-31cc029f6ee3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;approval_status&quot;</span><span class="o">:</span> <span class="s2">&quot;44c2abfd-3944-484f-ae4c-b30778e25398&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;health_worker&quot;</span><span class="o">:</span> <span class="s2">&quot;db04b653-b0f7-434f-a224-3ea4d93b69c1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;comment&quot;</span><span class="o">:</span> <span class="s2">&quot;Documentation example&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2015, sci devs.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

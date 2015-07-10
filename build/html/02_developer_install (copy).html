@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installing for development &mdash; Stock status management tool 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Stock status management tool 0.1 documentation" href="index.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>Stock status management tool 0.1 documentation</span></a></h1>
+        <h2 class="heading"><span>Installing for development</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="installing-for-development">
+<h1>Installing for development<a class="headerlink" href="#installing-for-development" title="Permalink to this headline">¶</a></h1>
+<p>You&#8217;ll have an easier time if you are on a current Ubuntu. On Ubuntu, the
+key dependencies can be installed with:</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo apt-get install postgresql binutils postgis gdal-bin libproj-dev
+libgeoip1 graphviz libgraphviz-dev
+</pre></div>
+</div>
+<p><strong>You may need to install distribution specific packages</strong> e.g on Ubuntu 14.04
+with the default PosgreSQL 9.3:</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo apt-get install postgresql-9.3-postgis-2.1
+</pre></div>
+</div>
+<p>In order to build some of the Python dependencies in the <cite>virtualenv</cite>, some
+libraries will need to be in place. Again, if you are on a recent Ubuntu, you
+can get them at once with:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This project has been tested with Python2. It may work with Python3 but it
+has not been tested</p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>sudo apt-get build-dep python-shapely python-numpy cython python-psycopg2
+libxml2-dev libxslt1-dev libffi-dev
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You must ensure that ElasticSearch is running. In a typical Ubuntu install
+( from the <cite>.deb</cite> supplied by ElasticSearch ), the search server is not
+started by default.</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p><strong>A: Running the system from source code</strong></p>
+<ol class="arabic">
+<li><p class="first">Create a virtualenv</p>
+</li>
+<li><p class="first">Activate the created vitualenv and run <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></tt></p>
+</li>
+<li><dl class="first docutils">
+<dt>Run the following commands sequentially:</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>fab setup_db</dt>
+<dd><p class="first last">This drops the database if it exists, creates the database and runs migrations.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>fab load_demo_data</dt>
+<dd><p class="first last">This will load sample test data for the API if the project <strong>DEBUG</strong>
+attribute in settings is set to <cite>True</cite>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>fab recreate_search_index</dt>
+<dd><p class="first last">Creates an Elasticsearch  index. Before running this command ensure that
+Elasticsearch is up and running. This command causes the data that has been
+loaded in the database to be indexed in ElasticSearch.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>At times during development one may want to retain the database. To do so,
+call <tt class="docutils literal"><span class="pre">fab</span> <span class="pre">load_demo_data</span></tt> and <tt class="docutils literal"><span class="pre">fab</span> <span class="pre">recreate_search_index</span></tt>.</p>
+<p class="last">Also one may want to recreate the database. Calling <tt class="docutils literal"><span class="pre">fab</span> <span class="pre">setup_db</span></tt> drops the database,
+creates it again and runs migrations. After this one may proceed to load the data
+and create the search index as desired.</p>
+</div>
+<dl class="docutils">
+<dt><strong>B: Installing the system</strong></dt>
+<dd>Activate the virtualenv and run <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></tt> while in the project folder.</dd>
+</dl>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2015, sci devs.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

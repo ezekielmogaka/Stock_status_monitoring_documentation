@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>DHIS2 Stock status monitoring project documentation &mdash; Stock status management tool 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Stock status management tool 0.1 documentation" href="#" />
+    <link rel="next" title="Overview" href="Overview.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="#">
+          <span>Stock status management tool 0.1 documentation</span></a></h1>
+        <h2 class="heading"><span>DHIS2 Stock status monitoring project documentation</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        <a class="uplink" href="#">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="Overview.html">Overview</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="dhis2-stock-status-monitoring-project-documentation">
+<h1>DHIS2 Stock status monitoring project documentation<a class="headerlink" href="#dhis2-stock-status-monitoring-project-documentation" title="Permalink to this headline">¶</a></h1>
+<p>MSH/HCSM is a key member of the Malaria drug management subcommittee, which is involved in the stockstatus monitoring
+of Malaria commodities both at the National and County levels.</p>
+<p>On a monthly basis, the Malaria Control Unit, drug management committee meets to review the stock status ofmalaria commodities
+in the country, by analyzing data from various sources including:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Facility and County Level Stock Data from DHIS.</li>
+<li>National Level Stock Status data from the Supply Chain Agencies (KEMSA).</li>
+<li>Pipeline information based on incoming shipments per funding agency.</li>
+</ol>
+</div></blockquote>
+<p>This data is aggregated and analyzed for the different malaria commodities and a 2 pager report generated that
+indicates to management, the months stock status and pipeline monitoring of Malaria commodities. Currently
+MCU uses an excel based tool to generate this information. The current requirement is to amend and enhance
+the current 2 pager tool to accommodate additional requirements including representation of Central and
+county level data for Malaria commodities, and to color code the different pending shipments based on the
+timelines for delivery. This request makes the current tool being used to develop the 2 pager report redundant
+as it will not meet the requirements of the Malaria control unit and the donor, hence the need to develop a new
+tool.</p>
+<p>There is a <a class="reference external" href="https://media.readthedocs.org/pdf/mfl-api/latest/mfl-api.pdf">downloadable PDF version</a> of this documentation
+and a <a class="reference external" href="http://readthedocs.org/projects/mfl-api/downloads/htmlzip/latest/">downloadable HTML version</a>.</p>
+</div>
+<div class="section" id="table-of-contents">
+<h1>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Approach.html">Approach</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Approach.html#the-web-api-and-the-database">The web API and the database</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DataSetup.html">Data setup by the tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataSetup.html#data-setup-by-the-stock-status-management-tool">Data setup by the Stock status management tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataSetup.html#information-captured-by-the-tool">Information captured by the tool</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Processes.html">Processes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Processes.html#procceses-involved">Procceses involved</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Outputs.html">Outputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Outputs.html#key-outputs">Key outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Outputs.html#graphical-reports-generated">Graphical reports generated</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Development.html#mysql-database">MySQL database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development.html#php-and-apache2-for-the-server-side">PHP and Apache2 for the server side</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development.html#dhis2-web-api-querying-javascript-ajax-jquery">DHIS2 Web API Querying - JavaScript, AJAX, jQuery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development.html#html5-bootstrap-font-awesome-javascript-jquery-for-user-interface">HTML5, Bootstrap, Font-Awesome, JavaScript, jQuery for user interface</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Structure.html">Project structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Structure.html#assets">Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Structure.html#client">Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Structure.html#db">db</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Userguide.html">User guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Userguide.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Userguide.html#getting-started">Getting started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#system-requirements">System requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#session-authentication">Session Authentication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Userguide.html#logging-in">Logging in</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Userguide.html#logging-out">Logging out</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Userguide.html#setting-up-users-and-permissions">Setting up users and permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Userguide.html#user-management">User management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#user-registration-sign-up">User registration ( sign up )</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#updating-user-details">Updating user details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#password-changes">Password changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Userguide.html#tasks">Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#get-reports">Get reports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#download-the-documentation-pdf">Download the Documentation(PDF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#task3">Task3</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        <a class="uplink" href="#">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="Overview.html">Overview</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2015, sci devs.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

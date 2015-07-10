@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>User guide &mdash; Stock status management tool 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Stock status management tool 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Project structure" href="Structure.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>Stock status management tool 0.1 documentation</span></a></h1>
+        <h2 class="heading"><span>User guide</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="Structure.html">Project structure</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="user-guide">
+<h1>User guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>MSH/HCSM is a key member of the Malaria drug management subcommittee, which is involved in the stockstatus monitoring
+of Malaria commodities both at the National and County levels.</p>
+<p>On a monthly basis, the Malaria Control Unit, drug management committee meets to review the stock status ofmalaria commodities
+in the country, by analyzing data from various sources including:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Facility and County Level Stock Data from DHIS.</li>
+<li>National Level Stock Status data from the Supply Chain Agencies (KEMSA).</li>
+<li>Pipeline information based on incoming shipments per funding agency.</li>
+</ol>
+</div></blockquote>
+<p>This data is aggregated and analyzed for the different malaria commodities and a 2 pager report generated that
+indicates to management, the months stock status and pipeline monitoring of Malaria commodities. Currently
+MCU uses an excel based tool to generate this information. The current requirement is to amend and enhance
+the current 2 pager tool to accommodate additional requirements including representation of Central and
+county level data for Malaria commodities, and to color code the different pending shipments based on the
+timelines for delivery. This request makes the current tool being used to develop the 2 pager report redundant
+as it will not meet the requirements of the Malaria control unit and the donor, hence the need to develop a new
+tool.</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Purpose of this project is to create a stock status management tool that analyzes data from various sources including:</p>
+<ol class="arabic simple">
+<li>Facility and County Level Stock Data from DHIS.</li>
+<li>National Level Stock Status data from the Supply Chain Agencies (KEMSA).</li>
+<li>Pipeline information based on incoming shipments per funding agency.</li>
+</ol>
+<div class="section" id="system-requirements">
+<h3>System requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h3>
+<p>Chrome/Chromium browser is recommended for the application. This is because of the javascript used in the application wil be able to load faster.</p>
+<p>Login roles to DHIS2 are also required inorder to access the application.</p>
+<p><a class="reference external" href="https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s02.html">Authentication</a> is the process by which clients send login credentials over the HTTP to a web server. The request is
+associated with a specific user, while <a class="reference external" href="https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s02.html">authorization</a> determines if the user has permission to perform
+the requested operation.</p>
+</div>
+<div class="section" id="session-authentication">
+<h3>Session Authentication<a class="headerlink" href="#session-authentication" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="logging-in">
+<h4>Logging in<a class="headerlink" href="#logging-in" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>You have to loggin to the Stock management tool to access most of its functionality.</dt>
+<dd>The payload should be similar to the example below:</dd>
+</dl>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;username&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;password&quot;</span><span class="o">:</span> <span class="s2">&quot;password&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A successiful login will lead you to using the application.</p>
+</div>
+<p>Here is the login page:</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/homepage.jpg" src="_images/homepage.jpg" />
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="logging-out">
+<h4>Logging out<a class="headerlink" href="#logging-out" title="Permalink to this headline">¶</a></h4>
+<p>You can logout after using the tool.</p>
+<p>Here is the logout panel</p>
+<div class="figure">
+<img alt="_images/homepage.jpg" src="_images/homepage.jpg" />
+</div>
+<p>A successful logout will bring up a  success
+message similar to the one below:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;success&quot;</span><span class="o">:</span> <span class="s2">&quot;Successfully logged out.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="setting-up-users-and-permissions">
+<h2>Setting up users and permissions<a class="headerlink" href="#setting-up-users-and-permissions" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">PUT</span></tt> or <tt class="docutils literal"><span class="pre">PATCH</span></tt> to a group <strong>detail URL</strong> e.g <tt class="docutils literal"><span class="pre">/api/users/groups/1/</span></tt>.</p>
+<p>For example, to take away from the example role the &#8220;Can change email address&#8221;
+permission, the following <tt class="docutils literal"><span class="pre">PATCH</span></tt> request should be sent:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;permissions&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">61</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Can add email address&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;codename&quot;</span><span class="o">:</span> <span class="s2">&quot;add_emailaddress&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A similar approach will be followed to add permissions.</p>
+<p>A successful operation will get back a <tt class="docutils literal"><span class="pre">HTTP</span> <span class="pre">200</span> <span class="pre">OK</span></tt> status.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>Permissions will always be overwritten</strong> when you perform an update.</p>
+</div>
+</div>
+<div class="section" id="user-management">
+<h2>User management<a class="headerlink" href="#user-management" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="user-registration-sign-up">
+<h3>User registration ( sign up )<a class="headerlink" href="#user-registration-sign-up" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="updating-user-details">
+<h3>Updating user details<a class="headerlink" href="#updating-user-details" title="Permalink to this headline">¶</a></h3>
+<p>Every writable attribute of a user record can be <tt class="docutils literal"><span class="pre">PATCH``ed.</span> <span class="pre">For</span> <span class="pre">example,</span>
+<span class="pre">to</span> <span class="pre">inactivate</span> <span class="pre">or</span> <span class="pre">retire</span> <span class="pre">a</span> <span class="pre">user,</span> <span class="pre">``PATCH</span></tt> the user&#8217;s ( detail ) record and set
+<tt class="docutils literal"><span class="pre">is_active</span></tt> to <tt class="docutils literal"><span class="pre">false</span></tt>.</p>
+<p>For example: if the detail record for the user we registered above
+( <tt class="docutils literal"><span class="pre">likeforreal</span></tt> ) is to be found at <tt class="docutils literal"><span class="pre">/api/users/9/</span></tt>, the user can be
+inactivated by <tt class="docutils literal"><span class="pre">PATCH</span></tt> ing <tt class="docutils literal"><span class="pre">/api/users/9/</span></tt> with:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;active&quot;</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The same general approach can be used for any other flag e.g
+<tt class="docutils literal"><span class="pre">is_superuser</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="password-changes">
+<h3>Password changes<a class="headerlink" href="#password-changes" title="Permalink to this headline">¶</a></h3>
+<p>The password of the <strong>logged in user</strong> can be changed by making a <tt class="docutils literal"><span class="pre">POST</span></tt> to
+<tt class="docutils literal"><span class="pre">/api/rest-auth/password/change/</span></tt> a payload similar to this example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;old_password&quot;</span><span class="o">:</span> <span class="s2">&quot;oldanddonewith&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;new_password1&quot;</span><span class="o">:</span> <span class="s2">&quot;newhotness&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;new_password2&quot;</span><span class="o">:</span> <span class="s2">&quot;newhotness&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tasks">
+<h2>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-reports">
+<h3>Get reports<a class="headerlink" href="#get-reports" title="Permalink to this headline">¶</a></h3>
+<p>these are reports</p>
+</div>
+<div class="section" id="download-the-documentation-pdf">
+<h3>Download the Documentation(PDF)<a class="headerlink" href="#download-the-documentation-pdf" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="task3">
+<h3>Task3<a class="headerlink" href="#task3" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A future version of this server may add support for social authentication
+e.g login via Facebook, Twitter or Google accounts.</p>
+</div>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="Structure.html">Project structure</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2015, sci devs.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installing for evaluation &mdash; Stock status management tool 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Stock status management tool 0.1 documentation" href="index.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>Stock status management tool 0.1 documentation</span></a></h1>
+        <h2 class="heading"><span>Installing for evaluation</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="installing-for-evaluation">
+<h1>Installing for evaluation<a class="headerlink" href="#installing-for-evaluation" title="Permalink to this headline">¶</a></h1>
+<p>In this scenario, you do not plan to make any changes to the MFL API server
+but you need to have a local copy against which you can test a new API
+client or a new third party integration.</p>
+<p>We recommend that you use <a class="reference external" href="https://www.vagrantup.com/">Vagrant</a> and <a class="reference external" href="https://www.virtualbox.org/">Virtualbox</a> to create a test
+server for yourself.</p>
+<p>If you are an expert Vagrant user, you can substitute Virtualbox with VMWare
+Desktop / Player, HyperV etc. You&#8217;ll have an easier time if you are on a
+<tt class="docutils literal"><span class="pre">_nix</span></tt> e.g Ubuntu or OS X.</p>
+<div class="section" id="deployment-assumptions">
+<h2>Deployment Assumptions<a class="headerlink" href="#deployment-assumptions" title="Permalink to this headline">¶</a></h2>
+<p>The deployment scripts will fail unless the following are true:</p>
+<blockquote>
+<div><ul class="simple">
+<li>you are on a vagrant supported OS ( so far Ubuntu 14.04LTS has been tested )</li>
+<li>you have run <tt class="docutils literal"><span class="pre">ssh-keygen</span></tt> and have a public key at <tt class="docutils literal"><span class="pre">$HOME/.ssh/id_rsa.pub</span></tt></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id1">
+<h2>Vagrant<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Before installation, you will need to have the <a class="reference external" href="https://github.com/gosuri/vagrant-env">vagrant-env</a>  plugin.
+The installation is as simple as running</p>
+<div class="highlight-python"><div class="highlight"><pre>vagrant plugin install vagrant-env
+</pre></div>
+</div>
+<p><a class="reference external" href="https://docs.ansible.org">Ansible</a> is used to provision the vagrant box. An understanding of ansible is recommended though not required.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Ensure vagrant is installed</p>
+</li>
+<li><p class="first">Create a python virtual environment and activate the created virtual environment.</p>
+</li>
+<li><p class="first">Install <tt class="docutils literal"><span class="pre">ansible</span></tt> in the virtual environment.</p>
+</li>
+<li><p class="first">Set the following environment variables:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">DATABASE_NAME</span></tt> the name of the database to user</li>
+<li><tt class="docutils literal"><span class="pre">DATABASE_USER</span></tt> the database user to use</li>
+<li><tt class="docutils literal"><span class="pre">DATABASE_PASSWORD</span></tt> the database password to use</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Run <tt class="docutils literal"><span class="pre">vagrant</span> <span class="pre">up</span></tt>. It shall download and setup everything in the virtual machine.</p>
+</li>
+<li><p class="first">The system is ready to use</p>
+</li>
+</ol>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2015, sci devs.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

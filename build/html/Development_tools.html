@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Development tools &mdash; Stock status management tool 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Stock status management tool 0.1 documentation" href="index.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>Stock status management tool 0.1 documentation</span></a></h1>
+        <h2 class="heading"><span>Development tools</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="development-tools">
+<h1>Development tools<a class="headerlink" href="#development-tools" title="Permalink to this headline">¶</a></h1>
+<p>Below is a description of the development tools and technologies used for the test
+instance:</p>
+<blockquote>
+<div><p>A MySQL database is used to store data.
+However, another database like PostgreSQL can also be used and the choice
+was purely due to the rapid turn around time.</p>
+<p>The scripting language PHP and web server Apache2 were used for the server
+side logic.
+No PHP framework is used.</p>
+</div></blockquote>
+<p>Kindly note that this restriction applies to the servers only, and not to
+any of the API clients e.g browsers and third party systems. Clients can
+run on any modern operating system.</p>
+<p>We supply an <a class="reference external" href="http://www.ansible.com/home">Ansible</a> playbook that automates this entire process.</p>
+<div class="section" id="setting-up-the-environment">
+<h2>Setting up the environment<a class="headerlink" href="#setting-up-the-environment" title="Permalink to this headline">¶</a></h2>
+<p>This server is built as a <a class="reference external" href="http://12factor.net/">Twelve-Factor App</a>. For that reason, the key
+configuration parameters are stored in the environment - set up directly in
+the operating system as environment variables or as a <cite>.env</cite> file in the
+application&#8217;s root folder.</p>
+<p>The <tt class="docutils literal"><span class="pre">.env</span></tt> file holds confidential configuration information. For that
+reason, it is not tracked in version control ( version control has an example
+<tt class="docutils literal"><span class="pre">.env</span></tt> whose values should <strong>not</strong> be used in production ).</p>
+<p>A proper <tt class="docutils literal"><span class="pre">.env</span></tt> file should set the following values up:</p>
+<div class="highlight-text"><div class="highlight"><pre>SECRET_KEY=pleasechangetoanewlygeneratedsecretkey
+DEBUG=off  # NEVER run with Debug=True in production
+
+# Use real email settings here e.g from Amazon SES
+EMAIL_HOST=&#39;&#39;
+EMAIL_HOST_USER=&#39;&#39;
+EMAIL_HOST_PASSWORD=&#39;&#39;
+
+
+# Here because the original user was too lazy to write ruby code for the VagrantFile
+DATABASE_USER=mfl  # Change this
+DATABASE_PASSWORD=mfl  # **CHANGE** this, no matter how lazy you feel
+DATABASE_NAME=mfl  # Change this
+
+# Make sure you change this in lockstep with the three DATABASE_* vars above
+DATABASE_URL=&#39;postgres://mfl:mfl@localhost:5432/mfl&#39;
+
+
+# Location where the administration frontend is running
+FRONTEND_URL=&#39;http://localhost:8062&#39;
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Please make sure that you have set up secure values.</p>
+<p class="last">You will need to save a copy of the <tt class="docutils literal"><span class="pre">.env</span></tt> at a secure location ( not in
+the code repository ). If you loose the <tt class="docutils literal"><span class="pre">.env</span></tt> / forget the values, you
+could lose the ability to maintain the deployed production system.</p>
+</div>
+</div>
+<div class="section" id="the-pre-deploy-checklist">
+<h2>The pre-deploy checklist<a class="headerlink" href="#the-pre-deploy-checklist" title="Permalink to this headline">¶</a></h2>
+<p>You <strong>MUST</strong> work your way through the <a class="reference external" href="https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/">Django deployment checklist</a>.</p>
+</div>
+<div class="section" id="configuring-the-ansible-inventory">
+<h2>Configuring the ansible inventory<a class="headerlink" href="#configuring-the-ansible-inventory" title="Permalink to this headline">¶</a></h2>
+<p>There is an <tt class="docutils literal"><span class="pre">inventory</span></tt> file in the <tt class="docutils literal"><span class="pre">playbooks</span></tt> folder. This file should
+be edited to have a line for each server that is managed by Ansible.</p>
+<p>The following is an example:</p>
+<div class="highlight-text"><div class="highlight"><pre>azure_test_server             ansible_ssh_host=mfl.azure.slade360.co.ke     ansible_ssh_port=22     ansible_ssh_user=azureuser     ansible_ssh_private_key_file=/home/ngurenyaga/.ssh/id_rsa
+</pre></div>
+</div>
+<p>The template breaks down roughly to this:</p>
+<div class="highlight-text"><div class="highlight"><pre>&lt;a descriptive name we choose for the server&gt;
+ansible_ssh_host=&lt;an IP address or host name&gt;
+ansible_ssh_port=&lt;the port over which the SSL daemon is listening on the remote machine&gt;
+ansible_ssh_user=&lt;the username to log in with on the remote machine&gt;
+ansible_ssh_private_key_file=&lt;a path to a local SSH private key&gt;
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The SSH private key must be kept private.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>If you are working off a recent Ubuntu Linux on your laptop, you should
+comment out <tt class="docutils literal"><span class="pre">SendEnv</span> <span class="pre">LANG</span> <span class="pre">LC_*</span></tt> in <tt class="docutils literal"><span class="pre">/etc/ssh/ssh_config</span></tt>.</p>
+<p class="last">The forwarding of language environment variables from the local computer
+is known to cause mischief on the remote server.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>This server should only be run on a non-threaded server e.g <tt class="docutils literal"><span class="pre">gunicorn</span></tt>
+in the standard multi-process configuration.</p>
+<p class="last">This is because the geographic features rely on <tt class="docutils literal"><span class="pre">GDAL</span></tt>, which is not
+thread safe.</p>
+</div>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2015, sci devs.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

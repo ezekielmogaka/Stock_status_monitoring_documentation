@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>GIS Support &mdash; Stock status management tool 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Stock status management tool 0.1 documentation" href="index.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>Stock status management tool 0.1 documentation</span></a></h1>
+        <h2 class="heading"><span>GIS Support</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="gis-support">
+<h1>GIS Support<a class="headerlink" href="#gis-support" title="Permalink to this headline">¶</a></h1>
+<p>This chapter assumes that the reader is familiar with the general
+principles explained in the <a class="reference internal" href="06_api.html"><em>Using the API - basic principles</em></a> chapter.</p>
+<p>The MFL 2 API server uses the excellent <a class="reference external" href="https://docs.djangoproject.com/en/dev/ref/contrib/gis/">GeoDjango</a> and <a class="reference external" href="http://postgis.net/">PostGIS</a> to provide
+<a class="reference internal" href="09_services.html"><em>The service catalog</em></a> that can be used to generate facility maps, perform geographic
+queries and validate facility coordinate data. You can read more about this at
+the <a class="reference internal" href=""><em>GIS Support</em></a> page.</p>
+<div class="section" id="what-is-gis">
+<h2>What is GIS?<a class="headerlink" href="#what-is-gis" title="Permalink to this headline">¶</a></h2>
+<p>A geographic information system (GIS) lets us visualize, question, analyze, and interpret data to understand relationships, patterns, and trends.</p>
+<p>Master Facility List data is inherently geographical - the Master Facility
+List should have coordinates for all facilities in Kenya. The GIS APIs provided
+by this server support the visualization, interogation and analysis of this
+data.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The official front-ends barely scratch the surface when it comes to the
+use of GIS data. These APIs are open to third party applications too.</p>
+</div>
+</div>
+<div class="section" id="gis-data-formats">
+<h2>GIS data formats<a class="headerlink" href="#gis-data-formats" title="Permalink to this headline">¶</a></h2>
+<p>There are many <a class="reference external" href="http://en.wikipedia.org/wiki/GIS_file_formats">GIS file formats</a> to choose from. We chose to go with
+<a class="reference external" href="http://geojson.org/geojson-spec.html">GeoJSON</a> because it fits in with our general preference for JSON. It is easy
+to convert from GeoJSON to <a class="reference external" href="http://en.wikipedia.org/wiki/Shapefile">ESRI Shapefile</a> and <a class="reference external" href="http://en.wikipedia.org/wiki/Keyhole_Markup_Language">KML</a> formats.</p>
+</div>
+<div class="section" id="a-brief-note-about-points">
+<h2>A brief note about points<a class="headerlink" href="#a-brief-note-about-points" title="Permalink to this headline">¶</a></h2>
+<p>In &#8220;day to day language&#8221;, we might be accustomed to expressing points as
+<cite>(latitude, longitude)</cite> pairs e.g <cite>(-1.300462, 36.791533)</cite> for the location of
+this writer&#8217;s office at the time of writing. When expressing that location as
+a GeoJSON &#8220;point&#8221;, we&#8217;ll need to &#8220;flip&#8221; the coordinates, so that the GeoJSON
+for this author&#8217;s office would be:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;Point&quot;</span><span class="p">,</span>
+    <span class="nx">coordinates</span><span class="o">:</span> <span class="p">[</span>
+        <span class="mf">36.791533</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">1.300462</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-do-i-move-from-geojson-to-a-map">
+<h2>How do I move from GeoJSON to a map?<a class="headerlink" href="#how-do-i-move-from-geojson-to-a-map" title="Permalink to this headline">¶</a></h2>
+<p>If you are building a web application, take a look at <a class="reference external" href="http://leafletjs.com/">Leaflet</a> and
+<a class="reference external" href="http://openlayers.org/">OpenLayers</a>.</p>
+<p>If you are working on a mobile application, you could take a look at the
+<a class="reference external" href="https://developers.google.com/maps/">Google Maps API</a> or its competitors e.g Bing Maps.</p>
+<p>If you are working on on a desktop application, we assume that you know what
+you are doing and do not need any helpful pointers.</p>
+</div>
+<div class="section" id="administrative-units">
+<h2>Administrative units<a class="headerlink" href="#administrative-units" title="Permalink to this headline">¶</a></h2>
+<p>Kenya has a three tier administrative structure: the country has 47
+<strong>counties</strong>. Each county has a number of <strong>constituencies</strong>, with the total
+for the country being 290 constituencies. Each constituency has a number of
+wards, with the total for the country being 1450 wards. The GIS enabled APIs
+follow this administrative structure.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>This server also has resources that contain country boundaries. The
+default distribution has data from the <cite>World Borders Dataset</cite> ( from
+<a class="reference external" href="http://thematicmapping.org/">http://thematicmapping.org/</a> ).</p>
+<p>We have not documented the country boundary APIs for the following reasons:</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li>The county, constituency and ward boundary APIs meet all of the Kenyan MFL needs.</li>
+<li>The borders in the World Borders Dataset are inaccurate - sometimes lopping off several square kilometers around the borders.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The default distribution has map ( boundary ) data for 1482 out of 1450
+wards.</p>
+</div>
+<p>The administrative unit data is considered &#8220;setup data&#8221; - loaded at
+server install time, rarely changed afterward. For that reason, the
+documentation will focus on retrieval and interpretation. If you need to change
+or add, the basic principles explained in the <a class="reference internal" href="06_api.html"><em>Using the API - basic principles</em></a> chapter still
+apply.</p>
+<div class="section" id="counties">
+<h3>Counties<a class="headerlink" href="#counties" title="Permalink to this headline">¶</a></h3>
+<p>Counties can be listed by sending a <tt class="docutils literal"><span class="pre">GET</span></tt> to <tt class="docutils literal"><span class="pre">/api/common/counties/</span></tt>.
+Every county is identified by a <tt class="docutils literal"><span class="pre">name</span></tt> and <tt class="docutils literal"><span class="pre">code</span></tt>.</p>
+<p>An individual county&#8217;s detail record is available at
+<tt class="docutils literal"><span class="pre">/api/common/counties/&lt;pk&gt;/</span></tt> e.g
+<tt class="docutils literal"><span class="pre">/api/common/counties/dd999449-d36b-47f2-a958-1f5bb52951d4/</span></tt> for the county
+whose <tt class="docutils literal"><span class="pre">id</span></tt> is <tt class="docutils literal"><span class="pre">dd999449-d36b-47f2-a958-1f5bb52951d4</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The county detail view is &#8220;rich&#8221;. It embeds a <tt class="docutils literal"><span class="pre">facility_coordinates</span></tt> key
+that shows the location of every facility in that county.</p>
+<p>The facility co-ordinates are a map, with the facility names as keys.
+For example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">facility_coordinates</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">AAR</span> <span class="nx">Gwh</span> <span class="nx">Health</span> <span class="nx">Care</span> <span class="nx">Ltd</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;Point&quot;</span><span class="p">,</span>
+        <span class="nx">coordinates</span><span class="o">:</span> <span class="p">[</span>
+            <span class="mf">36.80897</span><span class="p">,</span>
+            <span class="o">-</span><span class="mf">1.29467</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nx">Dr</span> <span class="nx">Musili</span> <span class="nx">Clinic</span> <span class="p">(</span><span class="nx">Afya</span> <span class="nx">Centre</span><span class="o">-</span><span class="nx">Nairobi</span><span class="p">)</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;Point&quot;</span><span class="p">,</span>
+            <span class="nx">coordinates</span><span class="o">:</span> <span class="p">[</span>
+                <span class="mf">36.82763</span><span class="p">,</span>
+                <span class="o">-</span><span class="mf">1.28799</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="c1">// truncated for brevity</span>
+</pre></div>
+</div>
+<p class="last">The county detail view also embeds within itself the appropriate
+<tt class="docutils literal"><span class="pre">county_boundary</span></tt>. The contents of this will be discussed in the next
+section.</p>
+</div>
+</div>
+<div class="section" id="county-boundaries">
+<h3>County Boundaries<a class="headerlink" href="#county-boundaries" title="Permalink to this headline">¶</a></h3>
+<p>County boundaries can be listed at <tt class="docutils literal"><span class="pre">/api/gis/county_boundaries/</span></tt>. The list
+view is a GeoJSON &#8220;FeatureCollection&#8221;, while the detail view is a GeoJSON
+&#8220;Feature&#8221;.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The border ( polygon ) is under the <tt class="docutils literal"><span class="pre">geometry</span></tt> key for every feature.</p>
+<p>Every boundary ( feature ) serialization has the following fields:</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">center</span></tt> - a <tt class="docutils literal"><span class="pre">Point</span></tt> that represents the <strong>geometric centre</strong> of the area</li>
+<li><tt class="docutils literal"><span class="pre">facility_count</span></tt> - the number of facilities in that geographic area</li>
+<li><tt class="docutils literal"><span class="pre">density</span></tt> - a <strong>synthetic value</strong> ( roughly comparable to facilities per square kilometer, although it is not actually facilities / sq.km ). This is used by front-end clients to color-code maps.</li>
+<li><tt class="docutils literal"><span class="pre">constituency_ids</span></tt> - a list of the <tt class="docutils literal"><span class="pre">id</span></tt> s ( primary keys ) of the constituencies under that county. These can be appended to the <tt class="docutils literal"><span class="pre">/api/common/constituencies/</span></tt> endpoint i.e <tt class="docutils literal"><span class="pre">/api/constituencies/&lt;id&gt;/</span></tt> in order to retrieve the details of each constituency in the county.</li>
+<li><tt class="docutils literal"><span class="pre">constituency_boundary_ids</span></tt> - a list of the <tt class="docutils literal"><span class="pre">id</span></tt> s of the constituency boundary objects for the constituencies under the county in question. These can be used to retrieve the constituency boundaries at <tt class="docutils literal"><span class="pre">/api/gis/constituency_boundaries/&lt;pk&gt;/</span></tt>.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="constituencies">
+<h3>Constituencies<a class="headerlink" href="#constituencies" title="Permalink to this headline">¶</a></h3>
+<p>Constituencies can be listed by sending a <tt class="docutils literal"><span class="pre">GET</span></tt> to
+<tt class="docutils literal"><span class="pre">/api/common/constituencies/</span></tt>. Every constituency is identified by a
+<tt class="docutils literal"><span class="pre">name</span></tt> and a <tt class="docutils literal"><span class="pre">code</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The constituency detail view is, like the county detail view, &#8220;rich&#8221;.
+It embeds <tt class="docutils literal"><span class="pre">facility_coordinates</span></tt> and the relevant
+<tt class="docutils literal"><span class="pre">constituency_boundary</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="constituency-boundaries">
+<h3>Constituency Boundaries<a class="headerlink" href="#constituency-boundaries" title="Permalink to this headline">¶</a></h3>
+<p>Constituency boundaries can be listed at <tt class="docutils literal"><span class="pre">/api/gis/constituency_boundaries/</span></tt>.
+The output is similar to that of the county boundary endpoints, with the
+following differences: it embeds <tt class="docutils literal"><span class="pre">ward_ids</span></tt> instead of <tt class="docutils literal"><span class="pre">constituency_ids</span></tt>
+and <tt class="docutils literal"><span class="pre">ward_boundary_ids</span></tt> instead of <tt class="docutils literal"><span class="pre">constituency_boundary_ids</span></tt>.</p>
+</div>
+<div class="section" id="wards">
+<h3>Wards<a class="headerlink" href="#wards" title="Permalink to this headline">¶</a></h3>
+<p>Wards can be listed by sending a <tt class="docutils literal"><span class="pre">GET</span></tt> to <tt class="docutils literal"><span class="pre">/api/common/wards/</span></tt>. Every ward
+is identified by a <tt class="docutils literal"><span class="pre">name</span></tt> and a <tt class="docutils literal"><span class="pre">code</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The ward detail view is, like the county and constituency detail views,
+&#8220;rich&#8221;. It embeds <tt class="docutils literal"><span class="pre">facility_coordinates</span></tt> and the relevant
+<tt class="docutils literal"><span class="pre">ward_boundary</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="ward-boundaries">
+<h3>Ward Boundaries<a class="headerlink" href="#ward-boundaries" title="Permalink to this headline">¶</a></h3>
+<p>Ward boundaries can be listed at <tt class="docutils literal"><span class="pre">/api/gis/ward_boundaries/</span></tt>.
+The output is similar to that of the county boundary endpoints, with the
+following differences: as the smallest administrative unit, a ward does not
+embed the coordinates of any other administrative unit.</p>
+</div>
+</div>
+<div class="section" id="facility-coordinates">
+<h2>Facility Coordinates<a class="headerlink" href="#facility-coordinates" title="Permalink to this headline">¶</a></h2>
+<p>The facility coordinates resources can be found at <tt class="docutils literal"><span class="pre">/api/gis/coordinates/</span></tt>.
+The example below will be used to explain the format:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;1051cac1-b6e1-46c6-8782-a182dd1a9c50&quot;</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
+    <span class="nx">geometry</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;Point&quot;</span><span class="p">,</span>
+        <span class="nx">coordinates</span><span class="o">:</span> <span class="p">[</span>
+            <span class="mf">34.92687</span><span class="p">,</span>
+            <span class="mf">0.88226</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">created</span><span class="o">:</span> <span class="s2">&quot;2015-05-06T17:29:47.710254Z&quot;</span><span class="p">,</span>
+        <span class="nx">updated</span><span class="o">:</span> <span class="s2">&quot;2015-05-06T17:29:47.710266Z&quot;</span><span class="p">,</span>
+        <span class="nx">deleted</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">active</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">search</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nx">collection_date</span><span class="o">:</span> <span class="s2">&quot;2015-05-06T17:29:48.624415Z&quot;</span><span class="p">,</span>
+        <span class="nx">created_by</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">updated_by</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">facility</span><span class="o">:</span> <span class="s2">&quot;7f91fb27-8fa5-4160-b572-2dc0ad7a554e&quot;</span><span class="p">,</span>
+        <span class="nx">source</span><span class="o">:</span> <span class="s2">&quot;c027c6fa-19b2-4fcd-83fa-f84705be84ea&quot;</span><span class="p">,</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s2">&quot;1a3f3df8-8c18-4cac-89cc-93dc59a0e057&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The facility&#8217;s location is the <tt class="docutils literal"><span class="pre">geometry</span></tt> <tt class="docutils literal"><span class="pre">Point</span></tt>. The facility in
+question is identified by the <tt class="docutils literal"><span class="pre">facility</span></tt> property, which contains a
+facility primary key that can be used to retrieve the facilities from
+<tt class="docutils literal"><span class="pre">/api/facilities/facilities/&lt;pk&gt;/</span></tt> e.g.
+<tt class="docutils literal"><span class="pre">/api/facilities/facilities/7f91fb27-8fa5-4160-b572-2dc0ad7a554e/</span></tt> for
+the example above.</p>
+<p>To set up new facility coordinates, <tt class="docutils literal"><span class="pre">POST</span></tt> to <tt class="docutils literal"><span class="pre">/api/gis/coordinates/</span></tt>
+a payload similar to the example below:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;coordinates&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Point&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coordinates&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="mf">34.96962</span><span class="p">,</span>
+            <span class="mf">0.45577</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;facility&quot;</span><span class="o">:</span> <span class="s2">&quot;be6ca131-5767-45b2-8213-104214becdd3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;source&quot;</span><span class="o">:</span> <span class="s2">&quot;c027c6fa-19b2-4fcd-83fa-f84705be84ea&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;method&quot;</span><span class="o">:</span> <span class="s2">&quot;cd0bbbcf-60fa-4b76-b48c-5dcda414b43d&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Every geocode is associated with a geocode source and a geocode method.
+The <tt class="docutils literal"><span class="pre">source</span></tt> key in the payload above is for the geocode source while
+the <tt class="docutils literal"><span class="pre">method</span></tt> key is for the geocode method.</p>
+<p>Geocode sources are viewed/created at <tt class="docutils literal"><span class="pre">/api/gis/geo_code_sources/</span></tt>
+while geocode methods are viewed/created at <tt class="docutils literal"><span class="pre">/api/gis/geo_code_methods/</span></tt>.
+Both take a <tt class="docutils literal"><span class="pre">name</span></tt> and a <tt class="docutils literal"><span class="pre">description</span></tt>.</p>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2015, sci devs.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
