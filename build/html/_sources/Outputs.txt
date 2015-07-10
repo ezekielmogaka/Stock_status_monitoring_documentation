@@ -1,32 +1,54 @@
 Outputs
 ============
 
-Key outputs
-------------
+Sample outputs
+---------------
+
+Using the processes/formulas provided, the tool should produce the outputs shown below:
+
+Sample Output 1 - Facility level Data
++++++++++++++++++++++++++++++++++++++++
 
 
 The tool is able to aggregate the Central level stock on hand and the pending stocks as per the funding agent in a table format for quick reference. This should be aggregated automatically.
 
+Screen shot for Facility level data:
 
-The tool is able to list the incoming shipments information based on the expected/pending stocks information captured for the month.
+ 	
+	.. figure:: images/facility_level.png
 
-The tool is able to aggregate the incoming shipments data from the pending stocks information captured and output an aggregate total per commodity information.
 
-The tool is able to give a breakdown of the supporting agencies totals by commodity in the format below:
+Sample Output 2 - County level Data
++++++++++++++++++++++++++++++++++++++++
+The tool allows the user to select a county and view the information in a table format.
 
-Graphical reports generated
-----------------------------
+Screen shot for Facility level data:
 
-The tool generates a graphical representation of:
+ 	
+	.. figure:: images/facility_level.png
 
-	- Central level stock on hand and Pending stocks in Months of stocks. 
-	- Aggregated Facility level stock on hand 
-	- Individual county level stock on hand 
-	- Central level stocks and incoming shipments
-	- Aggregated facility MOS
-	- County level SOH
-	- Pending stocks color coded based on the delivery dates
 
+Sample Output 3 - Central level Data
++++++++++++++++++++++++++++++++++++++++
+
+
+The tool is able to aggregate the Central level stock on hand and the pending stocks as per the funding agent in a table format for quick reference. This should be aggregated automatically.
+
+Screen shot for Facility level data:
+
+ 	
+	.. figure:: images/facility_level.png
+
+Sample Output 4 - National level Data
++++++++++++++++++++++++++++++++++++++++
+
+
+The tool is able to aggregate the Central level stock on hand and the pending stocks as per the funding agent in a table format for quick reference. This should be aggregated automatically.
+
+Screen shot for Facility level data:
+
+ 	
+	.. figure:: images/facility_level.png
 
 
 

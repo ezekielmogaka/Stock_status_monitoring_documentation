@@ -76,16 +76,59 @@ Stock on Hand (SOH) is captured as an absolute figure based on Physical Stock Co
 </div></blockquote>
 </div>
 <div class="section" id="central-level-mos">
-<h2>Central level MOS<a class="headerlink" href="#central-level-mos" title="Permalink to this headline">¶</a></h2>
+<h2>Central Level MOS<a class="headerlink" href="#central-level-mos" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt><strong>Central level MOS</strong> = <strong>Stock on Hand at central level</strong> / <strong>Adjusted facility AMC</strong></dt>
 <dd><p class="first">where;</p>
 <p><em>Stock on Hand (SOH)</em> : This is the total quantity held in stock at the central level - as reported by the supply chain agency (KEMSA).</p>
-<p>Total Monthly Consumption (TMC) at Facility level is obtained by summing the quantity dispensed (across all facilities in the country). This monthly TMC is adjusted to cater for non-reporting facilities to obtain the adjusted facility AMC using the formula:</p>
-<blockquote class="last">
-<div><strong>Adjusted facility AMC</strong> = {[(TMCN1/NMRR1)+(TMCN2/NMRR2)+(TMCN3/NMRR3)+...+(TMCN*n*)] / <em>n</em>}</div></blockquote>
+<p><em>Total Monthly Consumption (TMC)</em> at Facility level is obtained by summing the quantity dispensed (across all facilities in the country). This monthly TMC is adjusted to cater for non-reporting facilities to obtain the adjusted facility AMC using the formula:</p>
+<blockquote>
+<div><p><strong>Adjusted facility AMC</strong> = {[(TMCN1/NMRR1)+(TMCN2/NMRR2)+(TMCN3/NMRR3)+...+(TMCNn)] / <em>n</em>}</p>
+<p>where;</p>
+<p><strong>TMCN</strong> = Total Monthly Consumption National Level. Its obtained by aggregating repored total quantity dispensed across all facilities in the country. (Data from DHIS2).</p>
+<p><strong>NMRR</strong> = National Monthly Reporting Rate expressed as a percentage (Data from DHIS2).</p>
+<p><strong>n</strong> = Number of months(Typically six months).</p>
+</div></blockquote>
+<p class="last">Central level MOS is computed for all commodities.</p>
 </dd>
 </dl>
+</div>
+<div class="section" id="facility-level-mos">
+<h2>Facility Level MOS<a class="headerlink" href="#facility-level-mos" title="Permalink to this headline">¶</a></h2>
+<p><strong>Facility Level MOS</strong> = <strong>Total Stock on Hand at Facility level</strong> / <strong>Adjusted facility AMC</strong></p>
+<blockquote>
+<div><p>where;
+<em>Total Stock on Hand at Facility level</em>: is the total quantity held in stockin health facilities across the country. It is obtained by aggregating the physical stock count across all facilities in the country. (Data from DHIS2).</p>
+<p><strong>Adjusted facility AMC</strong> is given by the formula below:</p>
+<p><strong>Adjusted facility AMC</strong> = {[(TMCN1/NMRR1)+(TMCN2/NMRR2)+(TMCN3/NMRR3)+...+(TMCNn)] / <em>n</em>}</p>
+<p><strong>TMCN</strong> = Total Monthly Consumption National Level. Its obtained by aggregating repored total quantity dispensed across all facilities in the country. (Data from DHIS2).</p>
+<blockquote>
+<div><p><strong>NMRR</strong> = National Monthly Reporting Rate expressed as a percentage (Data from DHIS2).</p>
+<p><strong>n</strong> = Number of months(Typically six months).</p>
+</div></blockquote>
+<p>Facility level MOS is computed for all commodities.</p>
+</div></blockquote>
+</div>
+<div class="section" id="national-level-mos">
+<h2>National Level MOS<a class="headerlink" href="#national-level-mos" title="Permalink to this headline">¶</a></h2>
+<p>National level MOS is obtained by summing the Central Level MOS and the Facility Level MOS
+<strong>National Level MOS</strong> = <strong>Central Level MOS + Facility Level MOS</strong></p>
+<p>National Level MOS is computed for each commodity.</p>
+</div>
+<div class="section" id="county-level-mos">
+<h2>County Level MOS<a class="headerlink" href="#county-level-mos" title="Permalink to this headline">¶</a></h2>
+<p><strong>County Level MOS</strong> = <strong>Total Stock on Hand at County level</strong> / <strong>Adjusted county AMC</strong></p>
+<blockquote>
+<div><p>where;
+<em>Total Stock on Hand at County level</em>: is the total quantity held in stock in the county. It is obtained by aggregating the physical stock count across all facilities in the county. (Data from DHIS2).</p>
+<p><strong>Adjusted County AMC</strong> is given by the formula below:</p>
+<p><strong>Adjusted County AMC</strong> = {[(TMCC1/NMRR1)+(TMCC2/NMRR2)+(TMCC3/NMRR3)+...+(TMCCn)] / <em>n</em>}</p>
+<p><strong>TMCC</strong> = Total Monthly Consumption County Level. Its obtained by aggregating repored total quantity dispensed across all facilities in the county. (Data from DHIS2).</p>
+<p><strong>NMRR</strong> = National Monthly Reporting Rate expressed as a percentage (Data from DHIS2).</p>
+<p><strong>n</strong> = Number of months(Typically six months).</p>
+<p>County level MOS is computed for each county for all commodities.</p>
+</div></blockquote>
+<p>Using the processes/formulas provided above, the tool should produce the outputs shown below:</p>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
