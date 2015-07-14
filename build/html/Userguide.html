@@ -45,7 +45,7 @@
         
         
   <div class="section" id="user-guide">
-<h1>User guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
+<h1><strong>User guide</strong><a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>MSH/HCSM is a key member of the Malaria drug management subcommittee, which is involved in the stockstatus monitoring
@@ -79,7 +79,7 @@ tool.</p>
 <div class="section" id="system-requirements">
 <h3>System requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h3>
 <p>Chrome/Chromium browser is recommended for the application. This is because of the javascript used in the application wil be able to load faster.</p>
-<p>Login roles to DHIS2 are also required inorder to access the application.</p>
+<p>Login roles to the stock status management tool are also required inorder to access the application and its functionality.</p>
 <p><a class="reference external" href="https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s02.html">Authentication</a> is the process by which clients send login credentials over the HTTP to a web server. The request is
 associated with a specific user, while <a class="reference external" href="https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s02.html">authorization</a> determines if the user has permission to perform
 the requested operation.</p>
@@ -105,17 +105,19 @@ the requested operation.</p>
 <p>Here is the login page:</p>
 <blockquote>
 <div><div class="figure">
-<img alt="_images/homepage.jpg" src="_images/homepage.jpg" />
+<img alt="_images/login.png" src="_images/login.png" />
+</div>
+</div></blockquote>
+<p>After successiful login, the homepage is loaded.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/home.png" src="_images/home.png" />
 </div>
 </div></blockquote>
 </div>
 <div class="section" id="logging-out">
 <h4>Logging out<a class="headerlink" href="#logging-out" title="Permalink to this headline">¶</a></h4>
-<p>You can logout after using the tool.</p>
-<p>Here is the logout panel</p>
-<div class="figure">
-<img alt="_images/homepage.jpg" src="_images/homepage.jpg" />
-</div>
+<p>You can logout after using the tool by clicking the logout button in the menu bar.</p>
 <p>A successful logout will bring up a  success
 message similar to the one below:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
@@ -126,77 +128,271 @@ message similar to the one below:</p>
 </div>
 </div>
 </div>
-<div class="section" id="setting-up-users-and-permissions">
-<h2>Setting up users and permissions<a class="headerlink" href="#setting-up-users-and-permissions" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">PUT</span></tt> or <tt class="docutils literal"><span class="pre">PATCH</span></tt> to a group <strong>detail URL</strong> e.g <tt class="docutils literal"><span class="pre">/api/users/groups/1/</span></tt>.</p>
-<p>For example, to take away from the example role the &#8220;Can change email address&#8221;
-permission, the following <tt class="docutils literal"><span class="pre">PATCH</span></tt> request should be sent:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
-    <span class="s2">&quot;permissions&quot;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">61</span><span class="p">,</span>
-            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Can add email address&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;codename&quot;</span><span class="o">:</span> <span class="s2">&quot;add_emailaddress&quot;</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>A similar approach will be followed to add permissions.</p>
-<p>A successful operation will get back a <tt class="docutils literal"><span class="pre">HTTP</span> <span class="pre">200</span> <span class="pre">OK</span></tt> status.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><strong>Permissions will always be overwritten</strong> when you perform an update.</p>
-</div>
-</div>
 <div class="section" id="user-management">
 <h2>User management<a class="headerlink" href="#user-management" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="user-registration-sign-up">
 <h3>User registration ( sign up )<a class="headerlink" href="#user-registration-sign-up" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="updating-user-details">
-<h3>Updating user details<a class="headerlink" href="#updating-user-details" title="Permalink to this headline">¶</a></h3>
-<p>Every writable attribute of a user record can be <tt class="docutils literal"><span class="pre">PATCH``ed.</span> <span class="pre">For</span> <span class="pre">example,</span>
-<span class="pre">to</span> <span class="pre">inactivate</span> <span class="pre">or</span> <span class="pre">retire</span> <span class="pre">a</span> <span class="pre">user,</span> <span class="pre">``PATCH</span></tt> the user&#8217;s ( detail ) record and set
-<tt class="docutils literal"><span class="pre">is_active</span></tt> to <tt class="docutils literal"><span class="pre">false</span></tt>.</p>
-<p>For example: if the detail record for the user we registered above
-( <tt class="docutils literal"><span class="pre">likeforreal</span></tt> ) is to be found at <tt class="docutils literal"><span class="pre">/api/users/9/</span></tt>, the user can be
-inactivated by <tt class="docutils literal"><span class="pre">PATCH</span></tt> ing <tt class="docutils literal"><span class="pre">/api/users/9/</span></tt> with:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
-    <span class="s2">&quot;active&quot;</span><span class="o">:</span> <span class="kc">false</span>
-<span class="p">}</span>
-</pre></div>
 </div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The same general approach can be used for any other flag e.g
-<tt class="docutils literal"><span class="pre">is_superuser</span></tt>.</p>
+<div class="section" id="user-tasks">
+<h2><strong>User tasks</strong><a class="headerlink" href="#user-tasks" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="setup">
+<h2><strong>Setup</strong><a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="funding-agency">
+<h3>Funding Agency<a class="headerlink" href="#funding-agency" title="Permalink to this headline">¶</a></h3>
+<p>This loads the panel for managing the funding agencies. The user clicks a funding agency from the list given for editing or deleting.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/fundingAgency.png" src="_images/fundingAgency.png" />
+</div>
+</div></blockquote>
+<dl class="docutils">
+<dt>After choosing one of the agencies, a user can edit or delete it.</dt>
+<dd><div class="first last figure">
+<img alt="_images/manageAgency.png" src="_images/manageAgency.png" />
+</div>
+</dd>
+</dl>
+<p>A user can also add a funding by clicking the button of adding an agency.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/addAgency.png" src="_images/addAgency.png" />
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="supply-chain-agencies">
+<h3>Supply chain agencies<a class="headerlink" href="#supply-chain-agencies" title="Permalink to this headline">¶</a></h3>
+<p>This loads the panel for managing the supply chain agencies. The user clicks a supply chain agency from the list given for editing or deleting.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/supplyChainAgency.png" src="_images/supplyChainAgency.png" />
+</div>
+</div></blockquote>
+<dl class="docutils">
+<dt>After choosing one of the supply chain agencies, a user can edit or delete it.</dt>
+<dd><div class="first last figure">
+<img alt="_images/addEditSupplyAgency.png" src="_images/addEditSupplyAgency.png" />
+</div>
+</dd>
+</dl>
+<p>A user can also add a supply chain agency by clicking the button of adding a supply chain agency.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/addSupplyChainAgency.png" src="_images/addSupplyChainAgency.png" />
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="commodities">
+<h3>Commodities<a class="headerlink" href="#commodities" title="Permalink to this headline">¶</a></h3>
+<p>This loads the panel for managing the individual commodities. The user clicks a commodity from the list given for editing or deleting.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/commodity.png" src="_images/commodity.png" />
+</div>
+</div></blockquote>
+<dl class="docutils">
+<dt>After choosing one of the commodities, a user can edit or delete it.</dt>
+<dd><div class="first last figure">
+<img alt="_images/editCommodity.png" src="_images/editCommodity.png" />
+</div>
+</dd>
+</dl>
+<p>A user can also add a commodity by clicking the button of adding a commodity.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/addCommodity.png" src="_images/addCommodity.png" />
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="counties">
+<h3>Counties<a class="headerlink" href="#counties" title="Permalink to this headline">¶</a></h3>
+<p>This loads the panel for viewing and updating counties. The user clicks a specific county from the list given for updating details about it.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/counties.png" src="_images/counties.png" />
+</div>
+</div></blockquote>
+<dl class="docutils">
+<dt>After choosing one of the counties, a user can edit the zone and/or the comment about it.</dt>
+<dd><div class="first last figure">
+<img alt="_images/updateCounty.png" src="_images/updateCounty.png" />
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="static-parameters">
+<h3>Static parameters<a class="headerlink" href="#static-parameters" title="Permalink to this headline">¶</a></h3>
+<p>This loads the panel for managing the static parameters. The user clicks an item from the list given for editing or deleting.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/staticParamter.png" src="_images/staticParamter.png" />
+</div>
+</div></blockquote>
+<dl class="docutils">
+<dt>After choosing one of the static parameters, a user can edit or delete it.</dt>
+<dd><div class="first last figure">
+<img alt="_images/editStaticParameter.png" src="_images/editStaticParameter.png" />
+</div>
+</dd>
+</dl>
+<p>A user can also add a static parameter by clicking the button of adding a static parameter.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/addStaticParameter.png" src="_images/addStaticParameter.png" />
+</div>
+</div></blockquote>
 </div>
 </div>
-<div class="section" id="password-changes">
-<h3>Password changes<a class="headerlink" href="#password-changes" title="Permalink to this headline">¶</a></h3>
-<p>The password of the <strong>logged in user</strong> can be changed by making a <tt class="docutils literal"><span class="pre">POST</span></tt> to
-<tt class="docutils literal"><span class="pre">/api/rest-auth/password/change/</span></tt> a payload similar to this example:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
-    <span class="s2">&quot;old_password&quot;</span><span class="o">:</span> <span class="s2">&quot;oldanddonewith&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;new_password1&quot;</span><span class="o">:</span> <span class="s2">&quot;newhotness&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;new_password2&quot;</span><span class="o">:</span> <span class="s2">&quot;newhotness&quot;</span>
-<span class="p">}</span>
-</pre></div>
+<div class="section" id="transactions">
+<h2><strong>Transactions</strong><a class="headerlink" href="#transactions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pending-shipments">
+<h3>Pending shipments<a class="headerlink" href="#pending-shipments" title="Permalink to this headline">¶</a></h3>
+<p>This loads the panel for managing the pending shipments. The user clicks an item from the pending stock list given for editing or deleting.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/pendingShipment.png" src="_images/pendingShipment.png" />
+</div>
+</div></blockquote>
+<dl class="docutils">
+<dt>After choosing one of the pending stock, a user can edit or delete it.</dt>
+<dd><div class="first last figure">
+<img alt="_images/editDeletePendingStock.png" src="_images/editDeletePendingStock.png" />
+</div>
+</dd>
+</dl>
+<p>A user can also add a new transaction by clicking the button of adding a new transaction.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/addPendingStock.png" src="_images/addPendingStock.png" />
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="confirmed-shipments">
+<h3>Confirmed shipments<a class="headerlink" href="#confirmed-shipments" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="current-stock">
+<h3>Current Stock<a class="headerlink" href="#current-stock" title="Permalink to this headline">¶</a></h3>
+<p>This loads the panel for managing the current stock. The user clicks an item from the current stock list given for editing or deleting.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/currentStock.png" src="_images/currentStock.png" />
+</div>
+</div></blockquote>
+<dl class="docutils">
+<dt>After choosing one of the current stock commodities, a user can edit or delete it.</dt>
+<dd><div class="first last figure">
+<img alt="_images/editDeleteCurrentStock.png" src="_images/editDeleteCurrentStock.png" />
+</div>
+</dd>
+</dl>
+<p>A user can also add a new record by clicking the button of adding a new record.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/addCurrentStock.png" src="_images/addCurrentStock.png" />
+</div>
+</div></blockquote>
 </div>
 </div>
+<div class="section" id="reports">
+<h2><strong>Reports</strong><a class="headerlink" href="#reports" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="central-level-mos-report-forecast">
+<h3>Central level MOS Report(Forecast)<a class="headerlink" href="#central-level-mos-report-forecast" title="Permalink to this headline">¶</a></h3>
+<p>A report on central level MOS using forecast data. It reports on the following:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Commodity name</li>
+<li>Aggregated Adjusted Consumption Totals</li>
+<li>Aggregated Stock on Hand Totals</li>
+<li>Central level MOS</li>
+</ol>
+<div class="figure">
+<img alt="_images/centralLevelMOSforeCast.png" src="_images/centralLevelMOSforeCast.png" />
 </div>
-<div class="section" id="tasks">
-<h2>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="get-reports">
-<h3>Get reports<a class="headerlink" href="#get-reports" title="Permalink to this headline">¶</a></h3>
-<p>these are reports</p>
+</div></blockquote>
 </div>
-<div class="section" id="download-the-documentation-pdf">
-<h3>Download the Documentation(PDF)<a class="headerlink" href="#download-the-documentation-pdf" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="central-level-mos-report-dhis2">
+<h3>Central level MOS Report(DHIS2)<a class="headerlink" href="#central-level-mos-report-dhis2" title="Permalink to this headline">¶</a></h3>
+<p>It shows a report on the central level MOS from DHIS2. It reports on the following:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Commodity name</li>
+<li>Aggregated Adjusted Consumption Totals</li>
+<li>Aggregated Stock on Hand Totals</li>
+<li>Central level MOS</li>
+</ol>
+<div class="figure">
+<img alt="_images/centralLevelMOSReport.png" src="_images/centralLevelMOSReport.png" />
 </div>
-<div class="section" id="task3">
-<h3>Task3<a class="headerlink" href="#task3" title="Permalink to this headline">¶</a></h3>
+</div></blockquote>
+</div>
+<div class="section" id="county-level-mos-report-dhis2">
+<h3>County level MOS Report(DHIS2)<a class="headerlink" href="#county-level-mos-report-dhis2" title="Permalink to this headline">¶</a></h3>
+<p>It generates a report on the county level MOS. It reports on:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Commodity name</li>
+<li>Aggregated Adjusted Consumption Totals</li>
+<li>Aggregated Stock on Hand Totals</li>
+<li>County level MOS</li>
+</ol>
+<div class="figure">
+<img alt="_images/countyLevelMOSReport.png" src="_images/countyLevelMOSReport.png" />
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="current-pending">
+<h3>Current/Pending<a class="headerlink" href="#current-pending" title="Permalink to this headline">¶</a></h3>
+<p>It shows a report on the current/pending commodities. It reports on the following:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Stock on Hand(SOH)</li>
+<li>Total Pending consignments</li>
+<li>MOS</li>
+<li>Commodity</li>
+<li>Individual Agencies &amp; Quantity</li>
+</ol>
+<div class="figure">
+<img alt="_images/current_pendingCommodities.png" src="_images/current_pendingCommodities.png" />
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="total-pending-commodities">
+<h3>Total pending commodities<a class="headerlink" href="#total-pending-commodities" title="Permalink to this headline">¶</a></h3>
+<p>This shows a report on the total pending . It shows the following details:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Commodity</li>
+<li>Totals</li>
+</ol>
+<div class="figure">
+<img alt="_images/totalPendingStock.png" src="_images/totalPendingStock.png" />
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="individual-pending-commodities">
+<h3>Individual pending commodities<a class="headerlink" href="#individual-pending-commodities" title="Permalink to this headline">¶</a></h3>
+<p>This shows a report on the individual pending stock. It shows the following details:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Commodity</li>
+<li>Supporting agency</li>
+<li>Quantity</li>
+<li>E.T.A Details</li>
+</ol>
+<div class="figure">
+<img alt="_images/pendingStockReport.png" src="_images/pendingStockReport.png" />
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="commodities-agency">
+<h3>Commodities/Agency<a class="headerlink" href="#commodities-agency" title="Permalink to this headline">¶</a></h3>
+<p>This shows a report on the number of commodities per a given agency.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/commoditiesPerAgency.png" src="_images/commoditiesPerAgency.png" />
+</div>
+</div></blockquote>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">A future version of this server may add support for social authentication

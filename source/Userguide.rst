@@ -1,5 +1,5 @@
-User guide
-===========
+**User guide**
+===============
 
 Introduction
 ------------
@@ -35,7 +35,7 @@ System requirements
 ~~~~~~~~~~~~~~~~~~~
 Chrome/Chromium browser is recommended for the application. This is because of the javascript used in the application wil be able to load faster.
 
-Login roles to DHIS2 are also required inorder to access the application.
+Login roles to the stock status management tool are also required inorder to access the application and its functionality.
 
 
 
@@ -71,16 +71,17 @@ You have to loggin to the Stock management tool to access most of its functional
 Here is the login page:
 
  	
-	.. figure:: images/homepage.jpg
+	.. figure:: images/login.png
+
+After successiful login, the homepage is loaded.
+
+    .. figure:: images/home.png
 
 Logging out
 ++++++++++++++
 .. note::
-You can logout after using the tool.
+You can logout after using the tool by clicking the logout button in the menu bar.
 
-Here is the logout panel
-
-.. figure:: images/homepage.jpg
 
 A successful logout will bring up a  success
 message similar to the one below:
@@ -91,38 +92,6 @@ message similar to the one below:
         "success": "Successfully logged out."
     }
 
-    
-
-Setting up users and permissions 
--------------------------------------------
-
-Updating an existing role
-++++++++++++++++++++++++++++
-
-``PUT`` or ``PATCH`` to a group **detail URL** e.g ``/api/users/groups/1/``.
-
-For example, to take away from the example role the "Can change email address"
-permission, the following ``PATCH`` request should be sent:
-
-.. code-block:: javascript
-
-    {
-        "permissions": [
-            {
-                "id": 61,
-                "name": "Can add email address",
-                "codename": "add_emailaddress"
-            }
-        ]
-    }
-
-A similar approach will be followed to add permissions.
-
-A successful operation will get back a ``HTTP 200 OK`` status.
-
-.. note::
-
-    **Permissions will always be overwritten** when you perform an update.
 
 User management
 -------------------
@@ -131,52 +100,208 @@ User registration ( sign up )
 
 
 
- 
-Updating user details
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Every writable attribute of a user record can be ``PATCH``ed. For example,
-to inactivate or retire a user, ``PATCH`` the user's ( detail ) record and set
-``is_active`` to ``false``.
 
-For example: if the detail record for the user we registered above
-( ``likeforreal`` ) is to be found at ``/api/users/9/``, the user can be
-inactivated by ``PATCH`` ing ``/api/users/9/`` with:
 
-.. code-block:: javascript
+**User tasks**
+---------------
 
-    {
-        "active": false
-    }
 
-.. note::
 
-    The same general approach can be used for any other flag e.g
-    ``is_superuser``.
+**Setup**
+----------
 
-Password changes
+Funding Agency
+~~~~~~~~~~~~~~~
+This loads the panel for managing the funding agencies. The user clicks a funding agency from the list given for editing or deleting.
+
+    .. figure:: images/fundingAgency.png
+
+After choosing one of the agencies, a user can edit or delete it.
+    .. figure:: images/manageAgency.png
+
+A user can also add a funding by clicking the button of adding an agency.
+
+    .. figure:: images/addAgency.png
+
+
+
+
+Supply chain agencies
+~~~~~~~~~~~~~~~~~~~~~~
+This loads the panel for managing the supply chain agencies. The user clicks a supply chain agency from the list given for editing or deleting.
+
+    .. figure:: images/supplyChainAgency.png
+
+After choosing one of the supply chain agencies, a user can edit or delete it.
+    .. figure:: images/addEditSupplyAgency.png
+
+A user can also add a supply chain agency by clicking the button of adding a supply chain agency.
+
+    .. figure:: images/addSupplyChainAgency.png
+
+
+
+Commodities
+~~~~~~~~~~~~
+This loads the panel for managing the individual commodities. The user clicks a commodity from the list given for editing or deleting.
+
+    .. figure:: images/commodity.png
+
+After choosing one of the commodities, a user can edit or delete it.
+    .. figure:: images/editCommodity.png
+
+A user can also add a commodity by clicking the button of adding a commodity.
+
+    .. figure:: images/addCommodity.png
+
+
+
+Counties
+~~~~~~~~~
+This loads the panel for viewing and updating counties. The user clicks a specific county from the list given for updating details about it.
+
+    .. figure:: images/counties.png
+
+After choosing one of the counties, a user can edit the zone and/or the comment about it.
+    .. figure:: images/updateCounty.png
+
+Static parameters
+~~~~~~~~~~~~~~~~~~
+This loads the panel for managing the static parameters. The user clicks an item from the list given for editing or deleting.
+
+    .. figure:: images/staticParamter.png
+
+After choosing one of the static parameters, a user can edit or delete it.
+    .. figure:: images/editStaticParameter.png
+
+A user can also add a static parameter by clicking the button of adding a static parameter.
+
+    .. figure:: images/addStaticParameter.png
+
+
+**Transactions**
+-----------------
+
+Pending shipments
 ~~~~~~~~~~~~~~~~~~~
-The password of the **logged in user** can be changed by making a ``POST`` to
-``/api/rest-auth/password/change/`` a payload similar to this example:
+This loads the panel for managing the pending shipments. The user clicks an item from the pending stock list given for editing or deleting.
 
-.. code-block:: javascript
+    .. figure:: images/pendingShipment.png
 
-    {
-        "old_password": "oldanddonewith",
-        "new_password1": "newhotness",
-        "new_password2": "newhotness"
-    }
+After choosing one of the pending stock, a user can edit or delete it.
+    .. figure:: images/editDeletePendingStock.png
 
-Tasks
--------------------
-Get reports
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-these are reports
+A user can also add a new transaction by clicking the button of adding a new transaction.
+
+    .. figure:: images/addPendingStock.png
 
 
-Download the Documentation(PDF)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Task3
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    
+Confirmed shipments
+~~~~~~~~~~~~~~~~~~~~
+
+Current Stock
+~~~~~~~~~~~~~~~
+This loads the panel for managing the current stock. The user clicks an item from the current stock list given for editing or deleting.
+
+    .. figure:: images/currentStock.png
+
+After choosing one of the current stock commodities, a user can edit or delete it.
+    .. figure:: images/editDeleteCurrentStock.png
+
+A user can also add a new record by clicking the button of adding a new record.
+
+    .. figure:: images/addCurrentStock.png
+
+
+**Reports**
+----------
+Central level MOS Report(Forecast)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A report on central level MOS using forecast data. It reports on the following:
+
+    #. Commodity name
+    #. Aggregated Adjusted Consumption Totals
+    #. Aggregated Stock on Hand Totals 
+    #. Central level MOS 
+
+    .. figure:: images/centralLevelMOSforeCast.png
+
+
+
+
+Central level MOS Report(DHIS2)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+It shows a report on the central level MOS from DHIS2. It reports on the following:
+
+    #. Commodity name
+    #. Aggregated Adjusted Consumption Totals
+    #. Aggregated Stock on Hand Totals 
+    #. Central level MOS 
+
+    
+    .. figure:: images/centralLevelMOSReport.png
+
+
+County level MOS Report(DHIS2)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+It generates a report on the county level MOS. It reports on:
+
+    #. Commodity name
+    #. Aggregated Adjusted Consumption Totals 
+    #. Aggregated Stock on Hand Totals 
+    #. County level MOS 
+
+    .. figure:: images/countyLevelMOSReport.png
+    
+
+
+
+Current/Pending
+~~~~~~~~~~~~~~~~~
+It shows a report on the current/pending commodities. It reports on the following:
+
+    #. Stock on Hand(SOH)
+    #. Total Pending consignments
+    #. MOS
+    #. Commodity
+    #. Individual Agencies & Quantity
+
+    .. figure:: images/current_pendingCommodities.png
+    
+
+Total pending commodities
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+This shows a report on the total pending . It shows the following details:
+
+    #. Commodity
+    #. Totals
+    
+
+    .. figure:: images/totalPendingStock.png
+
+
+Individual pending commodities
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This shows a report on the individual pending stock. It shows the following details:
+
+    #. Commodity
+    #. Supporting agency
+    #. Quantity
+    #. E.T.A Details
+
+    .. figure:: images/pendingStockReport.png
+
+
+
+Commodities/Agency
+~~~~~~~~~~~~~~~~~~~
+
+This shows a report on the number of commodities per a given agency.
+
+    .. figure:: images/commoditiesPerAgency.png
+
 
 
 .. note::
@@ -186,4 +311,4 @@ Task3
 
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 3
