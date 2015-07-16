@@ -108,6 +108,11 @@ There are various user roles according to the user who is logged in:
         - Updating data that is used to generate reports
 
 
+User management
+-----------------
+The admin has permissions to manage users.The admin has privillages to add new users and edit the existing ones.
+
+
 Launching the Application
 --------------------------
 
@@ -118,8 +123,15 @@ For the application to be launched, this `link`_  has to be typed in the browser
 .. _`link`: http://msh.urandu.com/new/index.php/
 
 
+    .. figure:: images/launching.png
+
+
+
 Application Layout
 -------------------
+This is the layout of the application:
+
+
 Header
 ~~~~~~~
 The header of the application has no menu. It has the message: *Malaria Commodities Stock Monitoring Tool*. It also has the log out icon.
@@ -131,40 +143,47 @@ The side bar of the aplication has an array of links. They include the following
 
 Dashboard
 +++++++++++
+
 This link redirects to the homepage of the application.
+
+
+    .. figure:: images/dashboard.png
 
 
 Manage
 +++++++
+
 This link enables the admin to manage the following:
 
-    - Funding agencies
-    - Supply chain agencies
-    - Commodities
-    - Counties
-    - Zones
-    - Forecasts
+    #. Funding agencies
+    #. Supply chain agencies
+    #. Commodities
+    #. Counties
+    #. Zones
+    #. Forecasts
 
 Stocks
 ++++++
+
 This link allows users to view a report on the malaria stock. It includes:
 
-    - Pending shipments
-    - Current stock
+    #. Pending shipments
+    #. Current stock
 
 
 Reports
 +++++++
+
 This link is used to query various reports from the application. The reports include:
 
-    - Central level MOS
-    - Forecast data MOS
-    - Facility level MOS
-    - National level MOS
-    - County level NOS
-    - Stocks
-    - Commodities
-    - Agencies
+    #. Central level MOS
+    #. Forecast data MOS
+    #. Facility level MOS
+    #. National level MOS
+    #. County level NOS
+    #. Stocks
+    #. Commodities
+    #. Agencies
 
 Manage Users
 +++++++++++++
@@ -181,8 +200,10 @@ Here, the admin can view the list of the users registered in the system. The adm
 
 
 
-**Setup**
+**Manage**
 ----------
+
+
 
 Funding Agency
 ~~~~~~~~~~~~~~~
@@ -190,7 +211,7 @@ This loads the panel for managing the funding agencies. The user clicks a fundin
 
     .. figure:: images/fundingAgency.png
 
-After choosing one of the agencies, a user can edit or delete it.
+After choosing one of the agencies, the admin can edit or delete it.
     .. figure:: images/manageAgency.png
 
 A user can also add a funding by clicking the button of adding an agency.
@@ -239,21 +260,21 @@ This loads the panel for viewing and updating counties. The user clicks a specif
 After choosing one of the counties, a user can edit the zone and/or the comment about it.
     .. figure:: images/updateCounty.png
 
-Static parameters
-~~~~~~~~~~~~~~~~~~
+Forecasts
+~~~~~~~~~~
 This loads the panel for managing the static parameters. The user clicks an item from the list given for editing or deleting.
 
-    .. figure:: images/staticParamter.png
+    .. figure:: images/forecasts.png
 
 After choosing one of the static parameters, a user can edit or delete it.
-    .. figure:: images/editStaticParameter.png
+    .. figure:: images/editForecasts.png
 
 A user can also add a static parameter by clicking the button of adding a static parameter.
 
-    .. figure:: images/addStaticParameter.png
+    .. figure:: images/addForecasts.png
 
 
-**Transactions**
+**Stocks**
 -----------------
 
 Pending shipments
@@ -263,17 +284,13 @@ This loads the panel for managing the pending shipments. The user clicks an item
     .. figure:: images/pendingShipment.png
 
 After choosing one of the pending stock, a user can edit or delete it.
-    .. figure:: images/editDeletePendingStock.png
+    .. figure:: images/editPendingStock.png
 
 A user can also add a new transaction by clicking the button of adding a new transaction.
 
     .. figure:: images/addPendingStock.png
 
 
-
-    
-Confirmed shipments
-~~~~~~~~~~~~~~~~~~~~
 
 Current Stock
 ~~~~~~~~~~~~~~~
@@ -291,18 +308,6 @@ A user can also add a new record by clicking the button of adding a new record.
 
 **Reports**
 ----------
-Central level MOS Report(Forecast)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-A report on central level MOS using forecast data. It reports on the following:
-
-    #. Commodity name
-    #. Aggregated Adjusted Consumption Totals
-    #. Aggregated Stock on Hand Totals 
-    #. Central level MOS 
-
-    .. figure:: images/centralLevelMOSforeCast.png
-
-
 
 
 Central level MOS Report(DHIS2)
@@ -316,6 +321,45 @@ It shows a report on the central level MOS from DHIS2. It reports on the followi
 
     
     .. figure:: images/centralLevelMOSReport.png
+
+Forecast data MOS
+~~~~~~~~~~~~~~~~~~~
+A report on central level MOS using forecast data. It reports on the following:
+
+    #. Commodity name
+    #. Aggregated Adjusted Consumption Totals
+    #. Aggregated Stock on Hand Totals 
+    #. Central level MOS 
+
+    .. figure:: images/centralLevelMOSforeCast.png
+
+Facility Level MOS
+~~~~~~~~~~~~~~~~~~~
+A report on facility level MOS. It reports on the following:
+
+    #. Commodity name
+    #. Adjusted Facility AMC 
+    #. Stock on Hand 
+    #. Facility Level Month of Stock(MOS) 
+
+    .. figure:: images/centralLevelMOSforeCast.png
+
+National Level MOS
+~~~~~~~~~~~~~~~~~~~~
+A report on national level MOS. It reports on the following:
+
+    #. Commodity name
+    #. Adjusted Facility AMC 
+    #. Stock on Hand 
+    #. Central Stock on Hand KEMSA 
+    #. Pending Shipments 
+    #. Facility Stock on Hand 
+    #. Central Level MOS
+    #. Pending Shipments MOS 
+    #. Facility Level MOS 
+    #. National Level MOS 
+
+    .. figure:: images/nationalLevelMOSforeCast.png
 
 
 County level MOS Report(DHIS2)
@@ -345,12 +389,12 @@ It shows a report on the current/pending commodities. It reports on the followin
     .. figure:: images/current_pendingCommodities.png
     
 
-Total pending commodities
+Commodities per agency
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-This shows a report on the total pending . It shows the following details:
+This shows total pending commoditities per agency. It reports on:
 
     #. Commodity
-    #. Totals
+    #. Agency Totals
     
 
     .. figure:: images/totalPendingStock.png
@@ -365,16 +409,16 @@ This shows a report on the individual pending stock. It shows the following deta
     #. Quantity
     #. E.T.A Details
 
-    .. figure:: images/pendingStockReport.png
+    .. figure:: images/individualPendingStockReport.png
 
 
 
-Commodities/Agency
-~~~~~~~~~~~~~~~~~~~
+Total pending shipments per commodities
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This shows a report on the number of commodities per a given agency.
 
-    .. figure:: images/commoditiesPerAgency.png
+    .. figure:: images/totalPendingShipments.png
 
 
 

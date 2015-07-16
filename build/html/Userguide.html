@@ -141,6 +141,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#login-roles">Login roles</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#user-management">User management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#launching-the-application">Launching the Application</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#application-layout">Application Layout</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#header">Header</a></li>
@@ -155,28 +156,29 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#user-tasks"><strong>User tasks</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#setup"><strong>Setup</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1"><strong>Manage</strong></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#funding-agency">Funding Agency</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#supply-chain-agencies">Supply chain agencies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commodities">Commodities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#counties">Counties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#static-parameters">Static parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#forecasts">Forecasts</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#transactions"><strong>Transactions</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2"><strong>Stocks</strong></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#pending-shipments">Pending shipments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#confirmed-shipments">Confirmed shipments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#current-stock">Current Stock</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id1"><strong>Reports</strong></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#central-level-mos-report-forecast">Central level MOS Report(Forecast)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3"><strong>Reports</strong></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#central-level-mos-report-dhis2">Central level MOS Report(DHIS2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#forecast-data-mos">Forecast data MOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#facility-level-mos">Facility Level MOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#national-level-mos">National Level MOS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#county-level-mos-report-dhis2">County level MOS Report(DHIS2)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#current-pending">Current/Pending</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#total-pending-commodities">Total pending commodities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commodities-per-agency">Commodities per agency</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#individual-pending-commodities">Individual pending commodities</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#commodities-agency">Commodities/Agency</a><ul class="simple">
+<li class="toctree-l3"><a class="reference internal" href="#total-pending-shipments-per-commodities">Total pending shipments per commodities</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -283,13 +285,13 @@ the requested operation.</p>
 <p>Here is the login page:</p>
 <blockquote>
 <div><div class="figure">
-<img alt="_images/login.png" src="_images/login.png" />
+<img alt="images/login.png" src="images/login.png" />
 </div>
 </div></blockquote>
 <p>After successiful login, the homepage is loaded.</p>
 <blockquote>
 <div><div class="figure">
-<img alt="_images/home.png" src="_images/home.png" />
+<img alt="images/home.png" src="images/home.png" />
 </div>
 </div></blockquote>
 </div>
@@ -329,13 +331,23 @@ the requested operation.</p>
 </div></blockquote>
 </div>
 </div>
+<div class="section" id="user-management">
+<h2>User management<a class="headerlink" href="#user-management" title="Permalink to this headline">¶</a></h2>
+<p>The admin has permissions to manage users.The admin has privillages to add new users and edit the existing ones.</p>
+</div>
 <div class="section" id="launching-the-application">
 <h2>Launching the Application<a class="headerlink" href="#launching-the-application" title="Permalink to this headline">¶</a></h2>
 <p>The stock status application is launched as a stand alone application since it is not incorporated in DHIS2. However, the application pulls data from DHIS2.</p>
 <p>For the application to be launched, this <a class="reference external" href="http://msh.urandu.com/new/index.php/">link</a>  has to be typed in the browser. The link redirects the user to the login page.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/launching.png" src="_images/launching.png" />
+</div>
+</div></blockquote>
 </div>
 <div class="section" id="application-layout">
 <h2>Application Layout<a class="headerlink" href="#application-layout" title="Permalink to this headline">¶</a></h2>
+<p>This is the layout of the application:</p>
 <div class="section" id="header">
 <h3>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h3>
 <p>The header of the application has no menu. It has the message: <em>Malaria Commodities Stock Monitoring Tool</em>. It also has the log out icon.</p>
@@ -346,36 +358,41 @@ the requested operation.</p>
 <div class="section" id="dashboard">
 <h4>Dashboard<a class="headerlink" href="#dashboard" title="Permalink to this headline">¶</a></h4>
 <p>This link redirects to the homepage of the application.</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/dashboard.png" src="_images/dashboard.png" />
+</div>
+</div></blockquote>
 </div>
 <div class="section" id="manage">
 <h4>Manage<a class="headerlink" href="#manage" title="Permalink to this headline">¶</a></h4>
 <p>This link enables the admin to manage the following:</p>
 <blockquote>
-<div><ul class="simple">
+<div><ol class="arabic simple">
 <li>Funding agencies</li>
 <li>Supply chain agencies</li>
 <li>Commodities</li>
 <li>Counties</li>
 <li>Zones</li>
 <li>Forecasts</li>
-</ul>
+</ol>
 </div></blockquote>
 </div>
 <div class="section" id="stocks">
 <h4>Stocks<a class="headerlink" href="#stocks" title="Permalink to this headline">¶</a></h4>
 <p>This link allows users to view a report on the malaria stock. It includes:</p>
 <blockquote>
-<div><ul class="simple">
+<div><ol class="arabic simple">
 <li>Pending shipments</li>
 <li>Current stock</li>
-</ul>
+</ol>
 </div></blockquote>
 </div>
 <div class="section" id="reports">
 <h4>Reports<a class="headerlink" href="#reports" title="Permalink to this headline">¶</a></h4>
 <p>This link is used to query various reports from the application. The reports include:</p>
 <blockquote>
-<div><ul class="simple">
+<div><ol class="arabic simple">
 <li>Central level MOS</li>
 <li>Forecast data MOS</li>
 <li>Facility level MOS</li>
@@ -384,7 +401,7 @@ the requested operation.</p>
 <li>Stocks</li>
 <li>Commodities</li>
 <li>Agencies</li>
-</ul>
+</ol>
 </div></blockquote>
 </div>
 <div class="section" id="manage-users">
@@ -396,8 +413,8 @@ the requested operation.</p>
 <div class="section" id="user-tasks">
 <h2><strong>User tasks</strong><a class="headerlink" href="#user-tasks" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="setup">
-<h2><strong>Setup</strong><a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h2><strong>Manage</strong><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="funding-agency">
 <h3>Funding Agency<a class="headerlink" href="#funding-agency" title="Permalink to this headline">¶</a></h3>
 <p>This loads the panel for managing the funding agencies. The user clicks a funding agency from the list given for editing or deleting.</p>
@@ -407,7 +424,7 @@ the requested operation.</p>
 </div>
 </div></blockquote>
 <dl class="docutils">
-<dt>After choosing one of the agencies, a user can edit or delete it.</dt>
+<dt>After choosing one of the agencies, the admin can edit or delete it.</dt>
 <dd><div class="first last figure">
 <img alt="_images/manageAgency.png" src="_images/manageAgency.png" />
 </div>
@@ -480,31 +497,31 @@ the requested operation.</p>
 </dd>
 </dl>
 </div>
-<div class="section" id="static-parameters">
-<h3>Static parameters<a class="headerlink" href="#static-parameters" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="forecasts">
+<h3>Forecasts<a class="headerlink" href="#forecasts" title="Permalink to this headline">¶</a></h3>
 <p>This loads the panel for managing the static parameters. The user clicks an item from the list given for editing or deleting.</p>
 <blockquote>
 <div><div class="figure">
-<img alt="_images/staticParamter.png" src="_images/staticParamter.png" />
+<img alt="_images/forecasts.png" src="_images/forecasts.png" />
 </div>
 </div></blockquote>
 <dl class="docutils">
 <dt>After choosing one of the static parameters, a user can edit or delete it.</dt>
 <dd><div class="first last figure">
-<img alt="_images/editStaticParameter.png" src="_images/editStaticParameter.png" />
+<img alt="_images/editForecasts.png" src="_images/editForecasts.png" />
 </div>
 </dd>
 </dl>
 <p>A user can also add a static parameter by clicking the button of adding a static parameter.</p>
 <blockquote>
 <div><div class="figure">
-<img alt="_images/addStaticParameter.png" src="_images/addStaticParameter.png" />
+<img alt="_images/addForecasts.png" src="_images/addForecasts.png" />
 </div>
 </div></blockquote>
 </div>
 </div>
-<div class="section" id="transactions">
-<h2><strong>Transactions</strong><a class="headerlink" href="#transactions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2><strong>Stocks</strong><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="pending-shipments">
 <h3>Pending shipments<a class="headerlink" href="#pending-shipments" title="Permalink to this headline">¶</a></h3>
 <p>This loads the panel for managing the pending shipments. The user clicks an item from the pending stock list given for editing or deleting.</p>
@@ -516,7 +533,7 @@ the requested operation.</p>
 <dl class="docutils">
 <dt>After choosing one of the pending stock, a user can edit or delete it.</dt>
 <dd><div class="first last figure">
-<img alt="_images/editDeletePendingStock.png" src="_images/editDeletePendingStock.png" />
+<img alt="_images/editPendingStock.png" src="_images/editPendingStock.png" />
 </div>
 </dd>
 </dl>
@@ -526,9 +543,6 @@ the requested operation.</p>
 <img alt="_images/addPendingStock.png" src="_images/addPendingStock.png" />
 </div>
 </div></blockquote>
-</div>
-<div class="section" id="confirmed-shipments">
-<h3>Confirmed shipments<a class="headerlink" href="#confirmed-shipments" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="current-stock">
 <h3>Current Stock<a class="headerlink" href="#current-stock" title="Permalink to this headline">¶</a></h3>
@@ -553,10 +567,25 @@ the requested operation.</p>
 </div></blockquote>
 </div>
 </div>
-<div class="section" id="id1">
-<h2><strong>Reports</strong><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="central-level-mos-report-forecast">
-<h3>Central level MOS Report(Forecast)<a class="headerlink" href="#central-level-mos-report-forecast" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h2><strong>Reports</strong><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="central-level-mos-report-dhis2">
+<h3>Central level MOS Report(DHIS2)<a class="headerlink" href="#central-level-mos-report-dhis2" title="Permalink to this headline">¶</a></h3>
+<p>It shows a report on the central level MOS from DHIS2. It reports on the following:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Commodity name</li>
+<li>Aggregated Adjusted Consumption Totals</li>
+<li>Aggregated Stock on Hand Totals</li>
+<li>Central level MOS</li>
+</ol>
+<div class="figure">
+<img alt="images/centralLevelMOSReport.png" src="images/centralLevelMOSReport.png" />
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="forecast-data-mos">
+<h3>Forecast data MOS<a class="headerlink" href="#forecast-data-mos" title="Permalink to this headline">¶</a></h3>
 <p>A report on central level MOS using forecast data. It reports on the following:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -570,18 +599,39 @@ the requested operation.</p>
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="central-level-mos-report-dhis2">
-<h3>Central level MOS Report(DHIS2)<a class="headerlink" href="#central-level-mos-report-dhis2" title="Permalink to this headline">¶</a></h3>
-<p>It shows a report on the central level MOS from DHIS2. It reports on the following:</p>
+<div class="section" id="facility-level-mos">
+<h3>Facility Level MOS<a class="headerlink" href="#facility-level-mos" title="Permalink to this headline">¶</a></h3>
+<p>A report on facility level MOS. It reports on the following:</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li>Commodity name</li>
-<li>Aggregated Adjusted Consumption Totals</li>
-<li>Aggregated Stock on Hand Totals</li>
-<li>Central level MOS</li>
+<li>Adjusted Facility AMC</li>
+<li>Stock on Hand</li>
+<li>Facility Level Month of Stock(MOS)</li>
 </ol>
 <div class="figure">
-<img alt="_images/centralLevelMOSReport.png" src="_images/centralLevelMOSReport.png" />
+<img alt="_images/centralLevelMOSforeCast.png" src="_images/centralLevelMOSforeCast.png" />
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="national-level-mos">
+<h3>National Level MOS<a class="headerlink" href="#national-level-mos" title="Permalink to this headline">¶</a></h3>
+<p>A report on national level MOS. It reports on the following:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Commodity name</li>
+<li>Adjusted Facility AMC</li>
+<li>Stock on Hand</li>
+<li>Central Stock on Hand KEMSA</li>
+<li>Pending Shipments</li>
+<li>Facility Stock on Hand</li>
+<li>Central Level MOS</li>
+<li>Pending Shipments MOS</li>
+<li>Facility Level MOS</li>
+<li>National Level MOS</li>
+</ol>
+<div class="figure">
+<img alt="_images/nationalLevelMOSforeCast.png" src="_images/nationalLevelMOSforeCast.png" />
 </div>
 </div></blockquote>
 </div>
@@ -616,13 +666,13 @@ the requested operation.</p>
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="total-pending-commodities">
-<h3>Total pending commodities<a class="headerlink" href="#total-pending-commodities" title="Permalink to this headline">¶</a></h3>
-<p>This shows a report on the total pending . It shows the following details:</p>
+<div class="section" id="commodities-per-agency">
+<h3>Commodities per agency<a class="headerlink" href="#commodities-per-agency" title="Permalink to this headline">¶</a></h3>
+<p>This shows total pending commoditities per agency. It reports on:</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li>Commodity</li>
-<li>Totals</li>
+<li>Agency Totals</li>
 </ol>
 <div class="figure">
 <img alt="_images/totalPendingStock.png" src="_images/totalPendingStock.png" />
@@ -640,16 +690,16 @@ the requested operation.</p>
 <li>E.T.A Details</li>
 </ol>
 <div class="figure">
-<img alt="_images/pendingStockReport.png" src="_images/pendingStockReport.png" />
+<img alt="_images/individualPendingStockReport.png" src="_images/individualPendingStockReport.png" />
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="commodities-agency">
-<h3>Commodities/Agency<a class="headerlink" href="#commodities-agency" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="total-pending-shipments-per-commodities">
+<h3>Total pending shipments per commodities<a class="headerlink" href="#total-pending-shipments-per-commodities" title="Permalink to this headline">¶</a></h3>
 <p>This shows a report on the number of commodities per a given agency.</p>
 <blockquote>
 <div><div class="figure">
-<img alt="_images/commoditiesPerAgency.png" src="_images/commoditiesPerAgency.png" />
+<img alt="_images/totalPendingShipments.png" src="_images/totalPendingShipments.png" />
 </div>
 </div></blockquote>
 <div class="admonition note">

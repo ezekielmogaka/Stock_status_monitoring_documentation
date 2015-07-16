@@ -122,7 +122,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Structure.html">Project structure</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Structure.html#assets">Assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Structure.html#client">Client</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Structure.html#db">db</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="Structure.html#database">Database</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -138,14 +138,11 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="Userguide.html#user-management">User management</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Userguide.html#user-registration-sign-up">User registration ( sign up )</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="Userguide.html#permissions">Permissions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="Userguide.html#login-roles">Login roles</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="Userguide.html#user-management">User management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Userguide.html#launching-the-application">Launching the Application</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Userguide.html#application-layout">Application Layout</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="Userguide.html#header">Header</a></li>
@@ -160,28 +157,29 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Userguide.html#user-tasks"><strong>User tasks</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Userguide.html#setup"><strong>Setup</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Userguide.html#id1"><strong>Manage</strong></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="Userguide.html#funding-agency">Funding Agency</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Userguide.html#supply-chain-agencies">Supply chain agencies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Userguide.html#commodities">Commodities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Userguide.html#counties">Counties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Userguide.html#static-parameters">Static parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#forecasts">Forecasts</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="Userguide.html#transactions"><strong>Transactions</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Userguide.html#id2"><strong>Stocks</strong></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="Userguide.html#pending-shipments">Pending shipments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Userguide.html#confirmed-shipments">Confirmed shipments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Userguide.html#current-stock">Current Stock</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="Userguide.html#id1"><strong>Reports</strong></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Userguide.html#central-level-mos-report-forecast">Central level MOS Report(Forecast)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Userguide.html#id3"><strong>Reports</strong></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="Userguide.html#central-level-mos-report-dhis2">Central level MOS Report(DHIS2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#forecast-data-mos">Forecast data MOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#facility-level-mos">Facility Level MOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#national-level-mos">National Level MOS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Userguide.html#county-level-mos-report-dhis2">County level MOS Report(DHIS2)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Userguide.html#current-pending">Current/Pending</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Userguide.html#total-pending-commodities">Total pending commodities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#commodities-per-agency">Commodities per agency</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Userguide.html#individual-pending-commodities">Individual pending commodities</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Userguide.html#commodities-agency">Commodities/Agency</a><ul class="simple">
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#total-pending-shipments-per-commodities">Total pending shipments per commodities</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -238,7 +236,7 @@
 <p>Screen shot for Facility level data:</p>
 <blockquote>
 <div><div class="figure">
-<img alt="_images/facility_level.png" src="_images/facility_level.png" />
+<img alt="images/facility_level.png" src="images/facility_level.png" />
 </div>
 </div></blockquote>
 </div>
@@ -248,7 +246,7 @@
 <p>Screen shot for Facility level data:</p>
 <blockquote>
 <div><div class="figure">
-<img alt="_images/facility_level.png" src="_images/facility_level.png" />
+<img alt="images/facility_level.png" src="images/facility_level.png" />
 </div>
 </div></blockquote>
 </div>
@@ -258,7 +256,7 @@
 <p>Screen shot for Facility level data:</p>
 <blockquote>
 <div><div class="figure">
-<img alt="_images/facility_level.png" src="_images/facility_level.png" />
+<img alt="images/facility_level.png" src="images/facility_level.png" />
 </div>
 </div></blockquote>
 </div>
@@ -268,7 +266,7 @@
 <p>Screen shot for Facility level data:</p>
 <blockquote>
 <div><div class="figure">
-<img alt="_images/facility_level.png" src="_images/facility_level.png" />
+<img alt="images/facility_level.png" src="images/facility_level.png" />
 </div>
 </div></blockquote>
 <div class="toctree-wrapper compound">
