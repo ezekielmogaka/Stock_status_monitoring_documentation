@@ -113,9 +113,9 @@ Launching the Application
 
 The stock status application is launched as a stand alone application since it is not incorporated in DHIS2. However, the application pulls data from DHIS2.
 
-For the application to be launched, this `url`_  has to be typed. The url directs the user to the login page.
+For the application to be launched, this `link`_  has to be typed in the browser. The link redirects the user to the login page.
 
-.. _`url`: http://msh.urandu.com/new/index.php/
+.. _`link`: http://msh.urandu.com/new/index.php/
 
 
 Application Layout
@@ -129,13 +129,13 @@ Side bar
 ~~~~~~~~~
 The side bar of the aplication has an array of links. They include the following:
 
-Dashboard
-+++++++++++
+- Dashboard
++++++++++++++
 This link redirects to the homepage of the application.
 
 
-Manage
-+++++++
+- Manage
++++++++++
 This link enables the admin to manage the following:
 
     - Funding agencies
@@ -145,16 +145,16 @@ This link enables the admin to manage the following:
     - Zones
     - Forecasts
 
-Stocks
-++++++
+- Stocks
++++++++++
 This link allows users to view a report on the malaria stock. It includes:
 
     - Pending shipments
     - Current stock
 
 
-Reports
-+++++++
+- Reports
+++++++++++
 This link is used to query various reports from the application. The reports include:
 
     - Central level MOS
@@ -166,8 +166,8 @@ This link is used to query various reports from the application. The reports inc
     - Commodities
     - Agencies
 
-Manage Users
-+++++++++++++
+- Manage Users
++++++++++++++++
 
 Here, the admin can view the list of the users registered in the system. The admin has the permissions of adding new users and updating their details.
     
