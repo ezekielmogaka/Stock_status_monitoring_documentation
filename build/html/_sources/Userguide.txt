@@ -79,12 +79,12 @@ After successiful login, the homepage is loaded.
 
 Logging out
 ++++++++++++++
+
 .. note::
-You can logout after using the tool by clicking the logout button in the menu bar.
+    A user can logout after using the tool by clicking the logout button located in the header.
 
 
-A successful logout will bring up a  success
-message similar to the one below:
+A successful logout will bring up a  success message similar to the one below:
 
 .. code-block:: javascript
 
@@ -93,10 +93,6 @@ message similar to the one below:
     }
 
 
-User management
--------------------
-User registration ( sign up )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Permissions
 -------------
