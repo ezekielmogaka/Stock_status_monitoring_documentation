@@ -331,7 +331,7 @@ A report on central level MOS using forecast data. It reports on the following:
     #. Aggregated Stock on Hand Totals 
     #. Central level MOS 
 
-    .. figure:: images/centralLevelMOSforeCast.png
+    .. figure:: images/forecastMOSforeCast.png
 
 Facility Level MOS
 ~~~~~~~~~~~~~~~~~~~
