@@ -8,7 +8,7 @@
     
     <title>User guide &mdash; Stock status management tool 0.1 documentation</title>
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -28,22 +28,112 @@
     <link rel="prev" title="Project structure" href="Structure.html" /> 
   </head>
   <body>
-      <div class="header"><h1 class="heading"><a href="index.html">
-          <span>Stock status management tool 0.1 documentation</span></a></h1>
-        <h2 class="heading"><span>User guide</span></h2>
-      </div>
-      <div class="topnav">
-      
-        <p>
-        «&#160;&#160;<a href="Structure.html">Project structure</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        </p>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Structure.html" title="Project structure"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Stock status management tool 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><strong>User guide</strong></a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#getting-started">Getting started</a><ul>
+<li><a class="reference internal" href="#system-requirements">System requirements</a></li>
+<li><a class="reference internal" href="#session-authentication">Session Authentication</a><ul>
+<li><a class="reference internal" href="#logging-in">Logging in</a></li>
+<li><a class="reference internal" href="#logging-out">Logging out</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user-management">User management</a><ul>
+<li><a class="reference internal" href="#user-registration-sign-up">User registration ( sign up )</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#permissions">Permissions</a><ul>
+<li><a class="reference internal" href="#login-roles">Login roles</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#launching-the-application">Launching the Application</a></li>
+<li><a class="reference internal" href="#application-layout">Application Layout</a><ul>
+<li><a class="reference internal" href="#header">Header</a></li>
+<li><a class="reference internal" href="#side-bar">Side bar</a><ul>
+<li><a class="reference internal" href="#dashboard">Dashboard</a></li>
+<li><a class="reference internal" href="#manage">Manage</a></li>
+<li><a class="reference internal" href="#stocks">Stocks</a></li>
+<li><a class="reference internal" href="#reports">Reports</a></li>
+<li><a class="reference internal" href="#manage-users">Manage Users</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user-tasks"><strong>User tasks</strong></a></li>
+<li><a class="reference internal" href="#setup"><strong>Setup</strong></a><ul>
+<li><a class="reference internal" href="#funding-agency">Funding Agency</a></li>
+<li><a class="reference internal" href="#supply-chain-agencies">Supply chain agencies</a></li>
+<li><a class="reference internal" href="#commodities">Commodities</a></li>
+<li><a class="reference internal" href="#counties">Counties</a></li>
+<li><a class="reference internal" href="#static-parameters">Static parameters</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#transactions"><strong>Transactions</strong></a><ul>
+<li><a class="reference internal" href="#pending-shipments">Pending shipments</a></li>
+<li><a class="reference internal" href="#confirmed-shipments">Confirmed shipments</a></li>
+<li><a class="reference internal" href="#current-stock">Current Stock</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1"><strong>Reports</strong></a><ul>
+<li><a class="reference internal" href="#central-level-mos-report-forecast">Central level MOS Report(Forecast)</a></li>
+<li><a class="reference internal" href="#central-level-mos-report-dhis2">Central level MOS Report(DHIS2)</a></li>
+<li><a class="reference internal" href="#county-level-mos-report-dhis2">County level MOS Report(DHIS2)</a></li>
+<li><a class="reference internal" href="#current-pending">Current/Pending</a></li>
+<li><a class="reference internal" href="#total-pending-commodities">Total pending commodities</a></li>
+<li><a class="reference internal" href="#individual-pending-commodities">Individual pending commodities</a></li>
+<li><a class="reference internal" href="#commodities-agency">Commodities/Agency</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Structure.html"
+                        title="previous chapter">Project structure</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/Userguide.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
       </div>
-      <div class="content">
-        
-        
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
   <div class="section" id="user-guide">
 <h1><strong>User guide</strong><a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
@@ -132,6 +222,91 @@ message similar to the one below:</p>
 <h2>User management<a class="headerlink" href="#user-management" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="user-registration-sign-up">
 <h3>User registration ( sign up )<a class="headerlink" href="#user-registration-sign-up" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="permissions">
+<h2>Permissions<a class="headerlink" href="#permissions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="login-roles">
+<h3>Login roles<a class="headerlink" href="#login-roles" title="Permalink to this headline">¶</a></h3>
+<p>There are various user roles according to the user who is logged in:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first"><strong>Normal Users</strong> who can only only read data ie generating and viewing reports. These kind of users have no permissions to change anything in the application.</p>
+</li>
+<li><p class="first"><strong>The Admin</strong> who has all the permissions in the application. These include:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Creation and management of users</li>
+<li>Updating data that is used to generate reports</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="launching-the-application">
+<h2>Launching the Application<a class="headerlink" href="#launching-the-application" title="Permalink to this headline">¶</a></h2>
+<p>The stock status application is launched as a stand alone application since it is not incorporated in DHIS2. However, the application pulls data from DHIS2.</p>
+<p>For the application to be launched, this <a class="reference external" href="http://msh.urandu.com/new/index.php/">url</a>  has to be typed. The url directs the user to the login page.</p>
+</div>
+<div class="section" id="application-layout">
+<h2>Application Layout<a class="headerlink" href="#application-layout" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="header">
+<h3>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h3>
+<p>The header of the application has no menu. It has the message: <em>Malaria Commodities Stock Monitoring Tool</em>. It also has the log out icon.</p>
+</div>
+<div class="section" id="side-bar">
+<h3>Side bar<a class="headerlink" href="#side-bar" title="Permalink to this headline">¶</a></h3>
+<p>The side bar of the aplication has an array of links. They include the following:</p>
+<div class="section" id="dashboard">
+<h4>Dashboard<a class="headerlink" href="#dashboard" title="Permalink to this headline">¶</a></h4>
+<p>This link redirects to the homepage of the application.</p>
+</div>
+<div class="section" id="manage">
+<h4>Manage<a class="headerlink" href="#manage" title="Permalink to this headline">¶</a></h4>
+<p>This link enables the admin to manage the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Funding agencies</li>
+<li>Supply chain agencies</li>
+<li>Commodities</li>
+<li>Counties</li>
+<li>Zones</li>
+<li>Forecasts</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="stocks">
+<h4>Stocks<a class="headerlink" href="#stocks" title="Permalink to this headline">¶</a></h4>
+<p>This link allows users to view a report on the malaria stock. It includes:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Pending shipments</li>
+<li>Current stock</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="reports">
+<h4>Reports<a class="headerlink" href="#reports" title="Permalink to this headline">¶</a></h4>
+<p>This link is used to query various reports from the application. The reports include:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Central level MOS</li>
+<li>Forecast data MOS</li>
+<li>Facility level MOS</li>
+<li>National level MOS</li>
+<li>County level NOS</li>
+<li>Stocks</li>
+<li>Commodities</li>
+<li>Agencies</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="manage-users">
+<h4>Manage Users<a class="headerlink" href="#manage-users" title="Permalink to this headline">¶</a></h4>
+<p>Here, the admin can view the list of the users registered in the system. The admin has the permissions of adding new users and updating their details.</p>
+</div>
 </div>
 </div>
 <div class="section" id="user-tasks">
@@ -294,8 +469,8 @@ message similar to the one below:</p>
 </div></blockquote>
 </div>
 </div>
-<div class="section" id="reports">
-<h2><strong>Reports</strong><a class="headerlink" href="#reports" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h2><strong>Reports</strong><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="central-level-mos-report-forecast">
 <h3>Central level MOS Report(Forecast)<a class="headerlink" href="#central-level-mos-report-forecast" title="Permalink to this headline">¶</a></h3>
 <p>A report on central level MOS using forecast data. It reports on the following:</p>
@@ -407,17 +582,23 @@ e.g login via Facebook, Twitter or Google accounts.</p>
 </div>
 
 
+          </div>
+        </div>
       </div>
-      <div class="bottomnav">
-      
-        <p>
-        «&#160;&#160;<a href="Structure.html">Project structure</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        </p>
-
-      </div>
-
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Structure.html" title="Project structure"
+             >previous</a> |</li>
+        <li><a href="index.html">Stock status management tool 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
     <div class="footer">
         &copy; Copyright 2015, sci devs.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.

@@ -98,6 +98,84 @@ User management
 User registration ( sign up )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Permissions
+-------------
+Login roles
+~~~~~~~~~~~~~
+There are various user roles according to the user who is logged in:
+
+    #. **Normal Users** who can only only read data ie generating and viewing reports. These kind of users have no permissions to change anything in the application.
+
+    #. **The Admin** who has all the permissions in the application. These include:
+
+        - Creation and management of users
+        - Updating data that is used to generate reports
+
+
+Launching the Application
+--------------------------
+
+The stock status application is launched as a stand alone application since it is not incorporated in DHIS2. However, the application pulls data from DHIS2.
+
+For the application to be launched, this `url`_  has to be typed. The url directs the user to the login page.
+
+.. _`url`: http://msh.urandu.com/new/index.php/
+
+
+Application Layout
+-------------------
+Header
+~~~~~~~
+The header of the application has no menu. It has the message: *Malaria Commodities Stock Monitoring Tool*. It also has the log out icon.
+
+
+Side bar
+~~~~~~~~~
+The side bar of the aplication has an array of links. They include the following:
+
+Dashboard
++++++++++++
+This link redirects to the homepage of the application.
+
+
+Manage
++++++++
+This link enables the admin to manage the following:
+
+    - Funding agencies
+    - Supply chain agencies
+    - Commodities
+    - Counties
+    - Zones
+    - Forecasts
+
+Stocks
+++++++
+This link allows users to view a report on the malaria stock. It includes:
+
+    - Pending shipments
+    - Current stock
+
+
+Reports
++++++++
+This link is used to query various reports from the application. The reports include:
+
+    - Central level MOS
+    - Forecast data MOS
+    - Facility level MOS
+    - National level MOS
+    - County level NOS
+    - Stocks
+    - Commodities
+    - Agencies
+
+Manage Users
++++++++++++++
+
+Here, the admin can view the list of the users registered in the system. The admin has the permissions of adding new users and updating their details.
+    
+
 
 
 
@@ -311,4 +389,4 @@ This shows a report on the number of commodities per a given agency.
 
 
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 4

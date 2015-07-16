@@ -8,7 +8,7 @@
     
     <title>Metadata resources &mdash; Stock status management tool 0.1 documentation</title>
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -27,27 +27,76 @@
     <link rel="top" title="Stock status management tool 0.1 documentation" href="index.html" /> 
   </head>
   <body>
-      <div class="header"><h1 class="heading"><a href="index.html">
-          <span>Stock status management tool 0.1 documentation</span></a></h1>
-        <h2 class="heading"><span>Metadata resources</span></h2>
-      </div>
-      <div class="topnav">
-      
-        <p>
-        <a class="uplink" href="index.html">Contents</a>
-        </p>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">Stock status management tool 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Metadata resources</a><ul>
+<li><a class="reference internal" href="#contact-types">Contact Types</a></li>
+<li><a class="reference internal" href="#towns">Towns</a></li>
+<li><a class="reference internal" href="#administrative-units">Administrative units</a><ul>
+<li><a class="reference internal" href="#counties">Counties</a></li>
+<li><a class="reference internal" href="#constituencies">Constituencies</a></li>
+<li><a class="reference internal" href="#wards">Wards</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#facility-types">Facility Types</a></li>
+<li><a class="reference internal" href="#facility-owners-and-owner-types">Facility owners and owner types</a><ul>
+<li><a class="reference internal" href="#facility-owner-types">Facility owner types</a></li>
+<li><a class="reference internal" href="#facility-owners">Facility owners</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#job-titles">Job titles</a></li>
+<li><a class="reference internal" href="#regulating-bodies">Regulating bodies</a><ul>
+<li><a class="reference internal" href="#regulating-body-contacts">Regulating body contacts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/08_support_resources.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
       </div>
-      <div class="content">
-        
-        
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
   <div class="section" id="metadata-resources">
 <h1>Metadata resources<a class="headerlink" href="#metadata-resources" title="Permalink to this headline">¶</a></h1>
 <p>This chapter assumes that the reader is familiar with the general
-principles explained in the <a class="reference internal" href="06_api.html"><em>Using the API - basic principles</em></a> chapter.</p>
+principles explained in the <tt class="xref doc docutils literal"><span class="pre">06_api</span></tt> chapter.</p>
 <p>The MFL&#8217;s job description is to standardize the management of information
 relating to facilities ( including community health units ), provide a standard
-catalogue of available healthcare <a class="reference internal" href="09_services.html"><em>The service catalog</em></a> and act as a central ingress
+catalogue of available healthcare <tt class="xref doc docutils literal"><span class="pre">09_services</span></tt> and act as a central ingress
 point for regulation. However, in order to do this, the MFL needs to have a
 constellation of support resources in its data model.</p>
 <p>This chapter concerns itself with the resources that hold &#8220;setup&#8221; type
@@ -269,7 +318,7 @@ known contact, although the use cases for that are more limited.</p>
 <p>This section introduces some patterns that will recur in this API:</p>
 <ul class="simple">
 <li>The use of filters: the list APIs are filterable by most of the
-fields that they list. You can explore this further in the <a class="reference internal" href="07_sandbox.html"><em>The API sandbox</em></a>.</li>
+fields that they list. You can explore this further in the <tt class="xref doc docutils literal"><span class="pre">07_sandbox</span></tt>.</li>
 <li>The use of <strong>explicit join tables</strong> for many to many relationships.</li>
 </ul>
 <p class="last">The <tt class="docutils literal"><span class="pre">regulating_body_contact</span></tt> resource that is the subject of this
@@ -287,15 +336,20 @@ is a massive pain. We&#8217;d rather not deal with it.</p>
 </div>
 
 
+          </div>
+        </div>
       </div>
-      <div class="bottomnav">
-      
-        <p>
-        <a class="uplink" href="index.html">Contents</a>
-        </p>
-
-      </div>
-
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">Stock status management tool 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
     <div class="footer">
         &copy; Copyright 2015, sci devs.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
