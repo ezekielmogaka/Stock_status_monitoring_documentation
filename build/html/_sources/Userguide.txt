@@ -68,7 +68,7 @@ For the functionality of the system to be accessed, a user has to login to the a
 
 
 
-Here is a screenshot of the application login by a given user:
+Here is a screenshot of the application login as seen by a given user:
 
  	
 	.. figure:: images/login.png
@@ -90,16 +90,7 @@ Logging out
 ++++++++++++++
 
 .. note::
-    A user can logout after using the tool by clicking the logout button located in the header.
-
-
-A successful logout will bring up a  success message similar to the one below:
-
-.. code-block:: javascript
-
-    {
-        "success": "Successfully logged out."
-    }
+    A user can logout after using the tool by clicking the logout button located in the header. After logging out, the user is redirected to the login page.
 
 
 
@@ -144,20 +135,18 @@ This is the layout of the application:
 
 Header
 ~~~~~~~
-The header of the application has no menu. It has the message: *Malaria Commodities Stock Monitoring Tool*. It also has the log out icon.
+The header of the application has no menu. It has a title:  *Malaria Commodities Stock Monitoring Tool*. It also has the log out icon that enables a user to log out of the system.
 
 
 Side bar
 ~~~~~~~~~
 The side bar of the aplication has an array of links. They include the following:
 
+
 Dashboard
 +++++++++++
 
-This link redirects to the homepage of the application.
-
-
-    .. figure:: images/dashboard.png
+This link redirects to the homepage of the application. The dashboard is the homepage of the system.
 
 
 Manage
@@ -198,6 +187,7 @@ This link is used to query various reports from the application. The reports inc
 Manage Users
 +++++++++++++
 
+
 Here, the admin can view the list of the users registered in the system. The admin has the permissions of adding new users and updating their details.
     
 
@@ -224,12 +214,17 @@ Funding Agency
 ~~~~~~~~~~~~~~~
 This loads the panel for managing the funding agencies. The user clicks a funding agency from the list given for editing or deleting.
 
+
     .. figure:: images/fundingAgency.png
 
+
 After choosing one of the agencies, the admin can edit or delete it.
+
+
     .. figure:: images/manageAgency.png
 
-A user can also add a funding by clicking the button of adding an agency.
+The admin can also add a funding by clicking the button of adding an agency.
+
 
     .. figure:: images/addAgency.png
 
@@ -243,9 +238,13 @@ This loads the panel for managing the supply chain agencies. The user clicks a s
     .. figure:: images/supplyChainAgency.png
 
 After choosing one of the supply chain agencies, a user can edit or delete it.
+
+
     .. figure:: images/addEditSupplyAgency.png
 
-A user can also add a supply chain agency by clicking the button of adding a supply chain agency.
+
+The admin can also add a supply chain agency by clicking the button of adding a supply chain agency.
+
 
     .. figure:: images/addSupplyChainAgency.png
 
@@ -253,12 +252,16 @@ A user can also add a supply chain agency by clicking the button of adding a sup
 
 Commodities
 ~~~~~~~~~~~~
+
 This loads the panel for managing the individual commodities. The user clicks a commodity from the list given for editing or deleting.
 
     .. figure:: images/commodity.png
 
 After choosing one of the commodities, a user can edit or delete it.
+
+
     .. figure:: images/editCommodity.png
+
 
 A user can also add a commodity by clicking the button of adding a commodity.
 
@@ -273,7 +276,10 @@ This loads the panel for viewing and updating counties. The user clicks a specif
     .. figure:: images/counties.png
 
 After choosing one of the counties, a user can edit the zone and/or the comment about it.
+
+
     .. figure:: images/updateCounty.png
+
 
 Forecasts
 ~~~~~~~~~~
@@ -282,6 +288,8 @@ This loads the panel for managing the static parameters. The user clicks an item
     .. figure:: images/forecasts.png
 
 After choosing one of the static parameters, a user can edit or delete it.
+
+
     .. figure:: images/editForecasts.png
 
 A user can also add a static parameter by clicking the button of adding a static parameter.
@@ -358,6 +366,8 @@ A report on facility level MOS. It reports on the following:
     #. Facility Level Month of Stock(MOS) 
 
     .. figure:: images/centralLevelMOSforeCast.png
+
+    
 
 National Level MOS
 ~~~~~~~~~~~~~~~~~~~~
