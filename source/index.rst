@@ -8,8 +8,7 @@ This documentation is for the malaria stock status monitoring  purposes of analy
 MSH/HCSM is a key member of the Malaria drug management subcommittee, which is involved in the stockstatus monitoring 
 of Malaria commodities both at the National and County levels.
 
-On a monthly basis, the Malaria Control Unit, drug management committee meets to review the stock status ofmalaria commodities 
-in the country, by analyzing data from various sources including:
+On a monthly basis, the Malaria Control Unit, drug management committee meets to review the stock status of malaria commodities in the country, by analyzing data from various sources including:
 	#. Facility and County Level Stock Data from DHIS.
 	#. National Level Stock Status data from the Supply Chain Agencies (KEMSA).
 	#. Pipeline information based on incoming shipments per funding agency.
