@@ -129,13 +129,13 @@ Side bar
 ~~~~~~~~~
 The side bar of the aplication has an array of links. They include the following:
 
-- Dashboard
-+++++++++++++
+Dashboard
++++++++++++
 This link redirects to the homepage of the application.
 
 
-- Manage
-+++++++++
+Manage
++++++++
 This link enables the admin to manage the following:
 
     - Funding agencies
@@ -145,16 +145,16 @@ This link enables the admin to manage the following:
     - Zones
     - Forecasts
 
-- Stocks
-+++++++++
+Stocks
+++++++
 This link allows users to view a report on the malaria stock. It includes:
 
     - Pending shipments
     - Current stock
 
 
-- Reports
-++++++++++
+Reports
++++++++
 This link is used to query various reports from the application. The reports include:
 
     - Central level MOS
@@ -166,8 +166,8 @@ This link is used to query various reports from the application. The reports inc
     - Commodities
     - Agencies
 
-- Manage Users
-+++++++++++++++
+Manage Users
++++++++++++++
 
 Here, the admin can view the list of the users registered in the system. The admin has the permissions of adding new users and updating their details.
     
