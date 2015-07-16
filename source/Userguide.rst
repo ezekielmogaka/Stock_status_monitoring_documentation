@@ -53,8 +53,7 @@ Session Authentication
 Logging in
 +++++++++++++
 
-For the functionality of the system to be accessed, a user has to login to the application.
- The payload should be similar to the example below:
+For the functionality of the system to be accessed, a user has to login to the application. The payload should be similar to the example below:
 
 .. code-block:: javascript
 
