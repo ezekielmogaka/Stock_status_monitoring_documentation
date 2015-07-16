@@ -13,13 +13,7 @@ in the country, by analyzing data from various sources including:
 	#. Pipeline information based on incoming shipments per funding agency.
 
 This data is aggregated and analyzed for the different malaria commodities and a 2 pager report generated that
-indicates to management, the months stock status and pipeline monitoring of Malaria commodities. Currently
-MCU uses an excel based tool to generate this information. The current requirement is to amend and enhance
-the current 2 pager tool to accommodate additional requirements including representation of Central and
-county level data for Malaria commodities, and to color code the different pending shipments based on the
-timelines for delivery. This request makes the current tool being used to develop the 2 pager report redundant
-as it will not meet the requirements of the Malaria control unit and the donor, hence the need to develop a new
-tool.
+indicates to management, the months stock status and pipeline monitoring of Malaria commodities. 
 
 .. _`DHIS2`: https://www.dhis2.org/
 
@@ -35,7 +29,11 @@ System requirements
 ~~~~~~~~~~~~~~~~~~~
 Chrome/Chromium browser is recommended for the application. This is because of the javascript used in the application wil be able to load faster.
 
-Login roles to the stock status management tool are also required inorder to access the application and its functionality.
+
+.. note::
+
+    Login roles to the stock status management tool are also required inorder to access the application and its functionality.
+
 
 
 
@@ -54,7 +52,8 @@ Session Authentication
 ~~~~~~~~~~~~~~~~~~~~~~~~
 Logging in
 +++++++++++++
-You have to loggin to the Stock management tool to access most of its functionality.
+
+For the functionality of the system to be accessed, a user has to login to the application.
  The payload should be similar to the example below:
 
 .. code-block:: javascript
@@ -68,14 +67,25 @@ You have to loggin to the Stock management tool to access most of its functional
 
     A successiful login will lead you to using the application.
 
-Here is the login page:
+
+
+Here is a screenshot of the application login by a given user:
 
  	
 	.. figure:: images/login.png
 
-After successiful login, the homepage is loaded.
+After successiful login, the dashboard is loaded. 
 
-    .. figure:: images/home.png
+Here is the screenshot of application layout as viewed by the admin:
+
+    .. figure:: images/dashboard.png
+
+
+Here is the screenshot of application layout as viewed by the read only user:
+
+    .. figure:: images/dashboard.png
+
+
 
 Logging out
 ++++++++++++++
@@ -94,8 +104,9 @@ A successful logout will bring up a  success message similar to the one below:
 
 
 
-Permissions
--------------
+**Permissions**
+----------------
+
 Login roles
 ~~~~~~~~~~~~~
 There are various user roles according to the user who is logged in:
@@ -108,13 +119,13 @@ There are various user roles according to the user who is logged in:
         - Updating data that is used to generate reports
 
 
-User management
------------------
+**User management**
+-------------------
 The admin has permissions to manage users.The admin has privillages to add new users and edit the existing ones.
 
 
-Launching the Application
---------------------------
+**Launching the Application**
+-----------------------------
 
 The stock status application is launched as a stand alone application since it is not incorporated in DHIS2. However, the application pulls data from DHIS2.
 
@@ -127,8 +138,8 @@ For the application to be launched, this `link`_  has to be typed in the browser
 
 
 
-Application Layout
--------------------
+**Application Layout**
+-----------------------
 This is the layout of the application:
 
 
@@ -197,6 +208,11 @@ Here, the admin can view the list of the users registered in the system. The adm
 
 **User tasks**
 ---------------
+The admin of the system
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The normal user of the system
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
@@ -421,11 +437,6 @@ This shows a report on the number of commodities per a given agency.
     .. figure:: images/totalPendingShipments.png
 
 
-
-.. note::
-
-    A future version of this server may add support for social authentication
-    e.g login via Facebook, Twitter or Google accounts.
 
 
 .. toctree::

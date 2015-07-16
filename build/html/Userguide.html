@@ -137,13 +137,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#permissions">Permissions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#permissions"><strong>Permissions</strong></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#login-roles">Login roles</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#user-management">User management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#launching-the-application">Launching the Application</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#application-layout">Application Layout</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#user-management"><strong>User management</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#launching-the-application"><strong>Launching the Application</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#application-layout"><strong>Application Layout</strong></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#header">Header</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#side-bar">Side bar</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#dashboard">Dashboard</a></li>
@@ -155,7 +155,11 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#user-tasks"><strong>User tasks</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-tasks"><strong>User tasks</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-admin-of-the-system">The admin of the system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-normal-user-of-the-system">The normal user of the system</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#id1"><strong>Manage</strong></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#funding-agency">Funding Agency</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#supply-chain-agencies">Supply chain agencies</a></li>
@@ -240,13 +244,7 @@ in the country, by analyzing data from various sources including:</p>
 </ol>
 </div></blockquote>
 <p>This data is aggregated and analyzed for the different malaria commodities and a 2 pager report generated that
-indicates to management, the months stock status and pipeline monitoring of Malaria commodities. Currently
-MCU uses an excel based tool to generate this information. The current requirement is to amend and enhance
-the current 2 pager tool to accommodate additional requirements including representation of Central and
-county level data for Malaria commodities, and to color code the different pending shipments based on the
-timelines for delivery. This request makes the current tool being used to develop the 2 pager report redundant
-as it will not meet the requirements of the Malaria control unit and the donor, hence the need to develop a new
-tool.</p>
+indicates to management, the months stock status and pipeline monitoring of Malaria commodities.</p>
 </div>
 <div class="section" id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
@@ -259,7 +257,10 @@ tool.</p>
 <div class="section" id="system-requirements">
 <h3>System requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h3>
 <p>Chrome/Chromium browser is recommended for the application. This is because of the javascript used in the application wil be able to load faster.</p>
-<p>Login roles to the stock status management tool are also required inorder to access the application and its functionality.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Login roles to the stock status management tool are also required inorder to access the application and its functionality.</p>
+</div>
 <p><a class="reference external" href="https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s02.html">Authentication</a> is the process by which clients send login credentials over the HTTP to a web server. The request is
 associated with a specific user, while <a class="reference external" href="https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s02.html">authorization</a> determines if the user has permission to perform
 the requested operation.</p>
@@ -269,7 +270,7 @@ the requested operation.</p>
 <div class="section" id="logging-in">
 <h4>Logging in<a class="headerlink" href="#logging-in" title="Permalink to this headline">¶</a></h4>
 <dl class="docutils">
-<dt>You have to loggin to the Stock management tool to access most of its functionality.</dt>
+<dt>For the functionality of the system to be accessed, a user has to login to the application.</dt>
 <dd>The payload should be similar to the example below:</dd>
 </dl>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
@@ -282,16 +283,23 @@ the requested operation.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">A successiful login will lead you to using the application.</p>
 </div>
-<p>Here is the login page:</p>
+<p>Here is a screenshot of the application login by a given user:</p>
 <blockquote>
 <div><div class="figure">
 <img alt="images/login.png" src="images/login.png" />
 </div>
 </div></blockquote>
-<p>After successiful login, the homepage is loaded.</p>
+<p>After successiful login, the dashboard is loaded.</p>
+<p>Here is the screenshot of application layout as viewed by the admin:</p>
 <blockquote>
 <div><div class="figure">
-<img alt="images/home.png" src="images/home.png" />
+<img alt="_images/dashboard.png" src="_images/dashboard.png" />
+</div>
+</div></blockquote>
+<p>Here is the screenshot of application layout as viewed by the read only user:</p>
+<blockquote>
+<div><div class="figure">
+<img alt="_images/dashboard.png" src="_images/dashboard.png" />
 </div>
 </div></blockquote>
 </div>
@@ -311,7 +319,7 @@ the requested operation.</p>
 </div>
 </div>
 <div class="section" id="permissions">
-<h2>Permissions<a class="headerlink" href="#permissions" title="Permalink to this headline">¶</a></h2>
+<h2><strong>Permissions</strong><a class="headerlink" href="#permissions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="login-roles">
 <h3>Login roles<a class="headerlink" href="#login-roles" title="Permalink to this headline">¶</a></h3>
 <p>There are various user roles according to the user who is logged in:</p>
@@ -332,11 +340,11 @@ the requested operation.</p>
 </div>
 </div>
 <div class="section" id="user-management">
-<h2>User management<a class="headerlink" href="#user-management" title="Permalink to this headline">¶</a></h2>
+<h2><strong>User management</strong><a class="headerlink" href="#user-management" title="Permalink to this headline">¶</a></h2>
 <p>The admin has permissions to manage users.The admin has privillages to add new users and edit the existing ones.</p>
 </div>
 <div class="section" id="launching-the-application">
-<h2>Launching the Application<a class="headerlink" href="#launching-the-application" title="Permalink to this headline">¶</a></h2>
+<h2><strong>Launching the Application</strong><a class="headerlink" href="#launching-the-application" title="Permalink to this headline">¶</a></h2>
 <p>The stock status application is launched as a stand alone application since it is not incorporated in DHIS2. However, the application pulls data from DHIS2.</p>
 <p>For the application to be launched, this <a class="reference external" href="http://msh.urandu.com/new/index.php/">link</a>  has to be typed in the browser. The link redirects the user to the login page.</p>
 <blockquote>
@@ -346,7 +354,7 @@ the requested operation.</p>
 </div></blockquote>
 </div>
 <div class="section" id="application-layout">
-<h2>Application Layout<a class="headerlink" href="#application-layout" title="Permalink to this headline">¶</a></h2>
+<h2><strong>Application Layout</strong><a class="headerlink" href="#application-layout" title="Permalink to this headline">¶</a></h2>
 <p>This is the layout of the application:</p>
 <div class="section" id="header">
 <h3>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h3>
@@ -412,6 +420,12 @@ the requested operation.</p>
 </div>
 <div class="section" id="user-tasks">
 <h2><strong>User tasks</strong><a class="headerlink" href="#user-tasks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-admin-of-the-system">
+<h3>The admin of the system<a class="headerlink" href="#the-admin-of-the-system" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="the-normal-user-of-the-system">
+<h3>The normal user of the system<a class="headerlink" href="#the-normal-user-of-the-system" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 <div class="section" id="id1">
 <h2><strong>Manage</strong><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
@@ -702,11 +716,6 @@ the requested operation.</p>
 <img alt="_images/totalPendingShipments.png" src="_images/totalPendingShipments.png" />
 </div>
 </div></blockquote>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">A future version of this server may add support for social authentication
-e.g login via Facebook, Twitter or Google accounts.</p>
-</div>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
