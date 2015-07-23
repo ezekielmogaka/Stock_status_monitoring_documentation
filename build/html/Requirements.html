@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; StockStatusMonitoring_Technical 1.0 documentation</title>
+  <title>Server Requirements for deployment &mdash; StockStatusMonitoring_Technical 1.0 documentation</title>
   
 
   
@@ -31,8 +31,8 @@
 
   
     <link rel="top" title="StockStatusMonitoring_Technical 1.0 documentation" href="index.html"/>
-        <link rel="next" title="Project structure" href="Structure.html"/>
-        <link rel="prev" title="Welcome to Stock status monitoring project technical documentation" href="index.html"/> 
+        <link rel="next" title="Deployment of the system" href="Installation.html"/>
+        <link rel="prev" title="Development tools" href="Development_tools.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -72,7 +72,7 @@
           
           
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Overview</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Structure.html">Project structure</a><ul>
@@ -92,10 +92,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Requirements.html">Server Requirements for deployment</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Requirements.html#web-server-software-requirements">Web server software requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Requirements.html#web-server-hardware-requirements">Web server hardware requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Requirements.html#client-side-requirements">Client side requirements</a><ul class="simple">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Server Requirements for deployment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#web-server-software-requirements">Web server software requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#web-server-hardware-requirements">Web server hardware requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#client-side-requirements">Client side requirements</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -146,11 +146,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Overview</li>
+    <li>Server Requirements for deployment</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/Overview.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/Requirements.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -159,19 +159,65 @@
 </div>
           <div role="main" class="document">
             
-  <div class="section" id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<p>The Stock Status Management tool analyzes data from various sources including:</p>
-<ol class="arabic simple">
-<li>Facility and County Level Stock Data from DHIS.</li>
-<li>National Level Stock Status data from the Supply Chain Agencies (KEMSA)</li>
-<li>Pipeline information based on incoming shipments per funding agency</li>
+  <div class="section" id="server-requirements-for-deployment">
+<h1>Server Requirements for deployment<a class="headerlink" href="#server-requirements-for-deployment" title="Permalink to this headline">¶</a></h1>
+<p>The Malaria Stock Status Management system needs to be installed on a web server.</p>
+<div class="section" id="web-server-software-requirements">
+<h2>Web server software requirements<a class="headerlink" href="#web-server-software-requirements" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">PHP 5.3.2+</p>
+</li>
+<li><p class="first">One of the following operating systems:</p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li>Linux/Unix/BSD</li>
+<li>Microsoft Windows XP SP3, Vista, Windows 7, Server 2008, Server 2008 R2</li>
+<li>Mac OS X 10.4+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Database:</dt>
+<dd><ul class="first last simple">
+<li>MySQL 5.0+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Web server:</dt>
+<dd><ul class="first last simple">
+<li>Apache 2.0+</li>
+</ul>
+</dd>
+</dl>
+</li>
 </ol>
-<p>This data is aggregated and analyzed for the different malaria commodities and a 2 pager report generated that indicates to management, the months stock status and pipeline status and pipeline status of malaria commodities.</p>
-<p>This tool is meant to amend and enhance the current 2 pager tool used by MCU to accomodate additional requirements including representation of Central and county level data for malaria commodities, and to color code the diffeent pending shipments based on the timelines for delivery.</p>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="web-server-hardware-requirements">
+<h2>Web server hardware requirements<a class="headerlink" href="#web-server-hardware-requirements" title="Permalink to this headline">¶</a></h2>
+<p>Hardware requirements vary widely depending on the traffic to the system, the complexity of its logic (i.e., PHP), and its size (i.e., database.) By default, all pages are dynamic, and thus access both the database and execute PHP code to generate.</p>
+<p>The recommendations for the hardware are:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Atleast 50 GB disk space in the server.</li>
+<li>Atleast 5 GB RAM</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="client-side-requirements">
+<h2>Client side requirements<a class="headerlink" href="#client-side-requirements" title="Permalink to this headline">¶</a></h2>
+<p>The malaria stock status is designed to work  well with Google Chrome, Mozilla Firefox and Internet Explorer 8+. The application works well across Windows, Linux, and Mac operating systems.</p>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
+</div>
 </div>
 </div>
 
@@ -181,10 +227,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Structure.html" class="btn btn-neutral float-right" title="Project structure" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Installation.html" class="btn btn-neutral float-right" title="Deployment of the system" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Welcome to Stock status monitoring project technical documentation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Development_tools.html" class="btn btn-neutral" title="Development tools" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
