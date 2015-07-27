@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Project structure &mdash; StockStatusMonitoring_Technical 1.0 documentation</title>
+  <title>Processes &mdash; StockStatusMonitoring_Technical 1.0 documentation</title>
   
 
   
@@ -31,8 +31,8 @@
 
   
     <link rel="top" title="StockStatusMonitoring_Technical 1.0 documentation" href="index.html"/>
-        <link rel="next" title="User guide" href="Userguide.html"/>
-        <link rel="prev" title="Development tools" href="Development.html"/> 
+        <link rel="next" title="Development tools" href="Development.html"/>
+        <link rel="prev" title="Data setup by the tool" href="DataSetup.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -88,12 +88,12 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Processes.html">Processes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Processes.html#procceses-involved">Procceses involved</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Processes.html#central-level-mos">Central Level MOS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Processes.html#facility-level-mos">Facility Level MOS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Processes.html#national-level-mos">National Level MOS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Processes.html#county-level-mos">County Level MOS</a><ul class="simple">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Processes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#procceses-involved">Procceses involved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#central-level-mos">Central Level MOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#facility-level-mos">Facility Level MOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#national-level-mos">National Level MOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#county-level-mos">County Level MOS</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -107,10 +107,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Project structure</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#assets">Assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#client">Client</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#database">Database</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="Structure.html">Project structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Structure.html#assets">Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Structure.html#client">Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Structure.html#database">Database</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -201,11 +201,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Project structure</li>
+    <li>Processes</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/Structure.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/Processes.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -214,39 +214,88 @@
 </div>
           <div role="main" class="document">
             
-  <div class="section" id="project-structure">
-<h1>Project structure<a class="headerlink" href="#project-structure" title="Permalink to this headline">¶</a></h1>
-<p>The malaria stock status monitoring tool contains three parts:</p>
+  <div class="section" id="processes">
+<h1>Processes<a class="headerlink" href="#processes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="procceses-involved">
+<h2>Procceses involved<a class="headerlink" href="#procceses-involved" title="Permalink to this headline">¶</a></h2>
+<p>After the capture of the monthly transaction data, the tool calculates the MOS data for facility, county and central levels.
+The basic formula for <strong>months of Stock (MOS)</strong> is:</p>
 <blockquote>
-<div><ol class="arabic simple">
-<li>Assets</li>
-<li>Client</li>
-<li>Database</li>
-</ol>
-</div></blockquote>
-<p>Each part forms an important part of this project.</p>
-<div class="section" id="assets">
-<h2>Assets<a class="headerlink" href="#assets" title="Permalink to this headline">¶</a></h2>
-<p>These are the resources needed in this project.</p>
-<p>It contains:</p>
+<div><em>Months of Stock(MOS)</em> = <em>Stock on Hand (SOH)</em> / <em>Average Monthly Consumption(AMC)</em></div></blockquote>
+<p>Months of Stock (MOS) is normally stored as a number, with one decimal point.
+Stock on Hand (SOH) is captured as an absolute figure based on Physical Stock Count or a Warehouse report. SOH is reported at different levels of the supply chain:</p>
 <blockquote>
 <div><ul class="simple">
-<li>CSS</li>
-<li>Bootstrap</li>
-<li>PHP - CodeIgniter framework</li>
-<li>JavaScript</li>
+<li>Central level</li>
+<li>County level</li>
+<li>Facility level</li>
 </ul>
 </div></blockquote>
+<p>Average Monthly Consumption (AMC) is captured only at facility level (where consumption happens), and may be adjusted for reporting rateto cater for consumption at non-reporting facilities.</p>
+<p>MOS is computed at four levels:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Central level</li>
+<li>Facility level</li>
+<li>National level</li>
+<li>County level</li>
+</ol>
+</div></blockquote>
 </div>
-<div class="section" id="client">
-<h2>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
-<p>This is the presentation and user interface logic.</p>
-<p>It contains scripts that will display on the browser. The client side is linked to the server side so that the user can make use of the server side logic.</p>
+<div class="section" id="central-level-mos">
+<h2>Central Level MOS<a class="headerlink" href="#central-level-mos" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><strong>Central level MOS</strong> = <strong>Stock on Hand at central level</strong> / <strong>Adjusted facility AMC</strong></dt>
+<dd><p class="first">where;</p>
+<p><em>Stock on Hand (SOH)</em> : This is the total quantity held in stock at the central level - as reported by the supply chain agency (KEMSA).</p>
+<p><em>Total Monthly Consumption (TMC)</em> at Facility level is obtained by summing the quantity dispensed (across all facilities in the country). This monthly TMC is adjusted to cater for non-reporting facilities to obtain the adjusted facility AMC using the formula:</p>
+<blockquote>
+<div><p><strong>Adjusted facility AMC</strong> = {[(TMCN1/NMRR1)+(TMCN2/NMRR2)+(TMCN3/NMRR3)+...+(TMCNn)] / <em>n</em>}</p>
+<p>where;</p>
+<p><strong>TMCN</strong> = Total Monthly Consumption National Level. Its obtained by aggregating repored total quantity dispensed across all facilities in the country. (Data from DHIS2).</p>
+<p><strong>NMRR</strong> = National Monthly Reporting Rate expressed as a percentage (Data from DHIS2).</p>
+<p><strong>n</strong> = Number of months(Typically six months).</p>
+</div></blockquote>
+<p class="last">Central level MOS is computed for all commodities.</p>
+</dd>
+</dl>
 </div>
-<div class="section" id="database">
-<h2>Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h2>
-<p>This is the database logic. It contains scripts for database authentication and connection creation as well as those for inserting, fetching and updating items on the database.</p>
-<p>The project&#8217;s landing page is at:  <a class="reference external" href="http://msh.urandu.com/">http://msh.urandu.com/</a></p>
+<div class="section" id="facility-level-mos">
+<h2>Facility Level MOS<a class="headerlink" href="#facility-level-mos" title="Permalink to this headline">¶</a></h2>
+<p><strong>Facility Level MOS</strong> = <strong>Total Stock on Hand at Facility level</strong> / <strong>Adjusted facility AMC</strong></p>
+<blockquote>
+<div><p>where;
+<em>Total Stock on Hand at Facility level</em>: is the total quantity held in stockin health facilities across the country. It is obtained by aggregating the physical stock count across all facilities in the country. (Data from DHIS2).</p>
+<p><strong>Adjusted facility AMC</strong> is given by the formula below:</p>
+<p><strong>Adjusted facility AMC</strong> = {[(TMCN1/NMRR1)+(TMCN2/NMRR2)+(TMCN3/NMRR3)+...+(TMCNn)] / <em>n</em>}</p>
+<p><strong>TMCN</strong> = Total Monthly Consumption National Level. Its obtained by aggregating repored total quantity dispensed across all facilities in the country. (Data from DHIS2).</p>
+<blockquote>
+<div><p><strong>NMRR</strong> = National Monthly Reporting Rate expressed as a percentage (Data from DHIS2).</p>
+<p><strong>n</strong> = Number of months(Typically six months).</p>
+</div></blockquote>
+<p>Facility level MOS is computed for all commodities.</p>
+</div></blockquote>
+</div>
+<div class="section" id="national-level-mos">
+<h2>National Level MOS<a class="headerlink" href="#national-level-mos" title="Permalink to this headline">¶</a></h2>
+<p>National level MOS is obtained by summing the Central Level MOS and the Facility Level MOS
+<strong>National Level MOS</strong> = <strong>Central Level MOS + Facility Level MOS</strong></p>
+<p>National Level MOS is computed for each commodity.</p>
+</div>
+<div class="section" id="county-level-mos">
+<h2>County Level MOS<a class="headerlink" href="#county-level-mos" title="Permalink to this headline">¶</a></h2>
+<p><strong>County Level MOS</strong> = <strong>Total Stock on Hand at County level</strong> / <strong>Adjusted county AMC</strong></p>
+<blockquote>
+<div><p>where;
+<em>Total Stock on Hand at County level</em>: is the total quantity held in stock in the county. It is obtained by aggregating the physical stock count across all facilities in the county. (Data from DHIS2).</p>
+<p><strong>Adjusted County AMC</strong> is given by the formula below:</p>
+<p><strong>Adjusted County AMC</strong> = {[(TMCC1/NMRR1)+(TMCC2/NMRR2)+(TMCC3/NMRR3)+...+(TMCCn)] / <em>n</em>}</p>
+<p><strong>TMCC</strong> = Total Monthly Consumption County Level. Its obtained by aggregating repored total quantity dispensed across all facilities in the county. (Data from DHIS2).</p>
+<p><strong>NMRR</strong> = National Monthly Reporting Rate expressed as a percentage (Data from DHIS2).</p>
+<p><strong>n</strong> = Number of months(Typically six months).</p>
+<p>County level MOS is computed for each county for all commodities.</p>
+</div></blockquote>
+<p>Using the processes/formulas provided above, the tool should produce the outputs shown below:</p>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
@@ -260,10 +309,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Userguide.html" class="btn btn-neutral float-right" title="User guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Development.html" class="btn btn-neutral float-right" title="Development tools" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Development.html" class="btn btn-neutral" title="Development tools" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="DataSetup.html" class="btn btn-neutral" title="Data setup by the tool" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

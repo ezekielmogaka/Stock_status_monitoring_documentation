@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Outputs &mdash; Stock status management tool 0.1 documentation</title>
+  <title>Outputs &mdash; StockStatusMonitoring_Technical 1.0 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="Stock status management tool 0.1 documentation" href="index.html"/>
+    <link rel="top" title="StockStatusMonitoring_Technical 1.0 documentation" href="index.html"/>
         <link rel="next" title="Development tools" href="Development.html"/>
         <link rel="prev" title="Processes" href="Processes.html"/> 
 
@@ -49,7 +49,7 @@
         
 
         
-          <a href="index.html" class="icon icon-home"> Stock status management tool
+          <a href="index.html" class="icon icon-home"> StockStatusMonitoring_Technical
         
 
         
@@ -99,22 +99,17 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Outputs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#sample-outputs">Sample outputs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#sample-output-1-facility-level-data">Sample Output 1 - Facility level Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sample-output-2-county-level-data">Sample Output 2 - County level Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sample-output-3-central-level-data">Sample Output 3 - Central level Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sample-output-4-national-level-data">Sample Output 4 - National level Data</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#key-outputs">Key outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#graphical-reports-generated">Graphical reports generated</a><ul class="simple">
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Development.html">Development tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Development.html#mysql-database">MySQL database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development.html#mysql-database">MYSQL database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Development.html#php-and-apache2-for-the-server-side">PHP and Apache2 for the server side</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Development.html#dhis2-web-api-querying-javascript-ajax-jquery">DHIS2 Web API Querying - JavaScript, AJAX, jQuery</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Development.html#html5-bootstrap-font-awesome-javascript-jquery-for-user-interface">HTML5, Bootstrap, Font-Awesome, JavaScript, jQuery for user interface</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="Development.html#javascript">JavaScript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development.html#html5-bootstrap-and-javascript-for-user-interface">HTML5, Bootstrap and JavaScript for user interface</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -129,13 +124,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Userguide.html"><strong>User guide</strong></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Userguide.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Userguide.html#getting-started">Getting started</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Userguide.html#system-requirements">System requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Userguide.html#session-authentication">Session Authentication</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Userguide.html#logging-in">Logging in</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Userguide.html#logging-out">Logging out</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="Userguide.html#getting-started">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Userguide.html#system-requirements">System requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Userguide.html#session-authentication">Session Authentication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#logging-in">Logging in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#logging-out">Logging out</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Userguide.html#permissions"><strong>Permissions</strong></a><ul>
@@ -151,9 +144,13 @@
 <li class="toctree-l4"><a class="reference internal" href="Userguide.html#settings">Settings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Userguide.html#stocks">Stocks</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Userguide.html#reports">Reports</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Userguide.html#manage-users">Manage Users</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Userguide.html#user-tasks">User tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#the-admin-of-the-system">The admin of the system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Userguide.html#the-normal-user-of-the-system">The normal user of the system</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Userguide.html#id1"><strong>Settings</strong></a><ul>
@@ -200,7 +197,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">Stock status management tool</a>
+        <a href="index.html">StockStatusMonitoring_Technical</a>
       </nav>
 
 
@@ -226,52 +223,30 @@
             
   <div class="section" id="outputs">
 <h1>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="sample-outputs">
-<h2>Sample outputs<a class="headerlink" href="#sample-outputs" title="Permalink to this headline">¶</a></h2>
-<p>Using the processes/formulas provided, the tool should produce the outputs shown below:</p>
-<div class="section" id="sample-output-1-facility-level-data">
-<h3>Sample Output 1 - Facility level Data<a class="headerlink" href="#sample-output-1-facility-level-data" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="key-outputs">
+<h2>Key outputs<a class="headerlink" href="#key-outputs" title="Permalink to this headline">¶</a></h2>
 <p>The tool is able to aggregate the Central level stock on hand and the pending stocks as per the funding agent in a table format for quick reference. This should be aggregated automatically.</p>
-<p>Screen shot for Facility level data:</p>
+<p>The tool is able to list the incoming shipments information based on the expected/pending stocks information captured for the month.</p>
+<p>The tool is able to aggregate the incoming shipments data from the pending stocks information captured and output an aggregate total per commodity information.</p>
+<p>The tool is able to give a breakdown of the supporting agencies totals by commodity in the format below:</p>
+</div>
+<div class="section" id="graphical-reports-generated">
+<h2>Graphical reports generated<a class="headerlink" href="#graphical-reports-generated" title="Permalink to this headline">¶</a></h2>
+<p>The tool generates a graphical representation of:</p>
 <blockquote>
-<div><div class="figure">
-<img alt="images/facility_level.png" src="images/facility_level.png" />
-</div>
-</div></blockquote>
-</div>
-<div class="section" id="sample-output-2-county-level-data">
-<h3>Sample Output 2 - County level Data<a class="headerlink" href="#sample-output-2-county-level-data" title="Permalink to this headline">¶</a></h3>
-<p>The tool allows the user to select a county and view the information in a table format.</p>
-<p>Screen shot for Facility level data:</p>
-<blockquote>
-<div><div class="figure">
-<img alt="images/facility_level.png" src="images/facility_level.png" />
-</div>
-</div></blockquote>
-</div>
-<div class="section" id="sample-output-3-central-level-data">
-<h3>Sample Output 3 - Central level Data<a class="headerlink" href="#sample-output-3-central-level-data" title="Permalink to this headline">¶</a></h3>
-<p>The tool is able to aggregate the Central level stock on hand and the pending stocks as per the funding agent in a table format for quick reference. This should be aggregated automatically.</p>
-<p>Screen shot for Facility level data:</p>
-<blockquote>
-<div><div class="figure">
-<img alt="images/facility_level.png" src="images/facility_level.png" />
-</div>
-</div></blockquote>
-</div>
-<div class="section" id="sample-output-4-national-level-data">
-<h3>Sample Output 4 - National level Data<a class="headerlink" href="#sample-output-4-national-level-data" title="Permalink to this headline">¶</a></h3>
-<p>The tool is able to aggregate the Central level stock on hand and the pending stocks as per the funding agent in a table format for quick reference. This should be aggregated automatically.</p>
-<p>Screen shot for Facility level data:</p>
-<blockquote>
-<div><div class="figure">
-<img alt="images/facility_level.png" src="images/facility_level.png" />
-</div>
+<div><ul class="simple">
+<li>Central level stock on hand and Pending stocks in Months of stocks.</li>
+<li>Aggregated Facility level stock on hand</li>
+<li>Individual county level stock on hand</li>
+<li>Central level stocks and incoming shipments</li>
+<li>Aggregated facility MOS</li>
+<li>County level SOH</li>
+<li>Pending stocks color coded based on the delivery dates</li>
+</ul>
 </div></blockquote>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
-</div>
 </div>
 </div>
 </div>
@@ -294,7 +269,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2015, sci devs.
+        &copy; Copyright 2015, SCI-ezzy.
     </p>
   </div>
   Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -315,7 +290,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.1',
+            VERSION:'1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
@@ -324,7 +299,6 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Project structure &mdash; StockStatusMonitoring_Technical 1.0 documentation</title>
+  <title>Data setup by the tool &mdash; StockStatusMonitoring_Technical 1.0 documentation</title>
   
 
   
@@ -31,8 +31,8 @@
 
   
     <link rel="top" title="StockStatusMonitoring_Technical 1.0 documentation" href="index.html"/>
-        <link rel="next" title="User guide" href="Userguide.html"/>
-        <link rel="prev" title="Development tools" href="Development.html"/> 
+        <link rel="next" title="Processes" href="Processes.html"/>
+        <link rel="prev" title="Approach" href="Approach.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -81,9 +81,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="DataSetup.html">Data setup by the tool</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="DataSetup.html#master-data-setup">Master Data Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DataSetup.html#information-captured-by-the-tool">Information captured by the tool</a><ul class="simple">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Data setup by the tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#master-data-setup">Master Data Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#information-captured-by-the-tool">Information captured by the tool</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -107,10 +107,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Project structure</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#assets">Assets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#client">Client</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#database">Database</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="Structure.html">Project structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Structure.html#assets">Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Structure.html#client">Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Structure.html#database">Database</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -201,11 +201,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Project structure</li>
+    <li>Data setup by the tool</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/Structure.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/DataSetup.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -214,39 +214,100 @@
 </div>
           <div role="main" class="document">
             
-  <div class="section" id="project-structure">
-<h1>Project structure<a class="headerlink" href="#project-structure" title="Permalink to this headline">¶</a></h1>
-<p>The malaria stock status monitoring tool contains three parts:</p>
+  <div class="section" id="data-setup-by-the-tool">
+<h1>Data setup by the tool<a class="headerlink" href="#data-setup-by-the-tool" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="master-data-setup">
+<h2>Master Data Setup<a class="headerlink" href="#master-data-setup" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Funding agencies</strong> - allows setup of various funding agencies that provide malaria commodities. This tool is dynamic in nature therefore allows continuous addition of funding sources as and when required.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>The following details of the funding agenciies are captured:</dt>
+<dd><ol class="first last arabic simple">
+<li>Funding agency e.g GoK, UNITAD, PMI etc..</li>
+<li>Comment about the funding agency</li>
+</ol>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Supply Chain Agencies</strong>- allows setup of supply chain agencies that receive and issue malaria commodities. The tool allows for continuous addition of funding sources when required.</dt>
+<dd><dl class="first last docutils">
+<dt>The following information about Supply chain agencies is captured:</dt>
+<dd><ol class="first last arabic simple">
+<li>Supply Chain agency e.g KEMSA</li>
+<li>Comment about the spply chain agencies</li>
+<li>Contact person</li>
+<li>Contact phone</li>
+</ol>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>List of Malaria Zones</strong> -The tool allows for the setup of malaria zones.</dt>
+<dd><dl class="first last docutils">
+<dt>The following information about malaria zones is captured:</dt>
+<dd><ol class="first last arabic simple">
+<li>Zone e.g Zone 1 : Endermic</li>
+<li>Comment about the malaria zone</li>
+</ol>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>List of counties</strong> - The tool allows for the setup of counties information.</dt>
+<dd><dl class="first last docutils">
+<dt>The following information about counties is captured:</dt>
+<dd><ol class="first last arabic simple">
+<li>Name of county e.g Muranga</li>
+<li>Comment about the county</li>
+<li>Zone e.g Epidermic</li>
+</ol>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Malaria commodities data</strong> -The tool allows setting up of Malaria commodities being tracked (AL 6s, AL 12s, AL 18s, AL24s, RDTs, Artesunate injection). The tool has easy capability of adding malaria commodities. The list of commodities generated is used in subsequent data capture sections.</dt>
+<dd><dl class="first last docutils">
+<dt>The following information is captured:</dt>
+<dd><ol class="first last arabic simple">
+<li>Commodity name</li>
+<li>Unit of measure</li>
+<li>Name of funding agency - It is picked from the list of funding sources</li>
+</ol>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Commodity level Data</strong> -This tool allows for the following information to be defined:</dt>
+<dd><ol class="first last arabic simple">
+<li>Forecast period(number of years that the forecast covers)</li>
+<li>Forecast start date</li>
+<li>Forecast Monthly consumption for each commodity(obtained from the quantification report). This is entered for every month acrss the forecast period.</li>
+</ol>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="information-captured-by-the-tool">
+<h2>Information captured by the tool<a class="headerlink" href="#information-captured-by-the-tool" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Assets</li>
-<li>Client</li>
-<li>Database</li>
+<li><strong>Central level Data</strong> - Central level stock on hand (SOH). This information reflects the status of stock at central level and is received from KEMSA on a monthly basis. Once captured, this information is used to generate various required outputs. The central level stock on hand data is captured for each malaria commodity. Information on pending stocks as received from the supply chain agencies JSI Deliver and KEMSA is captured at this stage.</li>
+<li><strong>Facility level data</strong> - The tool allows for the capture of facility Level stock on hand for ACTs and RDTs. This information is obtained from DHIS2 and is keyed in.</li>
+<li><strong>County level data</strong> - The tool allows for the capture of county Level stock on hand for ACTs and RDTs. This information is obtained from DHIS2 and is keyed in. the tool should however has provision to retrieve this data from DHIS directly.</li>
 </ol>
 </div></blockquote>
-<p>Each part forms an important part of this project.</p>
-<div class="section" id="assets">
-<h2>Assets<a class="headerlink" href="#assets" title="Permalink to this headline">¶</a></h2>
-<p>These are the resources needed in this project.</p>
-<p>It contains:</p>
-<blockquote>
-<div><ul class="simple">
-<li>CSS</li>
-<li>Bootstrap</li>
-<li>PHP - CodeIgniter framework</li>
-<li>JavaScript</li>
-</ul>
-</div></blockquote>
-</div>
-<div class="section" id="client">
-<h2>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
-<p>This is the presentation and user interface logic.</p>
-<p>It contains scripts that will display on the browser. The client side is linked to the server side so that the user can make use of the server side logic.</p>
-</div>
-<div class="section" id="database">
-<h2>Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h2>
-<p>This is the database logic. It contains scripts for database authentication and connection creation as well as those for inserting, fetching and updating items on the database.</p>
-<p>The project&#8217;s landing page is at:  <a class="reference external" href="http://msh.urandu.com/">http://msh.urandu.com/</a></p>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
@@ -260,10 +321,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Userguide.html" class="btn btn-neutral float-right" title="User guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Processes.html" class="btn btn-neutral float-right" title="Processes" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Development.html" class="btn btn-neutral" title="Development tools" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Approach.html" class="btn btn-neutral" title="Approach" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
