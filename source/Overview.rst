@@ -1,5 +1,5 @@
 Overview
-============================
+=========
 
 The Stock Status Management tool analyzes data from various sources including:
 

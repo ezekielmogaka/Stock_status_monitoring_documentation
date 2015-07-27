@@ -37,9 +37,6 @@ Chrome/Chromium browser is recommended for the application. This is because of t
 
 
 
-
-
-
 `Authentication`_ is the process by which clients send login credentials over the HTTP to a web server. The request is 
 associated with a specific user, while `authorization`_ determines if the user has permission to perform
 the requested operation.

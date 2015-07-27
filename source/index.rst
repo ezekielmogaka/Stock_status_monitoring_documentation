@@ -1,20 +1,13 @@
-DHIS2 Stock status monitoring project documentation
-==================================================
-This documentation is for the malaria stock status monitoring  purposes of analysis and report generation.
+.. StockStatusMonitoring_Technical documentation master file, created by
+   sphinx-quickstart on Tue Jul 21 14:15:55 2015.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
 
-..  The malaria stock status monitoring tool system's "home" is at
-.. http://msh.urandu.com/new/ . This documentation is aimed at the users of the stock status monitoring tool and system administrators.
+Welcome to Stock status monitoring project technical documentation
+===================================================================
 
-MSH/HCSM is a key member of the Malaria drug management subcommittee, which is involved in the stockstatus monitoring 
-of Malaria commodities both at the National and County levels.
+This documentation should provide an overview of the entire stock status monitoring tool and a description of the scope of the system and its intended usage. The scope should also describe external interfaces to the system, external dependencies and provide a brief overview of the ‘characteristics’ of the system, commenting on aspects such as deployment of the system, requirements of the system for it to run etc...
 
-On a monthly basis, the Malaria Control Unit, drug management committee meets to review the stock status of malaria commodities in the country, by analyzing data from various sources including:
-	#. Facility and County Level Stock Data from DHIS.
-	#. National Level Stock Status data from the Supply Chain Agencies (KEMSA).
-	#. Pipeline information based on incoming shipments per funding agency.
-
-This data is aggregated and analyzed for the different malaria commodities and a 2 pager report generated that
-indicates to management, the months stock status and pipeline monitoring of Malaria commodities. 
 
 
 There is a `downloadable PDF version`_ of this documentation, a
@@ -28,21 +21,20 @@ There is a `downloadable PDF version`_ of this documentation, a
 
 Table of contents
 ====================
-
 .. toctree::
     :maxdepth: 4
 
     Overview
-    Approach
-    DataSetup
-    Processes
-    Outputs
-    Development
     Structure
-    Userguide
+    Development_tools
+    Requirements
+    Installation
+    
+    
     
 
 .. toctree::
     :maxdepth: 2
+
 
 
