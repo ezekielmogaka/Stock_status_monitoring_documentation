@@ -4,23 +4,23 @@ Below is a description of the development tools and technologies used to develop
 
 MYSQL database
 -------------
-A MySQL database is used to store data.
+- A MySQL database is used to store data.
 
-However, another database like PostgreSQL can also be used.
+- However, another database like PostgreSQL can also be used.
 
-The choice of the database was purely due to the rapid turn around time.
+- The choice of the database was purely due to the rapid turn around time.
 
 
 PHP and Apache2 for the server side
 -----------------------------------
-The scripting language PHP and web server Apache2 were used for the server
+- The scripting language PHP and web server Apache2 were used for the server
 side logic.
 
-CodeIgniter PHP framework was used to develop the system.
+- CodeIgniter PHP framework was used to develop the system.
 
 JavaScript
 ------------
-JavaScript was used in the client side for validation and for responsives purposes.
+- JavaScript was used in the client side for validation and for responsives purposes.
 
 
 
