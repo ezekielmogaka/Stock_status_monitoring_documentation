@@ -49,7 +49,7 @@ Session Authentication
 Logging in
 ~~~~~~~~~~~
 
-For the functionality of the system to be accessed, a user has to login to the application. The payload should be similar to the example below:
+For the functionality of the system to be accessed, a user has to login to the application. The users of the system have to provide the *username* and *password*.
 
 .. code-block:: javascript
 
@@ -86,7 +86,7 @@ Logging out
 ~~~~~~~~~~~~
 
 .. note::
-    A user can logout after using the tool by clicking the logout button located in the header. After logging out, the user is redirected to the login page.
+    A given user can logout after using the tool by clicking the logout button located in the header. After logging out, the user is redirected to the login page.
 
 
 
@@ -147,7 +147,7 @@ The side bar of the aplication has an array of links. They include the following
 Home
 ++++++
 
-This link redirects to the Homepage of the application. The dashboard is the homepage of the system.
+This link redirects to the Homepage of the application. The dashboard is the home page of the system.
 
 
 Settings
