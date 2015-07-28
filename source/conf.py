@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# StockStatusMonitoring_Technical documentation build configuration file, created by
+# StockStatusMonitoring documentation build configuration file, created by
 # sphinx-quickstart on Tue Jul 21 14:15:55 2015.
 #
 # This file is execfile()d with the current directory set to its
@@ -48,7 +48,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'StockStatusMonitoring_Technical'
+project = u'StockStatusMonitoring'
 copyright = u'2015, SCI-ezzy'
 author = u'SCI-ezzy'
 
@@ -202,7 +202,7 @@ html_static_path = ['_static']
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'StockStatusMonitoring_Technicaldoc'
+htmlhelp_basename = 'StockStatusMonitoringdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -224,7 +224,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'StockStatusMonitoring_Technical.tex', u'StockStatusMonitoring\\_Technical Documentation',
+  (master_doc, 'StockStatusMonitoring.tex', u'StockStatusMonitoring\\Documentation',
    u'SCI-ezzy', 'manual'),
 ]
 
@@ -254,7 +254,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'stockstatusmonitoring_technical', u'StockStatusMonitoring_Technical Documentation',
+    (master_doc, 'stockstatusmonitoring', u'StockStatusMonitoring Documentation',
      [author], 1)
 ]
 
@@ -268,8 +268,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'StockStatusMonitoring_Technical', u'StockStatusMonitoring_Technical Documentation',
-   author, 'StockStatusMonitoring_Technical', 'One line description of project.',
+  (master_doc, 'StockStatusMonitoring', u'StockStatusMonitoring Documentation',
+   author, 'StockStatusMonitoring', 'One line description of project.',
    'Miscellaneous'),
 ]
 

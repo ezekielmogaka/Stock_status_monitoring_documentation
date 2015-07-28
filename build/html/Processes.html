@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Processes &mdash; StockStatusMonitoring_Technical 1.0 documentation</title>
+  <title>Processes &mdash; StockStatusMonitoring 1.0 documentation</title>
   
 
   
@@ -30,8 +30,8 @@
   
 
   
-    <link rel="top" title="StockStatusMonitoring_Technical 1.0 documentation" href="index.html"/>
-        <link rel="next" title="Development tools" href="Development.html"/>
+    <link rel="top" title="StockStatusMonitoring 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Outputs" href="Outputs.html"/>
         <link rel="prev" title="Data setup by the tool" href="DataSetup.html"/> 
 
   
@@ -49,7 +49,7 @@
         
 
         
-          <a href="index.html" class="icon icon-home"> StockStatusMonitoring_Technical
+          <a href="index.html" class="icon icon-home"> StockStatusMonitoring
         
 
         
@@ -89,11 +89,14 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Processes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#procceses-involved">Procceses involved</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#central-level-mos">Central Level MOS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#facility-level-mos">Facility Level MOS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#national-level-mos">National Level MOS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#county-level-mos">County Level MOS</a><ul class="simple">
+<li class="toctree-l2"><a class="reference internal" href="#procceses-involved">Procceses involved</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Outputs.html">Outputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Outputs.html#key-outputs">Key outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Outputs.html#graphical-reports-generated">Graphical reports generated</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -190,7 +193,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">StockStatusMonitoring_Technical</a>
+        <a href="index.html">StockStatusMonitoring</a>
       </nav>
 
 
@@ -218,84 +221,15 @@
 <h1>Processes<a class="headerlink" href="#processes" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="procceses-involved">
 <h2>Procceses involved<a class="headerlink" href="#procceses-involved" title="Permalink to this headline">¶</a></h2>
-<p>After the capture of the monthly transaction data, the tool calculates the MOS data for facility, county and central levels.
-The basic formula for <strong>months of Stock (MOS)</strong> is:</p>
-<blockquote>
-<div><em>Months of Stock(MOS)</em> = <em>Stock on Hand (SOH)</em> / <em>Average Monthly Consumption(AMC)</em></div></blockquote>
-<p>Months of Stock (MOS) is normally stored as a number, with one decimal point.
-Stock on Hand (SOH) is captured as an absolute figure based on Physical Stock Count or a Warehouse report. SOH is reported at different levels of the supply chain:</p>
+<p>After the capture of the monthly transaction data, the tool calculates the MOS data for facility, county and central levels</p>
+<p>For the output below:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Central level</li>
-<li>County level</li>
-<li>Facility level</li>
+<li>The aggregated adjusted consumption is obtained by getting the sum of the adjusted consumption in B above across all the zones.</li>
+<li>The aggregated stock on hand is obtained by getting the sum of the aggregated stock on hand in step B above across all the zones.</li>
+<li>The months of stock is calculated as: MOS = (Stock on Hand) / (Average Monthly consumption).</li>
 </ul>
 </div></blockquote>
-<p>Average Monthly Consumption (AMC) is captured only at facility level (where consumption happens), and may be adjusted for reporting rateto cater for consumption at non-reporting facilities.</p>
-<p>MOS is computed at four levels:</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li>Central level</li>
-<li>Facility level</li>
-<li>National level</li>
-<li>County level</li>
-</ol>
-</div></blockquote>
-</div>
-<div class="section" id="central-level-mos">
-<h2>Central Level MOS<a class="headerlink" href="#central-level-mos" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt><strong>Central level MOS</strong> = <strong>Stock on Hand at central level</strong> / <strong>Adjusted facility AMC</strong></dt>
-<dd><p class="first">where;</p>
-<p><em>Stock on Hand (SOH)</em> : This is the total quantity held in stock at the central level - as reported by the supply chain agency (KEMSA).</p>
-<p><em>Total Monthly Consumption (TMC)</em> at Facility level is obtained by summing the quantity dispensed (across all facilities in the country). This monthly TMC is adjusted to cater for non-reporting facilities to obtain the adjusted facility AMC using the formula:</p>
-<blockquote>
-<div><p><strong>Adjusted facility AMC</strong> = {[(TMCN1/NMRR1)+(TMCN2/NMRR2)+(TMCN3/NMRR3)+...+(TMCNn)] / <em>n</em>}</p>
-<p>where;</p>
-<p><strong>TMCN</strong> = Total Monthly Consumption National Level. Its obtained by aggregating repored total quantity dispensed across all facilities in the country. (Data from DHIS2).</p>
-<p><strong>NMRR</strong> = National Monthly Reporting Rate expressed as a percentage (Data from DHIS2).</p>
-<p><strong>n</strong> = Number of months(Typically six months).</p>
-</div></blockquote>
-<p class="last">Central level MOS is computed for all commodities.</p>
-</dd>
-</dl>
-</div>
-<div class="section" id="facility-level-mos">
-<h2>Facility Level MOS<a class="headerlink" href="#facility-level-mos" title="Permalink to this headline">¶</a></h2>
-<p><strong>Facility Level MOS</strong> = <strong>Total Stock on Hand at Facility level</strong> / <strong>Adjusted facility AMC</strong></p>
-<blockquote>
-<div><p>where;
-<em>Total Stock on Hand at Facility level</em>: is the total quantity held in stockin health facilities across the country. It is obtained by aggregating the physical stock count across all facilities in the country. (Data from DHIS2).</p>
-<p><strong>Adjusted facility AMC</strong> is given by the formula below:</p>
-<p><strong>Adjusted facility AMC</strong> = {[(TMCN1/NMRR1)+(TMCN2/NMRR2)+(TMCN3/NMRR3)+...+(TMCNn)] / <em>n</em>}</p>
-<p><strong>TMCN</strong> = Total Monthly Consumption National Level. Its obtained by aggregating repored total quantity dispensed across all facilities in the country. (Data from DHIS2).</p>
-<blockquote>
-<div><p><strong>NMRR</strong> = National Monthly Reporting Rate expressed as a percentage (Data from DHIS2).</p>
-<p><strong>n</strong> = Number of months(Typically six months).</p>
-</div></blockquote>
-<p>Facility level MOS is computed for all commodities.</p>
-</div></blockquote>
-</div>
-<div class="section" id="national-level-mos">
-<h2>National Level MOS<a class="headerlink" href="#national-level-mos" title="Permalink to this headline">¶</a></h2>
-<p>National level MOS is obtained by summing the Central Level MOS and the Facility Level MOS
-<strong>National Level MOS</strong> = <strong>Central Level MOS + Facility Level MOS</strong></p>
-<p>National Level MOS is computed for each commodity.</p>
-</div>
-<div class="section" id="county-level-mos">
-<h2>County Level MOS<a class="headerlink" href="#county-level-mos" title="Permalink to this headline">¶</a></h2>
-<p><strong>County Level MOS</strong> = <strong>Total Stock on Hand at County level</strong> / <strong>Adjusted county AMC</strong></p>
-<blockquote>
-<div><p>where;
-<em>Total Stock on Hand at County level</em>: is the total quantity held in stock in the county. It is obtained by aggregating the physical stock count across all facilities in the county. (Data from DHIS2).</p>
-<p><strong>Adjusted County AMC</strong> is given by the formula below:</p>
-<p><strong>Adjusted County AMC</strong> = {[(TMCC1/NMRR1)+(TMCC2/NMRR2)+(TMCC3/NMRR3)+...+(TMCCn)] / <em>n</em>}</p>
-<p><strong>TMCC</strong> = Total Monthly Consumption County Level. Its obtained by aggregating repored total quantity dispensed across all facilities in the county. (Data from DHIS2).</p>
-<p><strong>NMRR</strong> = National Monthly Reporting Rate expressed as a percentage (Data from DHIS2).</p>
-<p><strong>n</strong> = Number of months(Typically six months).</p>
-<p>County level MOS is computed for each county for all commodities.</p>
-</div></blockquote>
-<p>Using the processes/formulas provided above, the tool should produce the outputs shown below:</p>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
@@ -309,7 +243,7 @@ Stock on Hand (SOH) is captured as an absolute figure based on Physical Stock Co
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Development.html" class="btn btn-neutral float-right" title="Development tools" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Outputs.html" class="btn btn-neutral float-right" title="Outputs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="DataSetup.html" class="btn btn-neutral" title="Data setup by the tool" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
