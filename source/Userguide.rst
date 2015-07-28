@@ -66,12 +66,17 @@ For the functionality of the system to be accessed, a user has to login to the a
 
 
 
-Here is a screenshot of the application login as seen by a given user:
+Here is a screenshot of the application login as seen by any given user:
 
  	
 	.. figure:: images/login.png
 
 After successiful login, the home page is loaded. 
+
+.. note::
+
+    You do not have to login to DHIS2 to use the application.
+
 
 Here is the screenshot of application layout as viewed by the admin:
 
@@ -143,7 +148,7 @@ The header of the application has no menu. It has a title:  *Malaria Commodities
 
 Side bar
 ~~~~~~~~~
-The side bar of the aplication has an array of links. They include the following:
+The side bar of the aplication has an array of links as seen in the menu. Different users view different menu at the side bar depending on their login roles. They include the following:
 
 
 Home
@@ -177,7 +182,7 @@ This link allows users to view a report on the malaria stock. It includes:
 Reports
 +++++++
 
-This link is used to query various reports from the application. The reports include:
+This link is used to query various reports from the system. The reports include:
 
     #. Central level MOS
     #. Forecast data MOS

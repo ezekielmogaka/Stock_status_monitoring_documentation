@@ -13,8 +13,7 @@ MYSQL database
 
 PHP and Apache2 for the server side
 -----------------------------------
-- The scripting language PHP and web server Apache2 were used for the server
-side logic.
+- The scripting language PHP and web server Apache2 were used for the server side logic.
 
 - CodeIgniter PHP framework was used to develop the system.
 
@@ -26,7 +25,7 @@ JavaScript
 
 HTML5, Bootstrap and JavaScript for user interface
 ---------------------------------------------------------------------
-Since this is a Web application, the interface is coded in HTML5 with Bootstrap framework incorporated to provide a better user experience JavaScript is also used to make the interface responsive and event/data driven.
+Since this is a Web application, the interface is coded in HTML5 with Bootstrap framework incorporated to provide a better user experience. JavaScript is also used to make the interface responsive and event/data driven. JavaScript is also used for client side validation.
 
 
 
