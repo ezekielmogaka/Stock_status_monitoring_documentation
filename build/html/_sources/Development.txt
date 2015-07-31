@@ -17,11 +17,6 @@ PHP and Apache2 for the server side
 
 - CodeIgniter PHP framework was used to develop the system.
 
-JavaScript
-------------
-- JavaScript was used in the client side for validation and for responsives purposes.
-
-
 
 HTML5, Bootstrap and JavaScript for user interface
 ---------------------------------------------------------------------

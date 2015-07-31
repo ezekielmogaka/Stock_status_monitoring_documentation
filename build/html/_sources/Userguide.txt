@@ -80,12 +80,12 @@ After successiful login, the home page is loaded.
 
 Here is the screenshot of application layout as viewed by the admin:
 
-    .. figure:: images/dashboard.png
+    .. figure:: images/home.png
 
 
 Here is the screenshot of application layout as viewed by the read only user:
 
-    .. figure:: images/dashboard.png
+    .. figure:: images/home.png
 
 
 
@@ -184,14 +184,17 @@ Reports
 
 This link is used to query various reports from the system. The reports include:
 
-    #. Central level MOS
-    #. Forecast data MOS
-    #. Facility level MOS
-    #. National level MOS
-    #. County level NOS
+    #. Central Level MOS
+    #. Forecast Data MOS
+    #. Facility Level MOS
+    #. National Level MOS
+    #. County Level MOS
+    #. Forecast Variance Tracker
     #. Stocks
-    #. Commodities
-    #. Agencies
+    #. Pending Shipments Report
+    #. Total Pending Commodities per agencies
+    #. Individual Shipments
+    
 
 
 
@@ -200,9 +203,9 @@ This link is used to query various reports from the system. The reports include:
 ------------
 
 
-Funding Agency
-~~~~~~~~~~~~~~~
-This loads the panel for managing the funding agencies. The user clicks a funding agency from the list given for editing or deleting.
+Funding Agencies
+~~~~~~~~~~~~~~~~~
+This loads the panel for managing the funding agencies. The admin clicks a funding agency from the list given for editing or deleting.
 
 
     .. figure:: images/fundingAgency.png
@@ -223,11 +226,11 @@ The admin can also add a funding by clicking the button of adding an agency.
 
 Supply chain agencies
 ~~~~~~~~~~~~~~~~~~~~~~
-This loads the panel for managing the supply chain agencies. The user clicks a supply chain agency from the list given for editing or deleting.
+This loads the panel for managing the supply chain agencies. The admin clicks a supply chain agency from the list given for editing or deleting.
 
     .. figure:: images/supplyChainAgency.png
 
-After choosing one of the supply chain agencies, a user can edit or delete it.
+After choosing one of the supply chain agencies, the admin can edit or delete it.
 
 
     .. figure:: images/addEditSupplyAgency.png
@@ -243,17 +246,17 @@ The admin can also add a supply chain agency by clicking the button of adding a 
 Commodities
 ~~~~~~~~~~~~
 
-This loads the panel for managing the individual commodities. The user clicks a commodity from the list given for editing or deleting.
+This loads the panel for managing the individual commodities. The admin clicks a commodity from the list given for editing or deleting.
 
     .. figure:: images/commodity.png
 
-After choosing one of the commodities, a user can edit or delete it.
+After choosing one of the commodities, the admin can edit or delete it.
 
 
     .. figure:: images/editCommodity.png
 
 
-A user can also add a commodity by clicking the button of adding a commodity.
+The admin can also add a commodity by clicking the button of adding a commodity.
 
     .. figure:: images/addCommodity.png
 
@@ -261,7 +264,7 @@ A user can also add a commodity by clicking the button of adding a commodity.
 
 Counties
 ~~~~~~~~~
-This loads the panel for viewing and updating counties. The user clicks a specific county from the list given for updating details about it.
+This loads the panel for viewing and updating counties. The admin clicks a specific county from the list given for updating details about it.
 
     .. figure:: images/counties.png
 

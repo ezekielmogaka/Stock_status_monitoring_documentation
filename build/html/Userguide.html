@@ -103,7 +103,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Development.html">Development tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Development.html#mysql-database">MYSQL database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Development.html#php-and-apache2-for-the-server-side">PHP and Apache2 for the server side</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Development.html#javascript">JavaScript</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Development.html#html5-bootstrap-and-javascript-for-user-interface">HTML5, Bootstrap and JavaScript for user interface</a><ul class="simple">
 </ul>
 </li>
@@ -145,7 +144,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id1"><strong>Settings</strong></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#funding-agency">Funding Agency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#funding-agencies">Funding Agencies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#supply-chain-agencies">Supply chain agencies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commodities">Commodities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#counties">Counties</a></li>
@@ -280,13 +279,13 @@ the requested operation.</p>
 <p>Here is the screenshot of application layout as viewed by the admin:</p>
 <blockquote>
 <div><div class="figure">
-<img alt="_images/dashboard.png" src="_images/dashboard.png" />
+<img alt="_images/home.png" src="_images/home.png" />
 </div>
 </div></blockquote>
 <p>Here is the screenshot of application layout as viewed by the read only user:</p>
 <blockquote>
 <div><div class="figure">
-<img alt="_images/dashboard.png" src="_images/dashboard.png" />
+<img alt="_images/home.png" src="_images/home.png" />
 </div>
 </div></blockquote>
 </div>
@@ -381,14 +380,16 @@ the requested operation.</p>
 <p>This link is used to query various reports from the system. The reports include:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Central level MOS</li>
-<li>Forecast data MOS</li>
-<li>Facility level MOS</li>
-<li>National level MOS</li>
-<li>County level NOS</li>
+<li>Central Level MOS</li>
+<li>Forecast Data MOS</li>
+<li>Facility Level MOS</li>
+<li>National Level MOS</li>
+<li>County Level MOS</li>
+<li>Forecast Variance Tracker</li>
 <li>Stocks</li>
-<li>Commodities</li>
-<li>Agencies</li>
+<li>Pending Shipments Report</li>
+<li>Total Pending Commodities per agencies</li>
+<li>Individual Shipments</li>
 </ol>
 </div></blockquote>
 </div>
@@ -396,9 +397,9 @@ the requested operation.</p>
 </div>
 <div class="section" id="id1">
 <h2><strong>Settings</strong><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="funding-agency">
-<h3>Funding Agency<a class="headerlink" href="#funding-agency" title="Permalink to this headline">¶</a></h3>
-<p>This loads the panel for managing the funding agencies. The user clicks a funding agency from the list given for editing or deleting.</p>
+<div class="section" id="funding-agencies">
+<h3>Funding Agencies<a class="headerlink" href="#funding-agencies" title="Permalink to this headline">¶</a></h3>
+<p>This loads the panel for managing the funding agencies. The admin clicks a funding agency from the list given for editing or deleting.</p>
 <blockquote>
 <div><div class="figure">
 <img alt="_images/fundingAgency.png" src="_images/fundingAgency.png" />
@@ -419,13 +420,13 @@ the requested operation.</p>
 </div>
 <div class="section" id="supply-chain-agencies">
 <h3>Supply chain agencies<a class="headerlink" href="#supply-chain-agencies" title="Permalink to this headline">¶</a></h3>
-<p>This loads the panel for managing the supply chain agencies. The user clicks a supply chain agency from the list given for editing or deleting.</p>
+<p>This loads the panel for managing the supply chain agencies. The admin clicks a supply chain agency from the list given for editing or deleting.</p>
 <blockquote>
 <div><div class="figure">
 <img alt="_images/supplyChainAgency.png" src="_images/supplyChainAgency.png" />
 </div>
 </div></blockquote>
-<p>After choosing one of the supply chain agencies, a user can edit or delete it.</p>
+<p>After choosing one of the supply chain agencies, the admin can edit or delete it.</p>
 <blockquote>
 <div><div class="figure">
 <img alt="_images/addEditSupplyAgency.png" src="_images/addEditSupplyAgency.png" />
@@ -440,19 +441,19 @@ the requested operation.</p>
 </div>
 <div class="section" id="commodities">
 <h3>Commodities<a class="headerlink" href="#commodities" title="Permalink to this headline">¶</a></h3>
-<p>This loads the panel for managing the individual commodities. The user clicks a commodity from the list given for editing or deleting.</p>
+<p>This loads the panel for managing the individual commodities. The admin clicks a commodity from the list given for editing or deleting.</p>
 <blockquote>
 <div><div class="figure">
 <img alt="_images/commodity.png" src="_images/commodity.png" />
 </div>
 </div></blockquote>
-<p>After choosing one of the commodities, a user can edit or delete it.</p>
+<p>After choosing one of the commodities, the admin can edit or delete it.</p>
 <blockquote>
 <div><div class="figure">
 <img alt="_images/editCommodity.png" src="_images/editCommodity.png" />
 </div>
 </div></blockquote>
-<p>A user can also add a commodity by clicking the button of adding a commodity.</p>
+<p>The admin can also add a commodity by clicking the button of adding a commodity.</p>
 <blockquote>
 <div><div class="figure">
 <img alt="_images/addCommodity.png" src="_images/addCommodity.png" />
@@ -461,7 +462,7 @@ the requested operation.</p>
 </div>
 <div class="section" id="counties">
 <h3>Counties<a class="headerlink" href="#counties" title="Permalink to this headline">¶</a></h3>
-<p>This loads the panel for viewing and updating counties. The user clicks a specific county from the list given for updating details about it.</p>
+<p>This loads the panel for viewing and updating counties. The admin clicks a specific county from the list given for updating details about it.</p>
 <blockquote>
 <div><div class="figure">
 <img alt="_images/counties.png" src="_images/counties.png" />
@@ -565,7 +566,7 @@ the requested operation.</p>
 <li>Central level MOS</li>
 </ol>
 <div class="figure">
-<img alt="images/centralLevelMOSReport.png" src="images/centralLevelMOSReport.png" />
+<img alt="_images/centralLevelMOSReport.png" src="_images/centralLevelMOSReport.png" />
 </div>
 </div></blockquote>
 </div>
