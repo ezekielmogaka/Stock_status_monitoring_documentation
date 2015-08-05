@@ -128,59 +128,52 @@ The stock status application is launched as a stand alone application since it i
 
 For the application to be launched, this `link`_  has to be typed in the browser. The link redirects the user to the login page.
 
-.. _`link`: http://msh.urandu.com/new/index.php/
+.. _`link`: http://41.89.93.232/stock-monitoring/
 
 
-    .. figure:: images/launching.png
+    .. figure:: images/login.png
 
 
 
 
 **Application Layout**
 -----------------------
+
+
 This is the layout of the application:
+
+The Admin View
+~~~~~~~~~~~~~~~~
 
 
 Header
-~~~~~~~
++++++++
 The header of the application has no menu. It has a title:  *Malaria Commodities Stock Monitoring Tool*. It also has the log out icon that enables a user to log out of the system.
 
 
 Side bar
-~~~~~~~~~
-The side bar of the aplication has an array of links as seen in the menu. Different users view different menu at the side bar depending on their login roles. They include the following:
++++++++++
+The side bar of the aplication has an array of links as seen in the menu. The admin of the system can be able to view the following:
 
 
 Home
-++++++
+^^^^^
 
 This link redirects to the Homepage of the application. The dashboard is the home page of the system.
 
 
-Settings
-+++++++++
-
-This link enables the admin to manage the following:
-
-    #. Funding agencies
-    #. Supply chain agencies
-    #. Commodities
-    #. Counties
-    #. Zones
-    #. Forecasts
-    #. Manage Users
-
 Stocks
-++++++
+^^^^^^^
 
-This link allows users to view a report on the malaria stock. It includes:
+This link allows the admin to view a report on the malaria stock. It includes:
 
+    #. Planned procurements
     #. Pending shipments
-    #. Current stock
-
+    #. Received stock
+    #. Update stock
 
 Reports
-+++++++
+^^^^^^^^
 
 This link is used to query various reports from the system. The reports include:
 
@@ -194,7 +187,22 @@ This link is used to query various reports from the system. The reports include:
     #. Pending Shipments Report
     #. Total Pending Commodities per agencies
     #. Individual Shipments
-    
+
+
+
+Settings
+^^^^^^^^^
+
+This link enables the admin to manage the following:
+
+    #. Funding agencies
+    #. Supply chain agencies
+    #. Commodities
+    #. Zones
+    #. Counties
+    #. Forecasts
+    #. Manage MOS color codes
+    #. Manage Users
 
 
 
@@ -233,7 +241,7 @@ This loads the panel for managing the supply chain agencies. The admin clicks a 
 After choosing one of the supply chain agencies, the admin can edit or delete it.
 
 
-    .. figure:: images/addEditSupplyAgency.png
+    .. figure:: images/editSupplyAgency.png
 
 
 The admin can also add a supply chain agency by clicking the button of adding a supply chain agency.
@@ -250,21 +258,36 @@ This loads the panel for managing the individual commodities. The admin clicks a
 
     .. figure:: images/commodity.png
 
-After choosing one of the commodities, the admin can edit or delete it.
-
-
-    .. figure:: images/editCommodity.png
-
 
 The admin can also add a commodity by clicking the button of adding a commodity.
 
     .. figure:: images/addCommodity.png
 
 
+Zones
+~~~~~
+The zones are managed here. The admin is able to view the already existing zones. There is an option for editing or editing the zones:
+
+    .. figure:: images/commodity.png
+
+Editing a zone:
+    
+     .. figure:: images/editZone.png
+
+
+
+The admin can also add a new zone into the system. Here is the screen shot:
+
+    .. figure:: images/addZone.png
+
+
+
+
+
 
 Counties
 ~~~~~~~~~
-This loads the panel for viewing and updating counties. The admin clicks a specific county from the list given for updating details about it.
+This loads the panel for viewing and updating counties. The admin clicks a specific county from the list given for updating the details about it.
 
     .. figure:: images/counties.png
 
@@ -276,11 +299,11 @@ After choosing one of the counties, the admin can edit the zone and/or the comme
 
 Forecasts
 ~~~~~~~~~~
-This loads the panel for managing the static parameters. The user clicks an item from the list given for editing or deleting.
+This loads the panel for managing forecast commodity data as per the selected period. The admin clicks an item from the list given for editing or deleting.
 
     .. figure:: images/forecasts.png
 
-After choosing one of the static parameters, the admin can edit or delete it.
+After choosing one of the commodities, the admin can edit or delete it.
 
 
     .. figure:: images/editForecasts.png
@@ -290,8 +313,27 @@ A user can also add a static parameter by clicking the button of adding a static
     .. figure:: images/addForecasts.png
 
 
+Manage MOS color codes
+~~~~~~~~~~~~~~~~~~~~~~~
+This is the panel for management of the MOS color codes. The admin can view the list of the color codes that have been used in the system.
+
+    .. figure:: images/color-codes.png
+
+Manage Users
+~~~~~~~~~~~~~~
+ Here, the admin can view the list of the users registered in the system. The admin has the permissions of adding new users and updating their details.
+
+    .. figure:: images/manager-users.png
+
+
+
+
+
 **Stocks**
 -----------------
+
+Planned procurements
+~~~~~~~~~~~~~~~~~~~~~
 
 Pending shipments
 ~~~~~~~~~~~~~~~~~~~
@@ -321,11 +363,7 @@ A user can also add a new record by clicking the button of adding a new record.
 
     .. figure:: images/addCurrentStock.png
 
-Manage Users
-~~~~~~~~~~~~~~
- Here, the admin can view the list of the users registered in the system. The admin has the permissions of adding new users and updating their details.
 
- .. figure:: images/currentStock.png
 
 
 
