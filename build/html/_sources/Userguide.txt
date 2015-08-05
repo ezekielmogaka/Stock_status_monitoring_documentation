@@ -207,6 +207,212 @@ This link enables the admin to manage the following:
 
 
 
+
+
+
+**Stocks**
+-----------------
+
+Planned procurements
+~~~~~~~~~~~~~~~~~~~~~
+As the admin, you select the planned procurement date from the drop down and then the report is generated. 
+
+    .. figure:: images/planned-procurement.png
+
+You can also add a new planned procurement by clicking the button "add a new planned procurement":
+
+     .. figure:: images/Add-new-planned-procurement.png
+
+
+
+
+Pending shipments
+~~~~~~~~~~~~~~~~~~~
+This loads the panel for managing the pending shipments. As the admin, you click an item from the pending stock list given for editing or deleting.
+
+    .. figure:: images/pendingShipment.png
+
+After choosing one of the pending stock, you can edit or delete it.
+    .. figure:: images/editPendingStock.png
+
+As the admin, you can also add a new transaction by clicking the button of adding a new transaction.
+
+    .. figure:: images/addPendingStock.png
+
+
+
+Received Stock
+~~~~~~~~~~~~~~~
+This loads the panel for managing the received stock. You clicks an item from the received stock list given for editing or deleting.
+
+    .. figure:: images/receivedStock.png
+
+After choosing one of the current stock commodities, the admin can edit or delete it.
+    .. figure:: images/editDeleteCurrentStock.png
+
+A user can also add a new record by clicking the button of adding a new record.
+
+    .. figure:: images/addRecievedStock.png
+
+
+Update Stock
+~~~~~~~~~~~~~
+A panel for updating the current stocks. THis panel enables you to view a list of the current stock.
+ 
+    .. figure:: images/current-stock.png
+
+#. You can select an item for editing or deleting from the system:
+
+    .. figure:: images/update-current-stock.png
+
+
+
+#. You can also add stock to the system:
+
+    .. figure:: images/current-stock.png
+
+
+
+
+
+**Reports**
+-------------
+Reports of the system are generated here.
+
+
+Central level MOS Report(DHIS2)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+It shows a report on the central level MOS from DHIS2. It reports on the following:
+
+    #. Commodity name
+    #. Adjusted Facility AMC
+    #. Central Stock on Hand KEMSA
+    #. Pending Shipments
+    #. Central Level MOS
+    #. Pending Shipments MOS
+
+    
+    .. figure:: images/centralLevelMOSReport.png
+
+Facility Level MOS
+~~~~~~~~~~~~~~~~~~~
+A report on facility level MOS. It reports on the following:
+
+    #. Commodity name
+    #. Adjusted Facility AMC 
+    #. Stock on Hand 
+    #. Facility Level Month of Stock(MOS) 
+
+    .. figure:: images/facilityLevelMOSReport.png
+
+
+National Level MOS
+~~~~~~~~~~~~~~~~~~~~
+A report on national level MOS. It reports on the following:
+
+    #. Commodity name
+    #. Adjusted Facility AMC 
+    #. Stock on Hand 
+    #. Central Stock on Hand KEMSA
+    #. Pending Shipments 
+    #. Facility Stock on Hand 
+    #. Central Level MOS
+    #. Pending Shipments MOS 
+    #. Facility Level MOS 
+    #. National Level MOS 
+
+    .. figure:: images/nationalLevelMOSforeCast.png
+
+
+County level MOS Report(DHIS2)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+It generates a report on the county level MOS. It reports on:
+
+    #. Commodity name
+    #. Aggregated Adjusted Consumption Totals 
+    #. Aggregated Stock on Hand Totals 
+    #. County level MOS 
+
+    .. figure:: images/countyLevelMOSReport.png
+
+
+
+
+Forecast Data MOS
+~~~~~~~~~~~~~~~~~~~
+A report on central level MOS using forecast data. It reports on the following:
+
+    #. Commodity name
+    #. Forecast Monthly Consumption
+    #. Stock on Hand
+    #. Forecast Month of Stock(mos)
+
+    .. figure:: images/forecastMOSforeCast.png
+
+
+Forecast Variance Tracker
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+A report that tracks the forecast variance at a particular time.
+
+    .. figure:: images/varianceTracker.png
+
+
+
+
+Stocks
+~~~~~~~
+
+This shows a report on the individual available stock at a particular period.
+It reports on the following:
+
+    #. Commodity name
+    #. Unit
+    #. Central SOH
+    #. Total
+    #. Funding agency totals
+
+    .. figure:: images/stocks-reprt.png
+
+
+Pending Shipments Report
+~~~~~~~~~~~~~~~~~~~~~~~~~
+It shows a report on the current pending shipment of commodities. It reports on the following:
+
+    #. Commodity name
+    #. Expected Stocks
+    #. Expected Shipments Totals
+
+    .. figure:: images/current_pendingCommodities.png
+    
+
+
+
+Total Pending Commodities per source(Agency)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This shows total pending commoditities per agency over a given period of time. It reports on:
+
+    #. Commodity name
+    #. Source(Source) Totals
+    
+
+    .. figure:: images/totalPendingStock.png
+
+
+
+
+Individual shipments
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This shows a report on the individual shipment of stock as per a given period. It shows the following details:
+
+    #. Commodity
+    #. Supporting agency
+    #. Quantity
+    #. E.T.A Details
+    #. Color code
+
+    .. figure:: images/individualPendingStockReport.png
+
+
 **Settings**
 ------------
 
@@ -328,160 +534,6 @@ Manage Users
 
 
 
-
-**Stocks**
------------------
-
-Planned procurements
-~~~~~~~~~~~~~~~~~~~~~
-
-Pending shipments
-~~~~~~~~~~~~~~~~~~~
-This loads the panel for managing the pending shipments. The user clicks an item from the pending stock list given for editing or deleting.
-
-    .. figure:: images/pendingShipment.png
-
-After choosing one of the pending stock, the admin can edit or delete it.
-    .. figure:: images/editPendingStock.png
-
-A user can also add a new transaction by clicking the button of adding a new transaction.
-
-    .. figure:: images/addPendingStock.png
-
-
-
-Current Stock
-~~~~~~~~~~~~~~~
-This loads the panel for managing the current stock. The admin clicks an item from the current stock list given for editing or deleting.
-
-    .. figure:: images/currentStock.png
-
-After choosing one of the current stock commodities, the admin can edit or delete it.
-    .. figure:: images/editDeleteCurrentStock.png
-
-A user can also add a new record by clicking the button of adding a new record.
-
-    .. figure:: images/addCurrentStock.png
-
-
-
-
-
-**Reports**
--------------
-
-
-Central level MOS Report(DHIS2)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-It shows a report on the central level MOS from DHIS2. It reports on the following:
-
-    #. Commodity name
-    #. Aggregated Adjusted Consumption Totals
-    #. Aggregated Stock on Hand Totals 
-    #. Central level MOS 
-
-    
-    .. figure:: images/centralLevelMOSReport.png
-
-Forecast data MOS
-~~~~~~~~~~~~~~~~~~~
-A report on central level MOS using forecast data. It reports on the following:
-
-    #. Commodity name
-    #. Aggregated Adjusted Consumption Totals
-    #. Aggregated Stock on Hand Totals 
-    #. Central level MOS 
-
-    .. figure:: images/forecastMOSforeCast.png
-
-Facility Level MOS
-~~~~~~~~~~~~~~~~~~~
-A report on facility level MOS. It reports on the following:
-
-    #. Commodity name
-    #. Adjusted Facility AMC 
-    #. Stock on Hand 
-    #. Facility Level Month of Stock(MOS) 
-
-    .. figure:: images/centralLevelMOSforeCast.png
-
-
-
-National Level MOS
-~~~~~~~~~~~~~~~~~~~~
-A report on national level MOS. It reports on the following:
-
-    #. Commodity name
-    #. Adjusted Facility AMC 
-    #. Stock on Hand 
-    #. Central Stock on Hand KEMSA
-    #. Pending Shipments 
-    #. Facility Stock on Hand 
-    #. Central Level MOS
-    #. Pending Shipments MOS 
-    #. Facility Level MOS 
-    #. National Level MOS 
-
-    .. figure:: images/nationalLevelMOSforeCast.png
-
-
-County level MOS Report(DHIS2)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-It generates a report on the county level MOS. It reports on:
-
-    #. Commodity name
-    #. Aggregated Adjusted Consumption Totals 
-    #. Aggregated Stock on Hand Totals 
-    #. County level MOS 
-
-    .. figure:: images/countyLevelMOSReport.png
-    
-
-
-
-Pending Shipments Report
-~~~~~~~~~~~~~~~~~~~~~~~~~
-It shows a report on the current pending shipment of commodities. It reports on the following:
-
-    #. Stock on Hand(SOH)
-    #. Total Pending consignments
-    #. MOS
-    #. Commodity
-    #. Individual Agencies & Quantity
-
-    .. figure:: images/current_pendingCommodities.png
-    
-
-Commodities per source(Agency)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This shows total pending commoditities per source. It reports on:
-
-    #. Commodity
-    #. Source(Source) Totals
-    
-
-    .. figure:: images/totalPendingStock.png
-
-
-Individual shipments
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This shows a report on the individual shipment of stock. It shows the following details:
-
-    #. Commodity
-    #. Supporting agency
-    #. Quantity
-    #. E.T.A Details
-
-    .. figure:: images/individualPendingStockReport.png
-
-
-
-Total pending shipments per commodities
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This shows a report on the number of commodities per a given agency.
-
-    .. figure:: images/totalPendingShipments.png
 
 
 
