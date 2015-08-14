@@ -290,7 +290,7 @@ texinfo_documents = [
 intersphinx_mapping = {'https://docs.python.org/': None}
 
 #PDF 
-pdf_documents = [('index', u'Stock_Status_Monitoring_Tool_UserGuide', u'Stock Status Monitoring Tool(UserGuide)', u'UoN'),]
+#pdf_documents = [('index', u'Stock_Status_Monitoring_Tool_UserGuide', u'Stock Status Monitoring Tool(UserGuide)', u'UoN'),]
    # index - master document
    # rst2pdf - name of the generated pdf
    # Sample rst2pdf doc - title of the pdf
