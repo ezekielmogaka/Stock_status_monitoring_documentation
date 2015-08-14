@@ -30,7 +30,7 @@ import shlex
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.intersphinx','rst2pdf.pdfbuilder'
+    'sphinx.ext.intersphinx',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -49,8 +49,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'StockStatusMonitoring'
-copyright = u'2015, UoN'
-author = u'UoN'
+copyright = u'2015, SCI-ezzy'
+author = u'SCI-ezzy'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -225,7 +225,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
   (master_doc, 'StockStatusMonitoring.tex', u'StockStatusMonitoring\\Documentation',
-   u'UoN', 'manual'),
+   u'SCI-ezzy', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -288,10 +288,3 @@ texinfo_documents = [
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {'https://docs.python.org/': None}
-
-#PDF 
-#pdf_documents = [('index', u'Stock_Status_Monitoring_Tool_UserGuide', u'Stock Status Monitoring Tool(UserGuide)', u'UoN'),]
-   # index - master document
-   # rst2pdf - name of the generated pdf
-   # Sample rst2pdf doc - title of the pdf
-   # Your Name - author name in the pdf
